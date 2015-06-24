@@ -1,0 +1,15 @@
+<section data-route="home">
+  <paper-material elevation="1">
+    <h4>Contas</h4>
+    {{#each model as |invoice|}}
+      <paper-icon-item id="{{ invoice.id }}">
+        <div class="avatar" item-icon></div>
+        <paper-item-body two-line>
+          <div>{{ invoice.category }}</div>
+          <div secondary>{{ invoice.date }}</div>
+        </paper-item-body>
+        <span>{{ invoice.value }}</span>
+      </paper-icon-item>
+    {{/each}}
+  </paper-material>
+</section>
