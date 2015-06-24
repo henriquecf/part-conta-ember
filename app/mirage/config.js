@@ -1,6 +1,6 @@
 export default function() {
 
-  this.get('/invoices', function() {
+  this.get('/api/invoices', function() {
     return {
       invoices: [
         {"id":1049,"category":"Restaurante","value":"7.87","date":"2015-06-23","revenue":false,"created_at":"2015-06-23T19:50:35.491-03:00","updated_at":"2015-06-23T19:50:35.491-03:00","user":{"name":"Emely","image":"https://lh3.googleusercontent.com/-jQWvf33SJKQ/AAAAAAAAAAI/AAAAAAAALm4/CD46r9Jgvi8/photo.jpg?sz=50"},"group":1},
