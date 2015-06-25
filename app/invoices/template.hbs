@@ -9,6 +9,8 @@
           <div secondary>{{ invoice.date }}</div>
         </paper-item-body>
         <span>{{ invoice.value }}</span>
+        <span>{{invoice.group.name}}</span>
+        <span>{{invoice.user.name}}</span>
       </paper-icon-item>
     {{/each}}
   </paper-material>
