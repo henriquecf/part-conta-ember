@@ -1,9 +1,16 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  values: Ember.computed.map('list', function(invoice, index) {
+  expenses: Ember.computed.filterBy('list', 'revenue', false),
+  revenue: Ember.computed.filterBy('list', 'revenue', true),
+  
+  expenses_values: Ember.computed.map('expenses', function(invoice, index) {
+    return Number(invoice.get('value'));
+  }),
+  revenue_values: Ember.computed.map('revenue', function(invoice, index) {
     return Number(invoice.get('value'));
   }),
   
-  total: Ember.computed.sum('values')
+  expenses_total: Ember.computed.sum('expenses_values'),
+  revenue_total: Ember.computed.sum('revenue_values')
 });
