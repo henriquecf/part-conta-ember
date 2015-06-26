@@ -18,5 +18,5 @@ test('it renders', function(assert) {
   Ember.run(function() {
     component.set('value', 25.100);
   });
-  assert.equal(this.$().text(), 'R$ 25.00');
+  assert.equal($.trim(this.$().text()), 'R$ 25.10');
 });
