@@ -1,4 +1,5 @@
 import { moduleForComponent, test } from 'ember-qunit';
+import Ember from 'ember';
 
 moduleForComponent('number-to-currency', 'Unit | Component | number to currency', {
   // Specify the other units that are required for this test
@@ -14,6 +15,8 @@ test('it renders', function(assert) {
   assert.equal(component._state, 'preRender');
 
   // Renders the component to the page
-  this.render();
-  assert.equal(component._state, 'inDOM');
+  Ember.run(function() {
+    component.set('value', 25.100);
+  });
+  assert.equal(this.$().text(), 'R$ 25.00');
 });
