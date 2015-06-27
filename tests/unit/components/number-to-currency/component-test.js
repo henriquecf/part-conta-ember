@@ -8,15 +8,20 @@ moduleForComponent('number-to-currency', 'Unit | Component | number to currency'
 });
 
 test('it renders', function(assert) {
-  assert.expect(2);
+  assert.expect(4);
 
   // Creates the component instance
   var component = this.subject();
   assert.equal(component._state, 'preRender');
 
-  // Renders the component to the page
   Ember.run(function() {
-    component.set('value', 25.100);
+    component.set('value', 25.1019);
   });
   assert.equal($.trim(this.$().text()), 'R$ 25.10');
+  assert.ok(this.$().attr('class').match('expense'), "Should be a expense by default");
+
+  Ember.run(function() {
+    component.set('isRevenue', true);
+  });
+  assert.ok(this.$().attr('class').match('revenue'), "Should become a revenue when explicitly set");
 });
