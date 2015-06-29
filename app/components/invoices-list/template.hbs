@@ -1,8 +1,8 @@
 <h4>Contas</h4>
 {{#each invoicesList as |invoice|}}
-  {{ invoice.id }}<br>
-  {{ invoice.category }}<br>
-  {{ invoice.date }}<br>
+  {{invoice.id}}<br>
+  {{invoice.category}}<br>
+  {{invoice.date}}<br>
   {{number-to-currency value=invoice.value isRevenue=invoice.revenue}}<br>
   {{invoice.group.name}}<br>
   {{invoice.user.name}}<br>
