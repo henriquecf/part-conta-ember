@@ -5,6 +5,6 @@ export default DS.Model.extend({
   value: DS.attr('number'),
   group: DS.belongsTo('group'),
   user: DS.belongsTo('user'),
-  date: DS.attr("string"),
+  date: DS.attr('string'),
   revenue: DS.attr('boolean')
 });
