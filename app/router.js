@@ -8,6 +8,7 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.route('invoices');
   this.route('dashboard');
+  this.route('new-invoice');
 });
 
 export default Router;

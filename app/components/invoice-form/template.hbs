@@ -1,0 +1,17 @@
+<form {{action 'addInvoice' on="submit"}} method="post">
+  <div>
+    <label for="invoice_value">Valor</label>
+    {{input value=value type="number" required="true" id="invoice_value"}}
+  </div>
+  <div>
+    <label for="invoice_category">Categoria</label>
+    {{input value=category id="invoice_category"}}
+  </div>
+  <div>
+    <label for="invoice_revenue">Ganho?</label>
+    {{input type="checkbox" checked=revenue id="invoice_revenue"}}
+  </div>
+  <div>
+    {{input type="submit" value="Adcionar Conta"}}
+  </div>
+</form>
