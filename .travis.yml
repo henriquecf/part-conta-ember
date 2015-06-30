@@ -5,6 +5,20 @@ node_js:
 
 sudo: false
 
+env:
+  global:
+    - EMBER_VERSION='default'
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - env: EMBER_VERSION='ember-beta'
+    - env: EMBER_VERSION='ember-canary'
+  include:
+    - env: "EMBER_VERSION='ember-release'"
+    - env: "EMBER_VERSION='ember-beta'"
+    - env: "EMBER_VERSION='ember-canary'"
+
 cache:
   directories:
     - node_modules
@@ -20,4 +34,4 @@ install:
   - bower install
 
 script:
-  - ember try:testall
+  - ember try ${EMBER_VERSION} test
