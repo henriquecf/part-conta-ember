@@ -2,9 +2,11 @@
 {{#each invoicesList as |invoice|}}
   {{invoice.id}}<br>
   {{invoice.category}}<br>
+  {{invoice.description}}<br>
   {{invoice.date}}<br>
   {{number-to-currency value=invoice.value isRevenue=invoice.revenue}}<br>
   {{invoice.group.name}}<br>
   {{invoice.user.name}}<br>
+  {{invoice.updatedAt}}<br>
   <hr>
 {{/each}}
