@@ -7,4 +7,19 @@ export default DS.ActiveModelAdapter.extend({
   //headers: {
   //  "Authorization": "Basic ZWxvLmhlbnJpcXVlQGdtYWlsLmNvbTpoYzAzMTE5MA=="
   //}
+  
+  shouldReloadAll: function(store, snapshotRecordArray) {
+    if (snapshotRecordArray.length > 0) {
+      return false;    
+    } else {
+      return true;
+    }
+  },
+  shouldBackgroundReloadAll: function(store, snapshotRecordArray) {
+    if (window.navigator.connection === 'none') {
+      return false;
+    } else {
+      return true;
+    }
+  }
 });
