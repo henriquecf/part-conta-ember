@@ -5,3 +5,40 @@
 .expense {
   color: #E57373;
 }
+
+.mdl-list {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  line-height: 16px;
+}
+
+.mdl-list__item {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.mdl-list__avatar {
+  width: 48px;
+  height: 48px;
+  float: left;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  margin: 12px 0px;
+  border-radius: 50%;
+}
+
+.mdl-list__primary-text {
+  margin: 0px;
+  float: left;
+  font-size: 16px;
+  margin-left: 72px;
+}
+
+.mdl-list__secondary-text {
+  clear: both;
+  font-size: 14px;
+  margin-left: 72px;
+}
