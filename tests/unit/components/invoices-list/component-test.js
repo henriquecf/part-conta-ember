@@ -18,12 +18,12 @@ test('it renders', function(assert) {
     component.set('list', [{},{},{},{},{},{}]);
   });
   
-  assert.equal(this.$().find('hr').length, 6);
+  assert.equal(this.$().find('div.section__text').length, 6);
   
   // Should limit the number of lists when set in listSize
   Ember.run(function() {
     component.set('list-size', 3);
   });
   
-  assert.equal(this.$().find('hr').length, 3);
+  assert.equal(this.$().find('div.section__text').length, 3);
 });
