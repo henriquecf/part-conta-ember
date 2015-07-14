@@ -1,5 +1,24 @@
-<h1>Dashboard</h1>
-<h2>Total geral</h2>
-{{total-value list=model}}
-<h2>Ultimas contas</h2>
-{{invoices-list list=model list-size=5}}
+<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col">
+  <div class="mdl-card__title">
+    Total geral
+  </div>
+  <div class="mdl-card__media">
+  </div>
+  <div class="mdl-card__supporting-text">
+    {{total-value list=model}}
+  </div>
+  <div class="mdl-card__actions">
+  </div>
+</div>
+<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--8-col">
+  <div class="mdl-card__title">
+    Ultimas contas
+  </div>
+  <div class="mdl-card__media">
+  </div>
+  <div class="mdl-card__supporting-text">
+    {{invoices-list list=model list-size=5}}
+  </div>
+  <div class="mdl-card__actions">
+  </div>
+</div>

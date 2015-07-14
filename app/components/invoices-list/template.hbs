@@ -1,12 +1,9 @@
-<h4>Contas</h4>
-{{#each invoicesList as |invoice|}}
-  {{invoice.id}}<br>
-  {{invoice.category}}<br>
-  {{invoice.description}}<br>
-  {{invoice.date}}<br>
-  {{number-to-currency value=invoice.value isRevenue=invoice.revenue}}<br>
-  {{invoice.group.name}}<br>
-  {{invoice.user.name}}<br>
-  {{invoice.updatedAt}}<br>
-  <hr>
-{{/each}}
+<div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+  {{#each invoicesList as |invoice|}}
+    <div class="section__text mdl-cell mdl-cell--12-col">
+      <h5>{{invoice.category}}</h5>
+      {{invoice.description}}
+      <span style="float: right;">{{number-to-currency value=invoice.value isRevenue=invoice.revenue}}</span>
+    </div>
+  {{/each}}
+</div>
