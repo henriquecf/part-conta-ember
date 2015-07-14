@@ -15,7 +15,7 @@ export default DS.ActiveModelAdapter.extend({
       return true;
     }
   },
-  shouldBackgroundReloadAll: function(store, snapshotRecordArray) {
+  shouldBackgroundReloadAll: function() {
     if (window.navigator.connection === 'none') {
       return false;
     } else {
