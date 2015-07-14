@@ -19,7 +19,7 @@ module.exports = function(environment) {
     },
     
     contentSecurityPolicy: {
-      'connect-src': "'self' localhost:3000",
+      'connect-src': "'self' localhost:3000 si-staged.herokuapp.com sharedinvoices.herokuapp.com",
     },
   };
 

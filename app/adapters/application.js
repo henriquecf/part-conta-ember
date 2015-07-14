@@ -6,7 +6,7 @@ export default DS.ActiveModelAdapter.extend({
   //host: 'http://localhost:3000',
   //headers: {
   //  "Authorization": "Basic ZWxvLmhlbnJpcXVlQGdtYWlsLmNvbTpoYzAzMTE5MA=="
-  //}
+  //},
   
   shouldReloadAll: function(store, snapshotRecordArray) {
     if (snapshotRecordArray.length > 0) {
