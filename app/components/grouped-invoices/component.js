@@ -4,11 +4,14 @@ export default Ember.Component.extend({
   totalValue: 0,
   isRevenue: false,
   
-  _expensesOrRevenue: Ember.computed.filter('list', function(invoice) { 
-    return invoice.get('revenue') === this.get('isRevenue'); 
+  _expensesOrRevenue: Ember.computed('list', 'isRevenue', function() {
+    var self = this;
+    return this.get('list').filter(function(invoice) {
+      return invoice.get('revenue') === self.get('isRevenue');
+    });
   }),
   
-  groupedInvoices: Ember.computed('_expensesOrRevenue', function() {
+  groupedInvoices: Ember.computed('_expensesOrRevenue', 'groupByField', function() {
     var grouped = {};
     var totalValue = 0;
     var field = this.get('groupByField');
