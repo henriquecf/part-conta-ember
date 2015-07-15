@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import Ember from 'ember';
 
 export default DS.Model.extend({
   category: DS.attr('string'),
@@ -8,5 +9,9 @@ export default DS.Model.extend({
   date: DS.attr('string'),
   revenue: DS.attr('boolean'),
   description: DS.attr('string'),
-  updatedAt: DS.attr('date')
+  updatedAt: DS.attr('date'),
+  
+  formatted_date: Ember.computed('date', function() {
+    return this.get('date').split('-').reverse().join('/');
+  })
 });
