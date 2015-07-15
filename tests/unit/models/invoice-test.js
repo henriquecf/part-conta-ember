@@ -11,7 +11,9 @@ test('it exists', function(assert) {
   
   Ember.run(function() {
     model.set('date', '2015-07-15');
+    model.set('category', 'Diversos');
   });
   
   assert.equal(model.get('formatted_date'), '15/07/2015');
+  assert.equal(model.get('category_abbrev'), 'Di');
 });

@@ -13,5 +13,9 @@ export default DS.Model.extend({
   
   formatted_date: Ember.computed('date', function() {
     return this.get('date').split('-').reverse().join('/');
+  }),
+  
+  category_abbrev: Ember.computed('category', function() {
+    return this.get('category').slice(0,2);
   })
 });
