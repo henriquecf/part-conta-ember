@@ -8,7 +8,5 @@ export default Ember.Component.extend({
       list = list.slice(0, listSize);
     }
     return list;
-  }),
-  
-  objectField: null
+  })
 });
