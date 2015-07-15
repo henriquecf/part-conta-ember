@@ -7,9 +7,10 @@ moduleForComponent('grouped-invoices', 'Unit | Component | grouped invoices', {
 
 test('it renders', function(assert) {
   var component = this.subject();
+  var object = Ember.Object.create({value: 156, revenue: true, category: "test2"});
   var list = [
       Ember.Object.create({value: 40.5, revenue: false, category: "test", description: "desc"}),
-      Ember.Object.create({value: 156, revenue: true, category: "test2"}),
+      object,
       Ember.Object.create({value: 3.5, revenue: false, category: "test", description: "desc2"})
     ];
     
@@ -35,4 +36,14 @@ test('it renders', function(assert) {
 
   assert.equal(JSON.stringify(component.get('groupedInvoices')),JSON.stringify([{name: 'desc', sumValue: 40.5}, {name: 'desc2', sumValue: 3.5}]));
   assert.equal(component.get('totalValue'), 44);
+    
+  var group = Ember.Object.create({name: 'group'});
+  Ember.run(function() {
+    object.set('group', group);
+    component.set('isRevenue', true);
+    component.set('fieldName', 'group.name');
+  });
+
+  assert.equal(JSON.stringify(component.get('groupedInvoices')),JSON.stringify([{name: 'group', sumValue: 156}]));
+  assert.equal(component.get('totalValue'), 156);
 });
