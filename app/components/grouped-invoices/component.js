@@ -14,12 +14,12 @@ export default Ember.Component.extend({
     this.get('_expenses').forEach(function(invoice) {
       if(invoice.get(field) in grouped) {
         grouped[invoice.get(field)].quantity += 1;
-        grouped[invoice.get(field)].sumValue += invoice.value;
+        grouped[invoice.get(field)].sumValue += invoice.get('value');
       }
       else {
-        grouped[invoice.get(field)] = {quantity: 1, sumValue: invoice.value};
+        grouped[invoice.get(field)] = {quantity: 1, sumValue: invoice.get('value')};
       }
-      expensesTotalValue += invoice.value;
+      expensesTotalValue += invoice.get('value');
     });
     this.set('expensesTotalValue', expensesTotalValue);
     return grouped;
@@ -31,12 +31,12 @@ export default Ember.Component.extend({
     this.get('_revenue').forEach(function(invoice) {
       if(invoice.get(field) in grouped) {
         grouped[invoice.get(field)].quantity += 1;
-        grouped[invoice.get(field)].sumValue += invoice.value;
+        grouped[invoice.get(field)].sumValue += invoice.get('value');
       }
       else {
-        grouped[invoice.get(field)] = {quantity: 1, sumValue: invoice.value};
+        grouped[invoice.get(field)] = {quantity: 1, sumValue: invoice.get('value')};
       }
-      revenueTotalValue += invoice.value;
+      revenueTotalValue += invoice.get('value');
     });
     this.set('revenueTotalValue', revenueTotalValue);
     return grouped;
