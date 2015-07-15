@@ -1,44 +1,28 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  expensesTotalValue: 0,
-  revenueTotalValue: 0,
+  totalValue: 0,
+  isRevenue: false,
   
-  _expenses: Ember.computed.filterBy('list', 'revenue', false),
-  _revenue: Ember.computed.filterBy('list', 'revenue', true),
-  
-  groupedExpenses: Ember.computed('_expenses', 'groupByField', function() {
-    var grouped = {};
-    var expensesTotalValue = 0;
-    var field = this.get('groupByField');
-    this.get('_expenses').forEach(function(invoice) {
-      if(invoice.get(field) in grouped) {
-        grouped[invoice.get(field)].quantity += 1;
-        grouped[invoice.get(field)].sumValue += invoice.get('value');
-      }
-      else {
-        grouped[invoice.get(field)] = {quantity: 1, sumValue: invoice.get('value')};
-      }
-      expensesTotalValue += invoice.get('value');
-    });
-    this.set('expensesTotalValue', expensesTotalValue);
-    return grouped;
+  _expensesOrRevenue: Ember.computed.filter('list', function(invoice) { 
+    return invoice.get('revenue') === this.get('isRevenue'); 
   }),
-  groupedRevenue: Ember.computed('_revenue', 'groupByField', function() {
+  
+  groupedInvoices: Ember.computed('_expensesOrRevenue', function() {
     var grouped = {};
-    var revenueTotalValue = 0;
+    var totalValue = 0;
     var field = this.get('groupByField');
-    this.get('_revenue').forEach(function(invoice) {
+    this.get('_expensesOrRevenue').forEach(function(invoice) {
+      var value = Number(invoice.get('value'));
       if(invoice.get(field) in grouped) {
-        grouped[invoice.get(field)].quantity += 1;
-        grouped[invoice.get(field)].sumValue += invoice.get('value');
+        grouped[invoice.get(field)].sumValue += value;
       }
       else {
-        grouped[invoice.get(field)] = {quantity: 1, sumValue: invoice.get('value')};
+        grouped[invoice.get(field)] = {name: invoice.get(field), sumValue: value};
       }
-      revenueTotalValue += invoice.get('value');
+      totalValue += value;
     });
-    this.set('revenueTotalValue', revenueTotalValue);
-    return grouped;
+    this.set('totalValue', totalValue);
+    return Object.keys(grouped).map(function(key) { return grouped[key]; });
   })
 });
