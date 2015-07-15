@@ -31,7 +31,7 @@ test('it renders', function(assert) {
   assert.equal(component.get('isBalanceRevenue'), true);
 
   Ember.run(function() {
-    list.pushObject(Ember.Object.create({value: 21, revenue: false}));
+    list.pushObject(Ember.Object.create({value: '21', revenue: false}));
   });
   
   assert.equal(component.get('revenueTotal'), 125);
