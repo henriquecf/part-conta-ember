@@ -1,90 +1,16 @@
-<div class="mdl-grid mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
-  <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet invoices-total">
-    <div class="mdl-card__title">
-      Total geral
-    </div>
-    <div class="mdl-card__media">
-    </div>
-    <div class="mdl-card__supporting-text">
-      {{total-value list=model}}
-    </div>
-    <div class="mdl-card__actions">
-    </div>
+<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col invoices-total">
+  <div class="mdl-card__title">
+    Total geral
   </div>
-  <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet">
-    <div class="mdl-card__title">
-      Despesas por categoria
-    </div>
-    <div class="mdl-card__media">
-    </div>
-    <div class="mdl-card__supporting-text">
-      {{grouped-invoices list=model groupByField="category"}}
-    </div>
-    <div class="mdl-card__actions">
-    </div>
+  <div class="mdl-card__media">
   </div>
-  <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet">
-    <div class="mdl-card__title">
-      Ganhos por categoria
-    </div>
-    <div class="mdl-card__media">
-    </div>
-    <div class="mdl-card__supporting-text">
-      {{grouped-invoices list=model groupByField="category" isRevenue=true}}
-    </div>
-    <div class="mdl-card__actions">
-    </div>
+  <div class="mdl-card__supporting-text">
+    {{total-value list=model}}
   </div>
-  <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet">
-    <div class="mdl-card__title">
-      Despesas por grupo
-    </div>
-    <div class="mdl-card__media">
-    </div>
-    <div class="mdl-card__supporting-text">
-      {{grouped-invoices list=model groupByField="group" fieldName="group.name"}}
-    </div>
-    <div class="mdl-card__actions">
-    </div>
-  </div>
-  <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet">
-    <div class="mdl-card__title">
-      Ganhos por grupo
-    </div>
-    <div class="mdl-card__media">
-    </div>
-    <div class="mdl-card__supporting-text">
-      {{grouped-invoices list=model groupByField="group" fieldName="group.name" isRevenue=true}}
-    </div>
-    <div class="mdl-card__actions">
-    </div>
-  </div>
-  <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet">
-    <div class="mdl-card__title">
-      Despesas por usuario
-    </div>
-    <div class="mdl-card__media">
-    </div>
-    <div class="mdl-card__supporting-text">
-      {{grouped-invoices list=model groupByField="user" fieldName="user.name"}}
-    </div>
-    <div class="mdl-card__actions">
-    </div>
-  </div>
-  <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-cell--4-col-tablet">
-    <div class="mdl-card__title">
-      Ganhos por usuario
-    </div>
-    <div class="mdl-card__media">
-    </div>
-    <div class="mdl-card__supporting-text">
-      {{grouped-invoices list=model groupByField="user" fieldName="user.name" isRevenue=true}}
-    </div>
-    <div class="mdl-card__actions">
-    </div>
+  <div class="mdl-card__actions">
   </div>
 </div>
-<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col">
   <div class="mdl-card__title">
     Ultimas contas
   </div>
@@ -93,6 +19,78 @@
   <section class="mdl-card__supporting-text">
     {{invoices-list list=model list-size=5}}
   </section>
+  <div class="mdl-card__actions">
+  </div>
+</div>
+<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col">
+  <div class="mdl-card__title">
+    Despesas por categoria
+  </div>
+  <div class="mdl-card__media">
+  </div>
+  <div class="mdl-card__supporting-text">
+    {{grouped-invoices list=model groupByField="category"}}
+  </div>
+  <div class="mdl-card__actions">
+  </div>
+</div>
+<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col">
+  <div class="mdl-card__title">
+    Ganhos por categoria
+  </div>
+  <div class="mdl-card__media">
+  </div>
+  <div class="mdl-card__supporting-text">
+    {{grouped-invoices list=model groupByField="category" isRevenue=true}}
+  </div>
+  <div class="mdl-card__actions">
+  </div>
+</div>
+<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col">
+  <div class="mdl-card__title">
+    Despesas por grupo
+  </div>
+  <div class="mdl-card__media">
+  </div>
+  <div class="mdl-card__supporting-text">
+    {{grouped-invoices list=model groupByField="group" fieldName="group.name"}}
+  </div>
+  <div class="mdl-card__actions">
+  </div>
+</div>
+<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col">
+  <div class="mdl-card__title">
+    Ganhos por grupo
+  </div>
+  <div class="mdl-card__media">
+  </div>
+  <div class="mdl-card__supporting-text">
+    {{grouped-invoices list=model groupByField="group" fieldName="group.name" isRevenue=true}}
+  </div>
+  <div class="mdl-card__actions">
+  </div>
+</div>
+<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col">
+  <div class="mdl-card__title">
+    Despesas por usuario
+  </div>
+  <div class="mdl-card__media">
+  </div>
+  <div class="mdl-card__supporting-text">
+    {{grouped-invoices list=model groupByField="user" fieldName="user.name"}}
+  </div>
+  <div class="mdl-card__actions">
+  </div>
+</div>
+<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col">
+  <div class="mdl-card__title">
+    Ganhos por usuario
+  </div>
+  <div class="mdl-card__media">
+  </div>
+  <div class="mdl-card__supporting-text">
+    {{grouped-invoices list=model groupByField="user" fieldName="user.name" isRevenue=true}}
+  </div>
   <div class="mdl-card__actions">
   </div>
 </div>
