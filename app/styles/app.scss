@@ -1,9 +1,11 @@
 .revenue {
-  color: #008080;
+  color: #80cbc4;
+  float: right;
 }
 
 .expense {
   color: #E57373;
+  float: right;
 }
 
 .avatar {
@@ -12,6 +14,20 @@
   text-align: center;
   color: white;
   font-weight: bold;
+}
+
+.invoices-total {
+  background-color: #006064;
+  .mdl-card__supporting-text, .mdl-card__title{
+    color: rgba(255,255,255,0.87);
+  }
+  .mdl-card__supporting-text {
+    height: 100%;
+    width: 100%;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    line-height: 24px;
+  }
 }
 
 #Al {
