@@ -39,6 +39,11 @@
   </div>
   <main class="mdl-layout__content mdl-color--grey-100">
     <div class="mdl-grid">
+      {{#if session.isAuthenticated}}
+        <button {{ action 'invalidateSession' }}>Logout</button>
+      {{else}}
+        {{#link-to 'login'}}Login{{/link-to}}
+      {{/if}}
       {{outlet}}
     </div>
   </main>

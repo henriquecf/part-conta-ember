@@ -21,6 +21,14 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'connect-src': "'self' localhost:3000 si-staged.herokuapp.com sharedinvoices.herokuapp.com",
     },
+
+   'simple-auth': {
+      authorizer: 'simple-auth-authorizer:devise'
+    },
+
+    'simple-auth-devise': {
+      identificationAttributeName: 'email'
+    },
   };
 
   if (environment === 'development') {
@@ -30,8 +38,13 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV['ember-cli-mirage'] = {
-      enabled: true
+      enabled: false
     }
+    
+    ENV['contentSecurityPolicy']['connect-src'] =  "'self' http://localhost:3000";
+    
+    ENV['simple-auth']['crossOriginWhitelist'] = ['http://localhost:3000'];
+    ENV['simple-auth-devise']['serverTokenEndpoint'] = "//localhost:3000/users/sign_in";
   }
 
   if (environment === 'test') {

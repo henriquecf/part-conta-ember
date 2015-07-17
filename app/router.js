@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('invoices');
   this.route('dashboard');
   this.route('new-invoice');
+  this.route('login');
 });
 
 export default Router;
