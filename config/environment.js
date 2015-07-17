@@ -25,7 +25,8 @@ module.exports = function(environment) {
     },
 
     'simple-auth': {
-      authorizer: 'simple-auth-authorizer:devise'
+      authorizer: 'simple-auth-authorizer:devise',
+      crossOriginWhitelist: ['http://localhost:3000']
     },
 
     'simple-auth-devise': {
@@ -45,7 +46,6 @@ module.exports = function(environment) {
     
     ENV['contentSecurityPolicy']['connect-src'] =  "'self' http://localhost:3000";
     
-    ENV['simple-auth']['crossOriginWhitelist'] = ['http://localhost:3000'];
     ENV['simple-auth-devise']['serverTokenEndpoint'] = "//localhost:3000/users/sign_in";
   }
 
