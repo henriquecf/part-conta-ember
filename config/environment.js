@@ -19,15 +19,17 @@ module.exports = function(environment) {
     },
     
     contentSecurityPolicy: {
-      'connect-src': "'self' localhost:3000 si-staged.herokuapp.com sharedinvoices.herokuapp.com",
+      'connect-src': "'self' si-staged.herokuapp.com sharedinvoices.herokuapp.com",
+      'font-src': "'self' http://fonts.gstatic.com",
+      'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",
     },
 
-   'simple-auth': {
+    'simple-auth': {
       authorizer: 'simple-auth-authorizer:devise'
     },
 
     'simple-auth-devise': {
-      identificationAttributeName: 'email'
+      serverTokenEndpoint: "/users/sign_in"
     },
   };
 
