@@ -21,6 +21,15 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'connect-src': "'self' localhost:3000 si-staged.herokuapp.com sharedinvoices.herokuapp.com",
     },
+    
+    'simple-auth': {
+      authorizer: 'simple-auth-authorizer:oauth2-bearer',
+      crossOriginWhitelist: ['http://localhost:3000']
+    },
+    
+    'simple-auth-oauth2': {
+      serverTokenEndpoint: 'http://localhost:3000/oauth/token'
+    },
   };
 
   if (environment === 'development') {
