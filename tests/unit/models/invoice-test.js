@@ -1,4 +1,5 @@
 import { moduleForModel, test } from 'ember-qunit';
+import Ember from 'ember';
 
 moduleForModel('invoice', 'Unit | Model | invoice', {
   // Specify the other units that are required for this test.
@@ -7,6 +8,12 @@ moduleForModel('invoice', 'Unit | Model | invoice', {
 
 test('it exists', function(assert) {
   var model = this.subject();
-  // var store = this.store();
-  assert.ok(!!model);
+  
+  Ember.run(function() {
+    model.set('date', '2015-07-15');
+    model.set('category', 'Diversos');
+  });
+  
+  assert.equal(model.get('formatted_date'), '15/07/2015');
+  assert.equal(model.get('category_abbrev'), 'Di');
 });

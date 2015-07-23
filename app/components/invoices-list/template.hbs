@@ -1,12 +1,10 @@
-<h4>Contas</h4>
-{{#each invoicesList as |invoice|}}
-  {{invoice.id}}<br>
-  {{invoice.category}}<br>
-  {{invoice.description}}<br>
-  {{invoice.date}}<br>
-  {{number-to-currency value=invoice.value isRevenue=invoice.revenue}}<br>
-  {{invoice.group.name}}<br>
-  {{invoice.user.name}}<br>
-  {{invoice.updatedAt}}<br>
-  <hr>
-{{/each}}
+<ul class="mdl-list">
+  {{#each invoicesList as |invoice|}}
+    <li class="mdl-list__item">
+      <div class="mdl-list__avatar avatar" id="{{invoice.category_abbrev}}">{{invoice.category_abbrev}}</div>
+      <h5 class="mdl-list__primary-text">{{invoice.description}}</h5>
+      <span style="float: right;">{{number-to-currency value=invoice.value isRevenue=invoice.revenue}}</span>
+      <section class="mdl-list__secondary-text">{{invoice.formatted_date}}</section>
+    </li>
+  {{/each}}
+</ul>

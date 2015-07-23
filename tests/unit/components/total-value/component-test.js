@@ -23,17 +23,19 @@ test('it renders', function(assert) {
 
   Ember.run(function() {
     component.set('list', list);
-  
-    assert.equal(component.get('revenueTotal'), 125);
-    assert.equal(component.get('expensesTotal'), 120);
-    assert.equal(component.get('balance'), 5);
-    assert.equal(component.get('isBalanceRevenue'), true);
-  
-    list.pushObject(Ember.Object.create({value: 21, revenue: false}));
-  
-    assert.equal(component.get('revenueTotal'), 125);
-    assert.equal(component.get('expensesTotal'), 141);
-    assert.equal(component.get('balance'), 16);
-    assert.equal(component.get('isBalanceRevenue'), false);
   });
+  
+  assert.equal(component.get('revenueTotal'), 125);
+  assert.equal(component.get('expensesTotal'), 120);
+  assert.equal(component.get('balance'), 5);
+  assert.equal(component.get('isBalanceRevenue'), true);
+
+  Ember.run(function() {
+    list.pushObject(Ember.Object.create({value: '21', revenue: false}));
+  });
+  
+  assert.equal(component.get('revenueTotal'), 125);
+  assert.equal(component.get('expensesTotal'), 141);
+  assert.equal(component.get('balance'), 16);
+  assert.equal(component.get('isBalanceRevenue'), false);
 });
