@@ -28,7 +28,8 @@ module.exports = function(environment) {
     },
     
     'simple-auth-oauth2': {
-      serverTokenEndpoint: 'http://localhost:3000/oauth/token'
+      serverTokenEndpoint: 'http://localhost:3000/oauth/token',
+      serverTokenRevocationEndpoint: 'http://localhost:3000/oauth/revoke'
     },
   };
 
@@ -39,7 +40,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV['ember-cli-mirage'] = {
-      enabled: true
+      enabled: false
     }
   }
 
