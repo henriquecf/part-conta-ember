@@ -5,7 +5,7 @@
   <div class="mdl-card__media">
   </div>
   <div class="mdl-card__supporting-text">
-    {{total-value list=model}}
+    {{total-value list=filteredModel}}
   </div>
   <div class="mdl-card__actions">
   </div>
@@ -17,7 +17,7 @@
   <div class="mdl-card__media">
   </div>
   <section class="mdl-card__supporting-text">
-    {{invoices-list list=model list-size=5}}
+    {{invoices-list list=filteredModel list-size=5}}
   </section>
   <div class="mdl-card__actions">
   </div>
@@ -29,7 +29,7 @@
   <div class="mdl-card__media">
   </div>
   <div class="mdl-card__supporting-text">
-    {{grouped-invoices list=model groupByField="category"}}
+    {{grouped-invoices list=filteredModel groupByField="category"}}
   </div>
   <div class="mdl-card__actions">
   </div>
@@ -41,7 +41,7 @@
   <div class="mdl-card__media">
   </div>
   <div class="mdl-card__supporting-text">
-    {{grouped-invoices list=model groupByField="category" isRevenue=true}}
+    {{grouped-invoices list=filteredModel groupByField="category" isRevenue=true}}
   </div>
   <div class="mdl-card__actions">
   </div>
@@ -53,7 +53,7 @@
   <div class="mdl-card__media">
   </div>
   <div class="mdl-card__supporting-text">
-    {{grouped-invoices list=model groupByField="group" fieldName="group.name"}}
+    {{grouped-invoices list=filteredModel groupByField="group" fieldName="group.name"}}
   </div>
   <div class="mdl-card__actions">
   </div>
@@ -65,7 +65,7 @@
   <div class="mdl-card__media">
   </div>
   <div class="mdl-card__supporting-text">
-    {{grouped-invoices list=model groupByField="group" fieldName="group.name" isRevenue=true}}
+    {{grouped-invoices list=filteredModel groupByField="group" fieldName="group.name" isRevenue=true}}
   </div>
   <div class="mdl-card__actions">
   </div>
@@ -77,7 +77,7 @@
   <div class="mdl-card__media">
   </div>
   <div class="mdl-card__supporting-text">
-    {{grouped-invoices list=model groupByField="user" fieldName="user.name"}}
+    {{grouped-invoices list=filteredModel groupByField="user" fieldName="user.name"}}
   </div>
   <div class="mdl-card__actions">
   </div>
@@ -89,7 +89,7 @@
   <div class="mdl-card__media">
   </div>
   <div class="mdl-card__supporting-text">
-    {{grouped-invoices list=model groupByField="user" fieldName="user.name" isRevenue=true}}
+    {{grouped-invoices list=filteredModel groupByField="user" fieldName="user.name" isRevenue=true}}
   </div>
   <div class="mdl-card__actions">
   </div>
