@@ -17,5 +17,9 @@ export default DS.Model.extend({
   
   category_abbrev: Ember.computed('category', function() {
     return this.get('category').slice(0,2);
+  }),
+  
+  date_month: Ember.computed('date', function() {
+    return this.get('date').split("-")[1];
   })
 });
