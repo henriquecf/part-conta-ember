@@ -5,6 +5,6 @@ export default Ember.Mixin.create({
     return invoice.get('dateMonth') === this.get('currentMonth') && invoice.get('dateYear') === this.get('currentYear');
   }),
   
-  currentMonth: 7,
-  currentYear: 2015
+  currentMonth: '07',
+  currentYear: '2015'
 });

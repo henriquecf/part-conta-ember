@@ -1,29 +1,24 @@
 import DS from 'ember-data';
 import Ember from 'ember';
+import computedMoment from 'ember-moment/computeds/moment';
 
 export default DS.Model.extend({
   category: DS.attr('string'),
   value: DS.attr('number'),
   group: DS.belongsTo('group'),
   user: DS.belongsTo('user'),
-  date: DS.attr('string'),
+  date: DS.attr('date'),
   revenue: DS.attr('boolean'),
   description: DS.attr('string'),
   updatedAt: DS.attr('date'),
   
-  formattedDate: Ember.computed('date', function() {
-    return this.get('date').split('-').reverse().join('/');
-  }),
+  formattedDate: computedMoment('date', 'DD/MM/YYYY'),
   
   categoryAbbrev: Ember.computed('category', function() {
     return this.get('category').slice(0,2);
   }),
   
-  dateMonth: Ember.computed('date', function() {
-    return Number(this.get('date').split("-")[1]);
-  }),
+  dateMonth: computedMoment('date', 'MM'),
   
-  dateYear: Ember.computed('date', function() {
-    return Number(this.get('date').split("-")[0]);
-  })
+  dateYear: computedMoment('date', 'YYYY')
 });
