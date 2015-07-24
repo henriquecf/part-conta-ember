@@ -21,5 +21,9 @@ export default DS.Model.extend({
   
   date_month: Ember.computed('date', function() {
     return this.get('date').split("-")[1];
+  }),
+  
+  date_year: Ember.computed('date', function() {
+    return this.get('date').split("-")[0];
   })
 });
