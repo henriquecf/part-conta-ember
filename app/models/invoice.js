@@ -7,7 +7,7 @@ export default DS.Model.extend({
   value: DS.attr('number'),
   group: DS.belongsTo('group'),
   user: DS.belongsTo('user'),
-  date: DS.attr('date'),
+  date: DS.attr('string'),
   revenue: DS.attr('boolean'),
   description: DS.attr('string'),
   updatedAt: DS.attr('date'),
