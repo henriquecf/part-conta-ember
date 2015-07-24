@@ -14,8 +14,8 @@ test('it exists', function(assert) {
     model.set('category', 'Diversos');
   });
   
-  assert.equal(model.get('formatted_date'), '15/07/2015');
-  assert.equal(model.get('category_abbrev'), 'Di');
-  assert.equal(model.get('date_month'), '07');
-  assert.equal(model.get('date_year'), '2015');
+  assert.equal(model.get('formattedDate'), '15/07/2015');
+  assert.equal(model.get('categoryAbbrev'), 'Di');
+  assert.equal(model.get('dateMonth'), '07');
+  assert.equal(model.get('dateYear'), '2015');
 });

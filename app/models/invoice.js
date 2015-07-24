@@ -11,19 +11,19 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   updatedAt: DS.attr('date'),
   
-  formatted_date: Ember.computed('date', function() {
+  formattedDate: Ember.computed('date', function() {
     return this.get('date').split('-').reverse().join('/');
   }),
   
-  category_abbrev: Ember.computed('category', function() {
+  categoryAbbrev: Ember.computed('category', function() {
     return this.get('category').slice(0,2);
   }),
   
-  date_month: Ember.computed('date', function() {
+  dateMonth: Ember.computed('date', function() {
     return this.get('date').split("-")[1];
   }),
   
-  date_year: Ember.computed('date', function() {
+  dateYear: Ember.computed('date', function() {
     return this.get('date').split("-")[0];
   })
 });

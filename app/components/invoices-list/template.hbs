@@ -1,10 +1,10 @@
 <ul class="mdl-list">
   {{#each invoicesList as |invoice|}}
     <li class="mdl-list__item">
-      <div class="mdl-list__avatar avatar" id="{{invoice.category_abbrev}}">{{invoice.category_abbrev}}</div>
+      <div class="mdl-list__avatar avatar" id="{{invoice.category_abbrev}}">{{invoice.categoryAbbrev}}</div>
       <h5 class="mdl-list__primary-text">{{invoice.description}}</h5>
       <span style="float: right;">{{number-to-currency value=invoice.value isRevenue=invoice.revenue}}</span>
-      <section class="mdl-list__secondary-text">{{invoice.formatted_date}}</section>
+      <section class="mdl-list__secondary-text">{{invoice.formattedDate}}</section>
     </li>
   {{/each}}
 </ul>
