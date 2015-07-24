@@ -16,6 +16,6 @@ test('it exists', function(assert) {
   
   assert.equal(model.get('formattedDate'), '15/07/2015');
   assert.equal(model.get('categoryAbbrev'), 'Di');
-  assert.equal(model.get('dateMonth'), '07');
-  assert.equal(model.get('dateYear'), '2015');
+  assert.equal(model.get('dateMonth'), 7);
+  assert.equal(model.get('dateYear'), 2015);
 });

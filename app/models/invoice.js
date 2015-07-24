@@ -20,10 +20,10 @@ export default DS.Model.extend({
   }),
   
   dateMonth: Ember.computed('date', function() {
-    return this.get('date').split("-")[1];
+    return Number(this.get('date').split("-")[1]);
   }),
   
   dateYear: Ember.computed('date', function() {
-    return this.get('date').split("-")[0];
+    return Number(this.get('date').split("-")[0]);
   })
 });
