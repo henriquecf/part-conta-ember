@@ -1,12 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Mixin.create({
-  filteredModel: Ember.computed('model', 'filters', function() {
+  month: "07",
+  year: "2015",
+  
+  filteredModel: Ember.computed('model', 'month', 'year', function() {
     var self = this;
     return this.get('model').filter(function(invoice) {
-      return invoice.get('dateMonth') === self.get('filters.month') && invoice.get('dateYear') === self.get('filters.year');
+      return invoice.get('dateMonth') === self.get('month') && invoice.get('dateYear') === self.get('year');
     });
-  }),
-  
-  filters: {month: '07', year: '2015'}
+  })
 });
