@@ -2,13 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   revenue: false,
+  categories: ["Alimentação", "Educação", "Lazer", "Moradia", "Roupas e Acessórios", "Saúde e Beleza", 
+               "Transporte", "Diversos", "Receita"],
   actions: {
     addInvoice: function() {
-      this.sendAction('action', {
-        value: this.controller.get('value'), 
-        category: this.controller.get('category'),
-        revenue: this.controller.get('revenue')
-      });
+      var invoice = this.controller.getProperties('value', 'category', 'revenue', 'description', 'date');
+      this.sendAction('action', invoice);
     }
   }
 });

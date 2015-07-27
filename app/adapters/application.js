@@ -2,11 +2,11 @@ import ActiveModelAdapter from 'active-model-adapter';
 
 export default ActiveModelAdapter.extend({
   namespace: 'api',
-  // Uncomment the following lines when using the local API
   host: 'http://localhost:3000',
-  //headers: {
-  //  "Authorization": "Basic ZWxvLmhlbnJpcXVlQGdtYWlsLmNvbTpoYzAzMTE5MA=="
-  //},
+  buildURL: function(record, suffix) {
+    var s = this._super(record, suffix);
+    return s + ".json";
+  },
   
   shouldReloadAll: function(store, snapshotRecordArray) {
     if (snapshotRecordArray.length > 0) {

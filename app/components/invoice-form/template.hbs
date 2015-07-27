@@ -1,11 +1,19 @@
 <form {{action 'addInvoice' on="submit"}} method="post">
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    {{input value=value type="number" required="true" id="invoice_value" classNames="mdl-textfield__input"}}
+    {{input value=value type="number" required=true id="invoice_value" classNames="mdl-textfield__input" step=0.01}}
     <label class="mdl-textfield__label" for="invoice_value">Valor</label>
   </div>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    {{input value=category id="invoice_category" classNames="mdl-textfield__input"}}
+    {{input value=category id="invoice_category" classNames="mdl-textfield__input" required=true}}
     <label class="mdl-textfield__label" for="invoice_category">Categoria</label>
+  </div>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    {{input value=description id="invoice_description" classNames="mdl-textfield__input"}}
+    <label class="mdl-textfield__label" for="invoice_description">Descrição</label>
+  </div>
+  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    {{input value=date id="invoice_date" classNames="mdl-textfield__input" required=true type="date"}}
+    <label class="mdl-textfield__label" for="invoice_date">Data</label>
   </div>
   <div>
     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="invoice_revenue">
