@@ -7,7 +7,12 @@ export default Ember.Mixin.create({
   filteredModel: Ember.computed('model', 'month', 'year', function() {
     var self = this;
     return this.get('model').filter(function(invoice) {
-      return invoice.get('dateMonth') === self.get('month') && invoice.get('dateYear') === self.get('year');
+      if(self.get('month')) {
+        return invoice.get('dateMonth') === self.get('month') && invoice.get('dateYear') === self.get('year');
+      }
+      else {
+        return invoice.get('dateYear') === self.get('year');
+      }
     });
   })
 });

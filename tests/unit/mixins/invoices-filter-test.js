@@ -29,4 +29,10 @@ test('it works', function(assert) {
     subject.set('year', "2014");
   });
   assert.equal(JSON.stringify(subject.get('filteredModel')), JSON.stringify([juneInvoice2014]));
+
+  Ember.run(function() {
+    subject.set('month', null);
+    subject.set('year', "2015");
+  });
+  assert.equal(JSON.stringify(subject.get('filteredModel')), JSON.stringify([juneInvoice, julyInvoice]));
 });
