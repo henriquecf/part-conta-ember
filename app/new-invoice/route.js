@@ -3,8 +3,8 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   actions: {
-    addInvoice: function(invoice) {
-      var invoice = this.store.createRecord('invoice', invoice);
+    addInvoice: function(invoiceFields) {
+      var invoice = this.store.createRecord('invoice', invoiceFields);
       invoice.save();
       this.transitionTo('dashboard');
     }
