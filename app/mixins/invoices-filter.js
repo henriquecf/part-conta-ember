@@ -4,8 +4,7 @@ export default Ember.Mixin.create({
   month: ["07"],
   year: ["2015"],
   
-  filteredModel: Ember.computed('model.[]', 'month', 'year', function() {
-    console.log("Running filteredModel");
+  filteredModel: Ember.computed('model.@each.dateMonth', 'model.@each.dateYear', 'month', 'year', function() {
     var self = this;
     var filteredInvoices = this.get('model');
     if(this.get('month')) {
