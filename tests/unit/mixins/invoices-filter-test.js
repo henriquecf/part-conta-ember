@@ -15,24 +15,30 @@ test('it works', function(assert) {
   
   Ember.run(function() {
     subject.set('model', [juneInvoice, julyInvoice, juneInvoice2014]);
-    subject.set('month', "07");
-    subject.set('year', "2015");
+    subject.set('month', ["07"]);
+    subject.set('year', ["2015"]);
   });
   assert.equal(JSON.stringify(subject.get('filteredModel')), JSON.stringify([julyInvoice]));
 
   Ember.run(function() {
-    subject.set('month', "06");
+    subject.set('month', ["06"]);
   });
   assert.equal(JSON.stringify(subject.get('filteredModel')), JSON.stringify([juneInvoice]));
 
   Ember.run(function() {
-    subject.set('year', "2014");
+    subject.set('year', ["2014"]);
   });
   assert.equal(JSON.stringify(subject.get('filteredModel')), JSON.stringify([juneInvoice2014]));
 
   Ember.run(function() {
     subject.set('month', null);
-    subject.set('year', "2015");
+    subject.set('year', ["2015"]);
   });
   assert.equal(JSON.stringify(subject.get('filteredModel')), JSON.stringify([juneInvoice, julyInvoice]));
+
+  Ember.run(function() {
+    subject.set('month', null);
+    subject.set('year', ["2014", "2015"]);
+  });
+  assert.equal(JSON.stringify(subject.get('filteredModel')), JSON.stringify([juneInvoice, julyInvoice, juneInvoice2014]));
 });
