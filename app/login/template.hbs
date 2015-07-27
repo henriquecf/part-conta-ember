@@ -4,4 +4,9 @@
   <label for="password">Password</label>
   {{input value=password placeholder='Enter Password' type='password'}}
   <button type="submit">Login</button>
+  {{#if loginFailed}}
+    <div class="error">
+      Usuário e/ou senha incorretos
+    </div>
+  {{/if}}
 </form>

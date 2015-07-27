@@ -6,7 +6,7 @@ export default Ember.Route.extend({
       var data = this.controllerFor('login').getProperties('identification', 'password');
       return this.get('session').authenticate('simple-auth-authenticator:oauth2-password-grant', data).
       then(null, function() {
-        alert("Error");
+        this.controllerFor('login').set('loginFailed', true);
       });
     }
   }
