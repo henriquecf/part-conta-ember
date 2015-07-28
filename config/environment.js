@@ -28,7 +28,7 @@ module.exports = function(environment) {
     },
     
     'simple-auth-oauth2': {
-      serverTokenEndpoint: 'http://localhost:3000/oauth/token',
+      serverTokenEndpoint: 'http://localhost:3000/oauth/token.json',
       serverTokenRevocationEndpoint: 'http://localhost:3000/oauth/revoke'
     },
   };
