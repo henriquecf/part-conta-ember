@@ -1,26 +1,13 @@
 <form {{action 'addInvoice' on="submit"}} method="post">
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    {{input value=value type="number" required=true id="invoice_value" classNames="mdl-textfield__input" step=0.01}}
-    <label class="mdl-textfield__label" for="invoice_value">Valor</label>
-  </div>
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    {{input value=category id="invoice_category" classNames="mdl-textfield__input" required=true}}
-    <label class="mdl-textfield__label" for="invoice_category">Categoria</label>
-  </div>
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    {{input value=description id="invoice_description" classNames="mdl-textfield__input"}}
-    <label class="mdl-textfield__label" for="invoice_description">Descrição</label>
-  </div>
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    {{input value=date id="invoice_date" classNames="mdl-textfield__input" required=true type="date"}}
-    <label class="mdl-textfield__label" for="invoice_date">Data</label>
-  </div>
+  {{mdl-textfield label='Valor' type='number' required=true value=value}}
   <div>
-    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="invoice_revenue">
-      {{input type="checkbox" checked=revenue id="invoice_revenue" classNames="mdl-checkbox__input"}}
-      <span class="mdl-checkbox__label">Ganho?</span>
-    </label>
+    {{#each categories as |categoryItem|}}
+      {{mdl-radio value=categoryItem label=categoryItem name=category}}
+    {{/each}}
   </div>
+  {{mdl-textfield label='Descrição' value=description}}
+  {{mdl-textfield label='Data' value=date required=true type="date"}}
+  {{mdl-checkbox value=revenue label='Ganho?'}}
   <div>
     {{input type="submit" value="Adcionar Conta" classNames="mdl-button mdl-js-button mdl-button--primary"}}
   </div>
