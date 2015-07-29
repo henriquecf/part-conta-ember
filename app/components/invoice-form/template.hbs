@@ -9,6 +9,16 @@
   {{mdl-textfield label='Data' value=date required=true type="date"}}
   {{mdl-checkbox value=revenue label='Ganho?'}}
   <div>
+    {{#each session.currentUser.groups as |groupItem|}}
+      {{mdl-radio value=groupItem.id label=groupItem.name name=group}}
+    {{/each}}
+  </div>
+  <div>
+    {{#each session.currentUser.allUsers as |userItem|}}
+      {{mdl-radio value=userItem.id label=userItem.name name=user}}
+    {{/each}}
+  </div>
+  <div>
     {{input type="submit" value="Adcionar Conta" classNames="mdl-button mdl-js-button mdl-button--primary"}}
   </div>
 </form>
