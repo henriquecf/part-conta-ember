@@ -7,6 +7,7 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('invoices');
+  this.route('invoice', {path: '/invoices/:id'});
   this.route('dashboard');
   this.route('new-invoice');
   this.route('login');

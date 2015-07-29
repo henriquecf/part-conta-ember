@@ -1,0 +1,6 @@
+<li class="mdl-list__item">
+  <div class="mdl-list__avatar avatar" id="{{invoice.categoryAbbrev}}">{{model.categoryAbbrev}}</div>
+  <h5 class="mdl-list__primary-text">{{model.description}}</h5>
+  <span style="float: right;">{{number-to-currency value=model.value isRevenue=model.revenue}}</span>
+  <section class="mdl-list__secondary-text">{{model.formattedDate}}</section>
+</li>
