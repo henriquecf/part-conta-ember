@@ -9,8 +9,9 @@ Router.map(function() {
   this.route('invoices');
   this.route('invoice', {path: '/invoices/:id'});
   this.route('dashboard');
-  this.route('new-invoice');
+  this.route('new-invoice', {path: '/invoices/new'});
   this.route('login');
+  this.route('edit-invoice', {path: '/invoices/:id/edit'});
 });
 
 export default Router;

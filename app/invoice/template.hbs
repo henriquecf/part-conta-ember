@@ -6,6 +6,7 @@
   {{#if showDetails}}
     <div>
       <button {{action 'deleteInvoice'}}>Apagar</button>
+      {{#link-to 'edit-invoice' model}}Editar{{/link-to}}
     </div>
   {{/if}}
 </li>
