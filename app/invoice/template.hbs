@@ -2,5 +2,10 @@
   <div class="mdl-list__avatar avatar" id="{{invoice.categoryAbbrev}}">{{model.categoryAbbrev}}</div>
   <h5 class="mdl-list__primary-text">{{model.description}}</h5>
   <span style="float: right;">{{number-to-currency value=model.value isRevenue=model.revenue}}</span>
-  <section class="mdl-list__secondary-text">{{model.formattedDate}}</section>
+  <section class="mdl-list__secondary-text">{{model.formattedDate}}<button {{action 'showMore'}}>Mais</button></section>
+  {{#if showDetails}}
+    <div>
+      <button {{action 'deleteInvoice'}}>Apagar</button>
+    </div>
+  {{/if}}
 </li>
