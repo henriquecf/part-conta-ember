@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   actions: {
     showMore: function() {
-      this.set('showDetails', true);
+      this.toggleProperty('showDetails');
     },
     
     deleteInvoice: function() {
