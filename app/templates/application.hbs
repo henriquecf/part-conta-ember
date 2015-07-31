@@ -1,13 +1,13 @@
 {{#md-sidenav classNames="site-sidenav md-sidenav-left md-whiteframe-z2"
             md-component-id="left"
             sidebarVisible=sidebarVisible
-            isLockedOpen = sidebarLocked}}
+            isLockedOpen=sidebarLocked}}
 
     {{#md-toolbar}}
         <h1 class="md-toolbar-tools">
             {{#link-to 'index' flex='' layoutType="row" class='docs-logo'}}
 
-                <div class="docs-logotype">Material Design</div>
+                <div class="docs-logotype">PartConta</div>
             {{/link-to}}
         </h1>
     {{/md-toolbar}}
@@ -33,18 +33,14 @@
     {{#md-toolbar}}
         <div class="md-toolbar-tools">
             {{#md-button class="md-icon-button" hide-gt-sm='' aria-label="Toggle Menu" action='toggleSidebar'}}
-                {{md-icon md-svg-src="images/icons/ic_menu_24px.svg"}}
+                {{md-icon md-svg-src="assets/images/icons/ic_menu_24px.svg"}}
             {{/md-button}}
 
             <div class="fill-height" flex layout="row">
                 <h2 class="md-toolbar-item md-breadcrumb">
                     <span>
-                        <span hide-sm hide-md>Demos</span>
-                        <span class="docs-menu-separator-icon" style="" hide-sm hide-md>
-                            <img src="images/docArrow.png" aria-hidden="true" alt="">
-                        </span>
+                        <span>Home</span>
                     </span>
-                    <span class="md-breadcrumb-page">{{demoName}}</span>
                 </h2>
             </div>
 
