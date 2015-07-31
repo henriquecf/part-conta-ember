@@ -18,5 +18,10 @@ export default Ember.Mixin.create({
     this._super(controller, model);
     controller.set('categories', this.get('categories'));
     controller.set('revenue', this.get('revenue'));
+    if(model) {
+      controller.setProperties({value: model.get('value'), category: model.get('category'),
+                                revenue: model.get('revenue'),
+                                description: model.get('description'), date: model.get('date')});
+    }
   }
 });
