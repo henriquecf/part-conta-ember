@@ -1,3 +1,1 @@
-{{#each groupedInvoices as |type|}}
-  <div>{{type.name}}: {{type.sumValue}}</div>
-{{/each}}
+{{ember-chart type="Pie" data=groupedInvoices legend=true}}

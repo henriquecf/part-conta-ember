@@ -23,7 +23,7 @@ export default Ember.Component.extend({
         grouped[invoice.get(field)].sumValue += value;
       }
       else {
-        grouped[invoice.get(field)] = {name: invoice.get(fieldName), sumValue: value};
+        grouped[invoice.get(field)] = {label: invoice.get(fieldName), value: value, color: "teal"};
       }
       totalValue += value;
     });
