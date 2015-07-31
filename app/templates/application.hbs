@@ -1,52 +1,65 @@
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-  <header class="mdl-layout__header">
-    <div class="mdl-layout__header-row">
-      <span class="mdl-layout-title">Home</span>
-      <div class="mdl-layout-spacer"></div>
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-          <i class="material-icons">search</i>
-        </label>
-        <div class="mdl-textfield__expandable-holder">
-          <input class="mdl-textfield__input" type="text" id="search" />
-          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+{{#md-sidenav classNames="site-sidenav md-sidenav-left md-whiteframe-z2"
+            md-component-id="left"
+            sidebarVisible=sidebarVisible
+            isLockedOpen = sidebarLocked}}
+
+    {{#md-toolbar}}
+        <h1 class="md-toolbar-tools">
+            {{#link-to 'index' flex='' layoutType="row" class='docs-logo'}}
+
+                <div class="docs-logotype">Material Design</div>
+            {{/link-to}}
+        </h1>
+    {{/md-toolbar}}
+    <md-content flex>
+        <ul class="docs-menu">
+            {{#link-to 'dashboard' activeClass="parentActive" tagName='li'}}
+                {{#link-to 'dashboard' class="md-button"}}Home{{/link-to}}
+            {{/link-to}}
+
+            {{#link-to 'invoices' activeClass="parentActive" tagName='li'}}
+                {{#link-to 'invoices' class="md-button"}}Contas{{/link-to}}
+            {{/link-to}}
+
+            {{#link-to 'new-invoice' activeClass='parentActive' tagName='li'}}
+                {{#link-to 'new-invoice' class="md-button"}}Nova conta{{/link-to}}
+            {{/link-to}}
+        </ul>
+    </md-content>
+
+{{/md-sidenav}}
+
+<div layout="column" role="main" flex tabindex="-1">
+    {{#md-toolbar}}
+        <div class="md-toolbar-tools">
+            {{#md-button class="md-icon-button" hide-gt-sm='' aria-label="Toggle Menu" action='toggleSidebar'}}
+                {{md-icon md-svg-src="images/icons/ic_menu_24px.svg"}}
+            {{/md-button}}
+
+            <div class="fill-height" flex layout="row">
+                <h2 class="md-toolbar-item md-breadcrumb">
+                    <span>
+                        <span hide-sm hide-md>Demos</span>
+                        <span class="docs-menu-separator-icon" style="" hide-sm hide-md>
+                            <img src="images/docArrow.png" aria-hidden="true" alt="">
+                        </span>
+                    </span>
+                    <span class="md-breadcrumb-page">{{demoName}}</span>
+                </h2>
+            </div>
+
+            <span flex></span>
+
+            <div class="md-toolbar-item md-tools docs-tools" layout="column" layout-gt-md="row">
+
+            </div>
+
         </div>
-      </div>
-      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
-        <i class="material-icons">more_vert</i>
-      </button>
-      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-        <li class="mdl-menu__item">About</li>
-        <li class="mdl-menu__item">Contact</li>
-        <li class="mdl-menu__item">Legal information</li>
-      </ul>
-    </div>
-  </header>
-  <div class="mdl-layout__drawer">
-    <header>
-    </header>
-    <nav class="mdl-navigation">
-      {{#link-to 'dashboard' classNames="mdl-navigation__link"}}
-        Home
-      {{/link-to}}
-      {{#link-to 'invoices' classNames="mdl-navigation__link"}}
-        Contas
-      {{/link-to}}
-      {{#link-to 'new-invoice' classNames="mdl-navigation__link"}}
-        Nova Conta
-      {{/link-to}}
-    </nav>
-  </div>
-  <main class="mdl-layout__content mdl-color--grey-100">
-    <div class="mdl-grid">
-      {{#if session.isAuthenticated}}
-        <a {{ action 'invalidateSession' }}>Logout</a>
-      {{else}}
-        {{#link-to 'login'}}Login{{/link-to}}
-      {{/if}}
-    </div>
-    <div class="mdl-grid">
-      {{outlet}}
-    </div>
-  </main>
+    {{/md-toolbar}}
+
+    <md-content class="md-padding" md-scroll-y flex>
+        {{outlet}}
+    </md-content>
+
+
 </div>
