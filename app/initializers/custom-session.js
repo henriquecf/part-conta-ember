@@ -11,7 +11,7 @@ export default {
         var self = this;
 
         if (!Ember.isEmpty(accessToken)) {
-          return container.lookup('store:main').find('user', 'me').then(function(user) {
+          return container.lookup('service:store').find('user', 'me').then(function(user) {
             self.set('content.currentUser', user);
           });
         }

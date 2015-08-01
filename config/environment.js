@@ -24,6 +24,8 @@ module.exports = function(environment) {
     
     contentSecurityPolicy: {
       'connect-src': "'self' localhost:3000 si-staged.herokuapp.com sharedinvoices.herokuapp.com",
+      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",
+      'font-src': "'self' fonts.gstatic.com"
     },
     
     'simple-auth': {
