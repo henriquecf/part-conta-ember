@@ -7,7 +7,8 @@ export default Ember.Mixin.create({
   
   actions: {
     addInvoice: function() {
-      var invoiceFields = this.controller.getProperties('value', 'category', 'revenue', 'description', 'date');
+      var invoiceFields = this.controller.getProperties('value', 'category', 'revenue', 
+                                                        'description', 'date', 'user', 'group');
       var invoice = this.store.createRecord('invoice', invoiceFields);
       invoice.save();
       this.transitionTo('dashboard');
@@ -20,8 +21,9 @@ export default Ember.Mixin.create({
     controller.set('revenue', this.get('revenue'));
     if(model) {
       controller.setProperties({value: model.get('value'), category: model.get('category'),
-                                revenue: model.get('revenue'),
-                                description: model.get('description'), date: model.get('date')});
+                                revenue: model.get('revenue'), user: model.get('user'),
+                                description: model.get('description'), date: model.get('date'),
+                                group: model.get('group')});
     }
   }
 });

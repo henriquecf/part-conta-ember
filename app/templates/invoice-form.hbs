@@ -24,14 +24,14 @@
   <div>
     {{#each session.currentUser.groups as |groupItem|}}
       {{#md-radio-button value=groupItem selected=group class="md-primary"}}
-        {{groupItem}}
+        {{groupItem.name}}
       {{/md-radio-button}}
     {{/each}}
   </div>
   <div>
     {{#each session.currentUser.allUsers as |userItem|}}
       {{#md-radio-button value=userItem selected=user class="md-primary"}}
-        {{userItem}}
+        {{userItem.name}}
       {{/md-radio-button}}
     {{/each}}
   </div>
