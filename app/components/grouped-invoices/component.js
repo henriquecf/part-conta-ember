@@ -20,7 +20,7 @@ export default Ember.Component.extend({
     this.get('_expensesOrRevenue').forEach(function(invoice) {
       var value = Number(invoice.get('value'));
       if(invoice.get(field) in grouped) {
-        grouped[invoice.get(field)].sumValue += value;
+        grouped[invoice.get(field)].value += value;
       }
       else {
         var colorsHash = {"Alimentação": "#ef6c00","Educação": "#304ffe", "Lazer": "#558b2f",

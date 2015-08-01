@@ -19,14 +19,14 @@ test('it renders', function(assert) {
     component.set('groupByField', 'category');
   });
 
-  assert.equal(JSON.stringify(component.get('groupedInvoices')),JSON.stringify([{name: 'test', sumValue: 44}]));
+  assert.equal(JSON.stringify(component.get('groupedInvoices')),JSON.stringify([{label: 'test', value: 44, color: "grey"}]));
   assert.equal(component.get('totalValue'), 44);
     
   Ember.run(function() {
     component.set('isRevenue', true);
   });
 
-  assert.equal(JSON.stringify(component.get('groupedInvoices')),JSON.stringify([{name: 'test2', sumValue: 156}]));
+  assert.equal(JSON.stringify(component.get('groupedInvoices')),JSON.stringify([{label: 'test2', value: 156, color: "grey"}]));
   assert.equal(component.get('totalValue'), 156);
     
   Ember.run(function() {
@@ -34,7 +34,8 @@ test('it renders', function(assert) {
     component.set('groupByField', 'description');
   });
 
-  assert.equal(JSON.stringify(component.get('groupedInvoices')),JSON.stringify([{name: 'desc', sumValue: 40.5}, {name: 'desc2', sumValue: 3.5}]));
+  assert.equal(JSON.stringify(component.get('groupedInvoices')),JSON.stringify([{label: 'desc', value: 40.5, color: "grey"}, 
+                                                                                {label: 'desc2', value: 3.5, color: "grey"}]));
   assert.equal(component.get('totalValue'), 44);
     
   var group = Ember.Object.create({name: 'group'});
@@ -44,6 +45,6 @@ test('it renders', function(assert) {
     component.set('fieldName', 'group.name');
   });
 
-  assert.equal(JSON.stringify(component.get('groupedInvoices')),JSON.stringify([{name: 'group', sumValue: 156}]));
+  assert.equal(JSON.stringify(component.get('groupedInvoices')),JSON.stringify([{label: 'group', value: 156, color: "grey"}]));
   assert.equal(component.get('totalValue'), 156);
 });
