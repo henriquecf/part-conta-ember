@@ -1,7 +1,7 @@
 <form {{action 'addInvoice' on="submit"}} method="post">
   {{#md-input-container value=value}}
       <label>Valor</label>
-      {{md-input type="number" required="required"}}
+      {{md-input type="number" required="required" step=0.01}}
   {{/md-input-container}}
   <div>
     {{#each categories as |categoryItem|}}

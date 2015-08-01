@@ -25,5 +25,9 @@ export default Ember.Mixin.create({
                                 description: model.get('description'), date: model.get('date'),
                                 group: model.get('group')});
     }
+    else {
+      controller.setProperties({value: null, category: null, revenue: null, date: null, 
+                                description: null, user: null, group: null});
+    }
   }
 });
