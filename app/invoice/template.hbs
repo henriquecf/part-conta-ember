@@ -1,12 +1,12 @@
-<li class="mdl-list__item">
-  <div class="mdl-list__avatar avatar" id="{{invoice.categoryAbbrev}}">{{model.categoryAbbrev}}</div>
-  <h5 class="mdl-list__primary-text">{{model.description}}</h5>
-  <span style="float: right;">{{number-to-currency value=model.value isRevenue=model.revenue}}</span>
-  <section class="mdl-list__secondary-text">{{model.formattedDate}}<button {{action 'showMore'}}>Mais</button></section>
-  {{#if showDetails}}
-    <div>
-      <button {{action 'deleteInvoice'}}>Apagar</button>
-      {{#link-to 'edit-invoice' model}}Editar{{/link-to}}
+{{#md-list-item class="md-3-line"}}
+    <img class="md-avatar" src="{{model.user.image}}" alt="{{model.user.name}}">
+    <div class="md-list-item-text">
+      <h3>{{number-to-currency value=model.value isRevenue=model.revenue}}</h3>
+      <h4>{{model.description}}</h4>
+      <p>
+        {{model.formattedDate}}
+        <button {{action 'deleteInvoice'}}>Apagar</button>
+        {{#link-to 'edit-invoice' model}}Editar{{/link-to}}
+      </p>
     </div>
-  {{/if}}
-</li>
+{{/md-list-item}}
