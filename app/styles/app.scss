@@ -1,5 +1,15 @@
 @import "ember-material-design";
 
+.revenue {
+  color: #80cbc4;
+  float: right;
+}
+
+.expense {
+  color: #E57373;
+  float: right;
+}
+
 .hide { display: none !important; }
 
 html {

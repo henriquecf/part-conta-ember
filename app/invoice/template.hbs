@@ -1,7 +1,10 @@
 {{#md-list-item class="md-3-line"}}
     <img class="md-avatar" src="{{model.user.image}}" alt="{{model.user.name}}">
     <div class="md-list-item-text">
-      <h3>{{number-to-currency value=model.value isRevenue=model.revenue}}</h3>
+      <h3>
+        {{model.category}}
+        {{number-to-currency value=model.value isRevenue=model.revenue}}
+      </h3>
       <h4>{{model.description}}</h4>
       <p>
         {{model.formattedDate}}
