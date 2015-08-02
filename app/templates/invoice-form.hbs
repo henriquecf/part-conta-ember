@@ -1,4 +1,4 @@
-<form {{action 'addInvoice' on="submit"}} method="post">
+<form {{action addOrEdit on="submit"}} method="post">
   {{#md-input-container value=value}}
       <label>Valor</label>
       {{md-input type="number" required="required" step=0.01}}
@@ -36,6 +36,6 @@
     {{/each}}
   </div>
   <div>
-    {{#md-button type="submit" classNames="md-primary"}}Adcionar Conta{{/md-button}}
+    {{#md-button type="submit" classNames="md-primary"}}Salvar{{/md-button}}
   </div>
 </form>
