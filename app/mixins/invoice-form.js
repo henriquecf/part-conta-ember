@@ -23,6 +23,12 @@ export default Ember.Mixin.create({
       this.transitionTo('dashboard');
     }
   },
+  
+  beforeModel: function(transition) {
+    if(transition.queryParams.revenue) {
+      this.set('revenue', true);
+    }
+  },
     
   setupController: function(controller, model) {
     this._super(controller, model);
@@ -37,7 +43,7 @@ export default Ember.Mixin.create({
       addOrEdit = "editInvoice";
     }
     else {
-      controller.setProperties({value: null, category: null, revenue: null, date: null, 
+      controller.setProperties({value: null, category: null, date: null, 
                                 description: null, user: null, group: null});
     }
     controller.set('addOrEdit', addOrEdit);
