@@ -7,6 +7,12 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     invalidateSession: function() {
       this.get('session').invalidate();
       this.transitionTo('/');
+    },
+    newRevenue: function() {
+      this.transitionTo('new-invoice', {queryParams: {revenue: true}});
+    },
+    newExpense: function() {
+      this.transitionTo('new-invoice', {queryParams: {revenue: false}});
     }
   },
   

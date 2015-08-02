@@ -28,6 +28,9 @@ export default Ember.Mixin.create({
     if(transition.queryParams.revenue) {
       this.set('revenue', true);
     }
+    else {
+      this.set('revenue', false);
+    }
   },
     
   setupController: function(controller, model) {
