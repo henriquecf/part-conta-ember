@@ -49,6 +49,12 @@ export default Ember.Mixin.create({
       controller.setProperties({value: null, category: null, date: null, 
                                 description: null, user: null, group: null});
     }
+    if(controller.get('revenue')) {
+      controller.set('expenseOrRevenue', 'ganho');
+    }
+    else {
+      controller.set('expenseOrRevenue', 'gasto');
+    }
     controller.set('addOrEdit', addOrEdit);
   }
 });
