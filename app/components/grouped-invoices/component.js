@@ -4,6 +4,7 @@ export default Ember.Component.extend({
   totalValue: 0,
   isRevenue: false,
   fieldName: null,
+  showGraph: true,
   
   _expensesOrRevenue: Ember.computed('list', 'isRevenue', function() {
     var self = this;
@@ -38,6 +39,7 @@ export default Ember.Component.extend({
       totalValue += value;
     });
     this.set('totalValue', totalValue);
-    return Object.keys(grouped).map(function(key) { return grouped[key]; });
+    var groupedList = Object.keys(grouped).map(function(key) { return grouped[key]; });
+    return groupedList.sortBy(['value']).reverse();
   })
 });
