@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import moment from 'moment';
 
 export default Ember.Mixin.create({
   revenue: false,
@@ -46,7 +47,7 @@ export default Ember.Mixin.create({
       addOrEdit = "editInvoice";
     }
     else {
-      controller.setProperties({value: null, category: null, date: null, 
+      controller.setProperties({value: null, category: null, date: moment().format('DD/MM/YYYY'), 
                                 description: null, user: null, group: null});
     }
     if(controller.get('revenue')) {
