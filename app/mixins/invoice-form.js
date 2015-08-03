@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Mixin.create({
   revenue: false,
   categories: ["Alimentação", "Educação", "Lazer", "Moradia", "Roupas e Acessórios", "Saúde e Beleza", 
-               "Transporte", "Diversos", "Receita"],
+               "Transporte", "Diversos"],
   
   actions: {
     addInvoice: function() {
@@ -51,6 +51,7 @@ export default Ember.Mixin.create({
     }
     if(controller.get('revenue')) {
       controller.set('expenseOrRevenue', 'ganho');
+      controller.set('category', 'Receita');
     }
     else {
       controller.set('expenseOrRevenue', 'gasto');
