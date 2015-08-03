@@ -17,9 +17,9 @@ export default Ember.Component.extend({
     var totalValue = 0;
     var field = this.get('groupByField');
     var fieldName = this.get('fieldName') || field;
-    var colorsHash = {"Alimentação": "#ef6c00","Educação": "#304ffe", "Lazer": "#558b2f",
-                      "Moradia": "#8d6e63", "Roupas e Acessórios": "#6200ea",
-                      "Transporte": "#ff5252", "Diversos": "#d500f9", "Saúde e Beleza": "#E57373"};
+    var colorsHash = {"Alimentação": "#ff9100","Educação": "#4527a0", "Lazer": "#536dfe",
+                          "Moradia": "#795548", "Roupas e Acessórios": "#c51162",
+                          "Transporte": "#1565c0", "Diversos": "#78909c", "Saúde e Beleza": "43a047"};
     this.get('_expensesOrRevenue').forEach(function(invoice) {
       var value = Number(invoice.get('value'));
       if(invoice.get(field) in grouped) {
