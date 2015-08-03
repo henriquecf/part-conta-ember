@@ -2,6 +2,10 @@ $primary: "teal";
 
 @import "ember-material-design";
 
+md-toolbar {
+  color: $light-contrast-color;
+}
+
 .revenue {
   color: #80cbc4;
   float: right;
