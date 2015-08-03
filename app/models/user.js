@@ -5,6 +5,7 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   image: DS.attr('string'),
   email: DS.attr('string'),
+  color: DS.attr('string'),
   groups: DS.hasMany('group'),
   users: DS.hasMany('user'),
   
