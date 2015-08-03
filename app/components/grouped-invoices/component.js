@@ -25,7 +25,7 @@ export default Ember.Component.extend({
       else {
         var colorsHash = {"Alimentação": "#ef6c00","Educação": "#304ffe", "Lazer": "#558b2f",
                           "Moradia": "#8d6e63", "Roupas e Acessórios": "#6200ea",
-                          "Transporte": "#ff5252", "Diversos": "#d500f9", "Receita": "#43a047"};
+                          "Transporte": "#ff5252", "Diversos": "#d500f9", "Saúde e Beleza": "#E57373"};
         var color = colorsHash[invoice.get(fieldName)] || "grey";
         grouped[invoice.get(field)] = {label: invoice.get(fieldName), value: value, color: color};
       }

@@ -1,9 +1,10 @@
 import Ember from 'ember';
+import moment from 'moment';
 
 export default Ember.Mixin.create({
   revenue: false,
   categories: ["Alimentação", "Educação", "Lazer", "Moradia", "Roupas e Acessórios", "Saúde e Beleza", 
-               "Transporte", "Diversos", "Receita"],
+               "Transporte", "Diversos"],
   
   actions: {
     addInvoice: function() {
@@ -46,8 +47,15 @@ export default Ember.Mixin.create({
       addOrEdit = "editInvoice";
     }
     else {
-      controller.setProperties({value: null, category: null, date: null, 
+      controller.setProperties({value: null, category: null, date: moment().format('DD/MM/YYYY'), 
                                 description: null, user: null, group: null});
+    }
+    if(controller.get('revenue')) {
+      controller.set('expenseOrRevenue', 'ganho');
+      controller.set('category', 'Receita');
+    }
+    else {
+      controller.set('expenseOrRevenue', 'gasto');
     }
     controller.set('addOrEdit', addOrEdit);
   }

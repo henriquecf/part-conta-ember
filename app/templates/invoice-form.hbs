@@ -3,13 +3,15 @@
       <label>Valor</label>
       {{md-input type="number" required="required" step=0.01}}
   {{/md-input-container}}
-  <div>
-    {{#each categories as |categoryItem|}}
-      {{#md-radio-button value=categoryItem selected=category class="md-primary"}}
-        {{categoryItem}}
-      {{/md-radio-button}}
-    {{/each}}
-  </div>
+  {{#unless revenue}}
+    <div>
+      {{#each categories as |categoryItem|}}
+        {{#md-radio-button value=categoryItem selected=category class="md-primary"}}
+          {{categoryItem}}
+        {{/md-radio-button}}
+      {{/each}}
+    </div>
+  {{/unless}}
   {{#md-input-container value=description}}
       <label>Descrição</label>
       {{md-input}}
@@ -18,9 +20,6 @@
       <label>Data</label>
       {{md-input type="date" required="required"}}
   {{/md-input-container}}
-  {{#md-checkbox checked=revenue aria-label="Ganho?"}}
-      Ganho?
-  {{/md-checkbox}}
   <div>
     {{#each session.currentUser.groups as |groupItem|}}
       {{#md-radio-button value=groupItem selected=group class="md-primary"}}

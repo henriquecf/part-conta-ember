@@ -20,6 +20,9 @@
             {{#link-to 'invoices' activeClass="parentActive" tagName='li'}}
                 {{#link-to 'invoices' class="md-button"}}Contas{{/link-to}}
             {{/link-to}}
+            {{#if session.isAuthenticated}}
+              <button {{action 'invalidateSession'}}>Desconectar</button>
+            {{/if}}
         </ul>
     </md-content>
 
@@ -50,7 +53,7 @@
     {{/md-toolbar}}
 
     <md-content class="md-padding" md-scroll-y layout="row" layout-wrap>
-        {{outlet}}
+      {{outlet}}
     </md-content>
 
 
