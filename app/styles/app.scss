@@ -1,6 +1,11 @@
 $primary: "teal";
+$accent: "indigo";
 
 @import "ember-material-design";
+
+md-toolbar {
+  color: $light-contrast-color;
+}
 
 .revenue {
   color: #80cbc4;
@@ -642,4 +647,10 @@ ul.methods > li:first-child > *:first-child {
 }
 demo-source-tabs md-tabs-content-wrapper {
   height: 400px;
+}
+
+/* Avatar */
+.md-avatar {
+  line-height: 40px;
+  text-align: center;
 }
