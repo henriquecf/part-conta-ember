@@ -4,13 +4,14 @@
       {{md-input type="number" required="required" step=0.01}}
   {{/md-input-container}}
   {{#unless revenue}}
-    <div>
-      {{#each categories as |categoryItem|}}
-        {{#md-radio-button value=categoryItem selected=category class="md-primary"}}
-          {{categoryItem}}
-        {{/md-radio-button}}
-      {{/each}}
-    </div>
+    {{#each categories as |categoryItem|}}
+      {{#md-radio-button value=categoryItem selected=category class="md-primary"}}
+        {{categoryItem}}
+      {{/md-radio-button}}
+    {{/each}}
+    {{#if error}}
+      <span class="md-caption" style="color: red;">{{error}}</span>
+    {{/if}}
   {{/unless}}
   {{#md-input-container value=description}}
       <label>Descrição</label>
@@ -20,21 +21,15 @@
       <label>Data</label>
       {{md-input type="date" required="required"}}
   {{/md-input-container}}
-  <div>
-    {{#each session.currentUser.groups as |groupItem|}}
-      {{#md-radio-button value=groupItem selected=group class="md-primary"}}
-        {{groupItem.name}}
-      {{/md-radio-button}}
-    {{/each}}
-  </div>
-  <div>
-    {{#each session.currentUser.allUsers as |userItem|}}
-      {{#md-radio-button value=userItem selected=user class="md-primary"}}
-        {{userItem.name}}
-      {{/md-radio-button}}
-    {{/each}}
-  </div>
-  <div>
-    {{#md-button type="submit" classNames="md-primary"}}Salvar{{/md-button}}
-  </div>
+  {{#each session.currentUser.groups as |groupItem|}}
+    {{#md-radio-button value=groupItem selected=group class="md-primary"}}
+      {{groupItem.name}}
+    {{/md-radio-button}}
+  {{/each}}
+  {{#each session.currentUser.allUsers as |userItem|}}
+    {{#md-radio-button value=userItem selected=user class="md-primary"}}
+      {{userItem.name}}
+    {{/md-radio-button}}
+  {{/each}}
+  {{#md-button type="submit" classNames="md-primary"}}Salvar{{/md-button}}
 </form>

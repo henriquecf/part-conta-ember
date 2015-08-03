@@ -10,9 +10,14 @@ export default Ember.Mixin.create({
     addInvoice: function() {
       var invoiceFields = this.controller.getProperties('value', 'category', 'revenue', 
                                                         'description', 'date', 'user', 'group');
-      var invoice = this.store.createRecord('invoice', invoiceFields);
-      invoice.save();
-      this.transitionTo('dashboard');
+      if(invoiceFields.category) {
+        var invoice = this.store.createRecord('invoice', invoiceFields);
+        invoice.save();
+        this.transitionTo('dashboard');
+      }
+      else{
+        this.controller.set('error', 'Escolha uma categoria');
+      }
     },
     
     editInvoice: function() {
