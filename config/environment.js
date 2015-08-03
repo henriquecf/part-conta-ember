@@ -1,5 +1,8 @@
 /* jshint node: true */
 
+var prodApiHost = "sharedinvoices.herokuapp.com";
+var devApiHost = "localhost:3000";
+
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'part-conta-ember',
@@ -23,19 +26,12 @@ module.exports = function(environment) {
     },
     
     contentSecurityPolicy: {
-      'connect-src': "'self' localhost:3000 si-staged.herokuapp.com sharedinvoices.herokuapp.com",
       'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",
       'font-src': "'self' fonts.gstatic.com"
     },
     
     'simple-auth': {
       authorizer: 'simple-auth-authorizer:oauth2-bearer',
-      crossOriginWhitelist: ['http://localhost:3000']
-    },
-    
-    'simple-auth-oauth2': {
-      serverTokenEndpoint: 'http://localhost:3000/oauth/token.json',
-      serverTokenRevocationEndpoint: 'http://localhost:3000/oauth/revoke'
     },
   };
 
@@ -47,7 +43,14 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV['ember-cli-mirage'] = {
       enabled: false
-    }
+    };
+    ENV['simple-auth'].crossOriginWhitelist = ['http://' + devApiHost];
+    ENV['simple-auth-oauth2'] = {
+      serverTokenEndpoint: 'http://' + devApiHost + '/oauth/token.json',
+      serverTokenRevocationEndpoint: 'http://' + devApiHost +'/oauth/revoke'
+    };
+    ENV.contentSecurityPolicy['connect-src'] = "'self' " + devApiHost;
+    ENV.apiHost = 'http://' + devApiHost;
   }
 
   if (environment === 'test') {
@@ -63,7 +66,13 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV['simple-auth'].crossOriginWhitelist = ['https://' + prodApiHost];
+    ENV['simple-auth-oauth2'] = {
+      serverTokenEndpoint: 'https://' + prodApiHost + '/oauth/token.json',
+      serverTokenRevocationEndpoint: 'https://' + prodApiHost +'/oauth/revoke'
+    };
+    ENV.contentSecurityPolicy['connect-src'] = "'self' " + prodApiHost;
+    ENV.apiHost = 'https://' + prodApiHost;
   }
 
   return ENV;

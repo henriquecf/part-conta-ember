@@ -6,7 +6,6 @@
     {{#md-toolbar}}
         <h1 class="md-toolbar-tools">
             {{#link-to 'index' flex='' layoutType="row" class='docs-logo'}}
-
                 <div class="docs-logotype">PartConta</div>
             {{/link-to}}
         </h1>
@@ -20,6 +19,11 @@
             {{#link-to 'invoices' activeClass="parentActive" tagName='li'}}
                 {{#link-to 'invoices' class="md-button"}}Contas{{/link-to}}
             {{/link-to}}
+
+            {{#link-to 'reports' activeClass="parentActive" tagName='li'}}
+                {{#link-to 'reports' class="md-button"}}Relatórios{{/link-to}}
+            {{/link-to}}
+            
             {{#if session.isAuthenticated}}
               <button {{action 'invalidateSession'}}>Desconectar</button>
             {{/if}}
