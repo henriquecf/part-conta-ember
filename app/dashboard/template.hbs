@@ -11,8 +11,11 @@
     <md-card-content>
       <h2 class="md-title">Últimas contas</h2>
       <p>
-        {{invoices-list list=filteredModel list-size=5}}
+        {{invoices-list list=filteredModel list-size=3}}
       </p>
+      <div class="md-actions" layout="row" layout-align="end center">
+        {{#link-to 'invoices'}}{{#md-button}}Ver todas{{/md-button}}{{/link-to}}
+      </div>
     </md-card-content>
 </md-card>
 
