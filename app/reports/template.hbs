@@ -1,0 +1,44 @@
+<md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
+    <md-card-content>
+      <h2 class="md-title">Despesas por categoria</h2>
+      <p>
+        {{grouped-invoices list=filteredModel groupByField="category"}}
+      </p>
+    </md-card-content>
+</md-card>
+
+<md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
+    <md-card-content>
+      <h2 class="md-title">Despesas por grupo</h2>
+      <p>
+        {{grouped-invoices list=filteredModel groupByField="group" fieldName="group.name"}}
+      </p>
+    </md-card-content>
+</md-card>
+
+<md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
+    <md-card-content>
+      <h2 class="md-title">Ganhos por grupo</h2>
+      <p>
+        {{grouped-invoices list=filteredModel groupByField="group" fieldName="group.name" isRevenue=true}}
+      </p>
+    </md-card-content>
+</md-card>
+
+<md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
+    <md-card-content>
+      <h2 class="md-title">Despesas por usuário</h2>
+      <p>
+        {{grouped-invoices list=filteredModel groupByField="user" fieldName="user.name"}}
+      </p>
+    </md-card-content>
+</md-card>
+
+<md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
+    <md-card-content>
+      <h2 class="md-title">Ganhos por usuário</h2>
+      <p>
+        {{grouped-invoices list=filteredModel groupByField="user" fieldName="user.name" isRevenue=true}}
+      </p>
+    </md-card-content>
+</md-card>
