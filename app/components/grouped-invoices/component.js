@@ -17,16 +17,22 @@ export default Ember.Component.extend({
     var totalValue = 0;
     var field = this.get('groupByField');
     var fieldName = this.get('fieldName') || field;
+    var colorsHash = {"Alimentação": "#ef6c00","Educação": "#304ffe", "Lazer": "#558b2f",
+                      "Moradia": "#8d6e63", "Roupas e Acessórios": "#6200ea",
+                      "Transporte": "#ff5252", "Diversos": "#d500f9", "Saúde e Beleza": "#E57373"};
     this.get('_expensesOrRevenue').forEach(function(invoice) {
       var value = Number(invoice.get('value'));
       if(invoice.get(field) in grouped) {
         grouped[invoice.get(field)].value += value;
       }
       else {
-        var colorsHash = {"Alimentação": "#ef6c00","Educação": "#304ffe", "Lazer": "#558b2f",
-                          "Moradia": "#8d6e63", "Roupas e Acessórios": "#6200ea",
-                          "Transporte": "#ff5252", "Diversos": "#d500f9", "Saúde e Beleza": "#E57373"};
-        var color = colorsHash[invoice.get(fieldName)] || "grey";
+        var color;
+        if(field === "user" || field === "group") {
+          color = invoice.get(field + '.color') || "grey"; 
+        }
+        else {
+          color = colorsHash[invoice.get(field)] || "grey";
+        }
         grouped[invoice.get(field)] = {label: invoice.get(fieldName), value: value, color: color};
       }
       totalValue += value;
