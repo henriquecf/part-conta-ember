@@ -8,7 +8,7 @@ module.exports = function(environment) {
     modulePrefix: 'part-conta-ember',
     environment: environment,
     baseURL: '/',
-    locationType: 'auto',
+    defaultLocationType: 'auto',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -33,14 +33,20 @@ module.exports = function(environment) {
     'simple-auth': {
       authorizer: 'simple-auth-authorizer:oauth2-bearer',
     },
+    
+    cordova: {
+      rebuildOnChange: false,
+      emulate: false,
+      platform: 'android'
+    }
   };
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
+    ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV['ember-cli-mirage'] = {
       enabled: false
     };
