@@ -9,8 +9,14 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     else if(params.type === 'user') {
       this.setProperties({groupByField: 'user', fieldName: 'user.name', type: 'usuário'});
     }
+    else{
+      this.setProperties({groupByField: 'category', fieldName: null, type: 'categoria'});
+    }
     if(params.revenue === 'revenue') {
       this.setProperties({isRevenue: true, revenueOrExpense: 'Ganhos'});
+    }
+    else {
+      this.setProperties({isRevenue: false, revenueOrExpense: 'Despesas'});
     }
     return this.store.findAll('invoice');
   },
