@@ -1,7 +1,7 @@
 <form {{action addOrEdit on="submit"}} method="post">
   {{#md-input-container value=value}}
       <label>Valor</label>
-      {{md-input type="number" required="required" step=0.01}}
+      {{md-input type="number" required="required" step=0.01 autofocus=true}}
   {{/md-input-container}}
   {{#unless revenue}}
     {{#each categories as |categoryItem|}}
