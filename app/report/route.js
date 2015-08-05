@@ -4,7 +4,7 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model: function(params) {
     if(params.type === 'group') {
-      this.setProperties({groupByField: 'group', fieldName: 'group.name', type: 'grupo'});
+      this.setProperties({groupByField: 'group', fieldName: 'group.name', type: 'grupo', });
     }
     else if(params.type === 'user') {
       this.setProperties({groupByField: 'user', fieldName: 'user.name', type: 'usuário'});

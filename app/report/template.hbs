@@ -1,10 +1,17 @@
 <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
     <md-card-content>
-      <h2 class="md-title">{{revenueOrExpense}} por {{type}}</h2>
+      <h2 class="md-title">{{revenueOrExpense}} por {{typeStr}}</h2>
       <p>
         {{grouped-invoices list=filteredModel groupByField=groupByField fieldName=fieldName isRevenue=isRevenue}}
       </p>
     </md-card-content>
 </md-card>
 
-{{outlet}}
+<md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
+    <md-card-content>
+      <h2 class="md-title">{{value}}</h2>
+      <p>
+        {{grouped-invoices list=filteredByTypeModel groupByField="description" isRevenue=isRevenue showGraph=false}}
+      </p>
+    </md-card-content>
+</md-card>
