@@ -1,6 +1,5 @@
 import Ember from 'ember';
 import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
-import moment from 'moment';
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
   actions: {
@@ -14,12 +13,16 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     newExpense: function() {
       this.transitionTo('new-invoice', {queryParams: {revenue: false}});
     },
-    willTransition: function() {
+    willTransition: function(transition) {
+      var month = transition.router.state.queryParams.month;
+      var year = transition.router.state.queryParams.year;
+      if(month) {
+        transition.queryParams.month = month;
+      }
+      if(year) {
+        transition.queryParams.year = year;
+      }
       this.controller.set('sidebarVisible', false);
     }
-  },
-  
-  beforeModel() {
-    moment.locale('pt');
   }
 });
