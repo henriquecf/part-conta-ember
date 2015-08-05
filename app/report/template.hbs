@@ -10,7 +10,18 @@
 {{#if typeValue}}
   <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
     <md-card-content>
-      <h2 class="md-title">{{typeValue}}</h2>
+      <h2 class="md-title">{{typeValue}} - <small>{{byTypePercentage}}%</small></h2>
+      <p>
+        {{revenueOrExpense}} {{number-to-currency value=filteredByTypeValuesSum isRevenue=isRevenue}}
+      </p>
+      <p>
+        Total {{number-to-currency value=filteredValuesSum isRevenue=isRevenue}}
+      </p>
+    </md-card-content>
+  </md-card>
+  <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
+    <md-card-content>
+      <h2 class="md-title">Principais {{revenueOrExpense}}</h2>
       <p>
         {{grouped-invoices list=filteredByTypeModel groupByField="description" isRevenue=isRevenue showGraph=false}}
       </p>
