@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   isRevenue: false,
   fieldName: null,
   showGraph: true,
-  chartOptions: {tooltipTemplate: "<%if (label){%><%=label.split(':')[2]%>: <%}%><%=value.toFixed(2)%>", legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><a href='<%='/#/reports/' + segments[i].label.split(':')[0] + '/' + segments[i].label.split(':')[1] + '?typeValue=' + segments[i].label.split(':')[2]%>'><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label.split(':')[2]%><%}%> R$ <%=segments[i].value.toFixed(2)%></li></a><%}%></ul>"},
+  chartOptions: {animation: false, tooltipTemplate: "<%if (label){%><%=label.split(':')[2]%>: <%}%><%=value.toFixed(2)%>", legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><a href='<%='/#/reports/' + segments[i].label.split(':')[0] + '/' + segments[i].label.split(':')[1] + '?typeValue=' + segments[i].label.split(':')[2]%>'><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label.split(':')[2]%><%}%> R$ <%=segments[i].value.toFixed(2)%></li></a><%}%></ul>"},
   
   _expensesOrRevenue: Ember.computed('list', 'isRevenue', function() {
     var self = this;
