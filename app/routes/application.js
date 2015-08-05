@@ -13,6 +13,9 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     },
     newExpense: function() {
       this.transitionTo('new-invoice', {queryParams: {revenue: false}});
+    },
+    didTransition: function() {
+      this.controller.set('sidebarVisible', false);
     }
   },
   
