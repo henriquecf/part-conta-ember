@@ -1,3 +1,18 @@
-{{#each groupedInvoices as |type|}}
-  <div>{{type.name}}: {{type.sumValue}}</div>
-{{/each}}
+{{#if showGraph}}
+  {{ember-chart type="Doughnut" data=groupedInvoices options=chartOptions width=250 height=250 legend=true}}
+{{else}}
+  {{#md-list}}
+    {{#each groupedInvoices as |groupedInvoice|}}
+      {{#if groupedInvoice.label}}
+        {{#md-list-item class="md-3-line"}}
+          <div class="md-list-item-text">
+            <h3>
+              {{groupedInvoice.label}}
+              {{number-to-currency value=groupedInvoice.value isRevenue=isRevenue}}
+            </h3>
+          </div>
+        {{/md-list-item}}
+      {{/if}}
+    {{/each}}
+  {{/md-list}}
+{{/if}}

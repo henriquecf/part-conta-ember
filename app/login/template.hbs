@@ -1,12 +1,24 @@
-<form {{action 'authenticate' on='submit'}}>
-  <label for="identification">Login</label>
-  {{input value=identification placeholder='Enter Login'}}
-  <label for="password">Password</label>
-  {{input value=password placeholder='Enter Password' type='password'}}
-  <button type="submit">Login</button>
-  {{#if loginFailed}}
-    <div class="error">
-      Usuário e/ou senha incorretos
-    </div>
-  {{/if}}
-</form>
+<md-card flex-gt-lg="45">
+    <md-card-content>
+      <h2 class="md-title">Para continuar preencha seus dados</h2>
+      <p>
+        <form {{action 'authenticate' on='submit'}}>
+          {{#md-input-container value=identification}}
+              <label>Email</label>
+              {{md-input type="email" required="required" autofocus=true}}
+          {{/md-input-container}}
+          {{#md-input-container value=password}}
+              <label>Senha</label>
+              {{md-input type="password" required="required"}}
+          {{/md-input-container}}
+          {{#if loginFailed}}
+            <div class="error">
+              <p>Usuário e/ou senha incorretos</p>
+            </div>
+          {{/if}}
+          {{#md-button type="submit" classNames="md-primary"}}Entrar{{/md-button}}
+        </form>
+      </p>
+    </md-card-content>
+</md-card>
+

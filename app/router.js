@@ -12,6 +12,8 @@ Router.map(function() {
   this.route('new-invoice', {path: '/invoices/new'});
   this.route('login');
   this.route('edit-invoice', {path: '/invoices/:id/edit'});
+  this.route('reports');
+  this.route('report', {path: '/reports/:type/:revenue'});
 });
 
 export default Router;

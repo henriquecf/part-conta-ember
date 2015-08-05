@@ -1,24 +1,35 @@
-<form {{action 'addInvoice' on="submit"}} method="post">
-  {{mdl-textfield label='Valor' type='number' required=true value=value}}
-  <div>
+<form {{action addOrEdit on="submit"}} method="post">
+  {{#md-input-container value=value}}
+      <label>Valor</label>
+      {{md-input type="number" required="required" step=0.01 autofocus=true}}
+  {{/md-input-container}}
+  {{#unless revenue}}
     {{#each categories as |categoryItem|}}
-      {{mdl-radio value=categoryItem label=categoryItem name=category}}
+      {{#md-radio-button value=categoryItem selected=category class="md-primary"}}
+        {{categoryItem}}
+      {{/md-radio-button}}
     {{/each}}
-  </div>
-  {{mdl-textfield label='Descrição' value=description}}
-  {{mdl-textfield label='Data' value=date required=true type="date"}}
-  {{mdl-checkbox value=revenue label='Ganho?'}}
-  <div>
-    {{#each session.currentUser.groups as |groupItem|}}
-      {{mdl-radio value=groupItem.id label=groupItem.name name=group}}
-    {{/each}}
-  </div>
-  <div>
-    {{#each session.currentUser.allUsers as |userItem|}}
-      {{mdl-radio value=userItem.id label=userItem.name name=user}}
-    {{/each}}
-  </div>
-  <div>
-    {{input type="submit" value="Adcionar Conta" classNames="mdl-button mdl-js-button mdl-button--primary"}}
-  </div>
+    {{#if error}}
+      <span class="md-caption" style="color: red;">{{error}}</span>
+    {{/if}}
+  {{/unless}}
+  {{#md-input-container value=description}}
+      <label>Descrição</label>
+      {{md-input}}
+  {{/md-input-container}}
+  {{#md-input-container value=date}}
+      <label>Data</label>
+      {{md-input type="date" required="required"}}
+  {{/md-input-container}}
+  {{#each session.currentUser.groups as |groupItem|}}
+    {{#md-radio-button value=groupItem selected=group class="md-primary"}}
+      {{groupItem.name}}
+    {{/md-radio-button}}
+  {{/each}}
+  {{#each session.currentUser.allUsers as |userItem|}}
+    {{#md-radio-button value=userItem selected=user class="md-primary"}}
+      {{userItem.name}}
+    {{/md-radio-button}}
+  {{/each}}
+  {{#md-button type="submit" classNames="md-primary"}}Salvar{{/md-button}}
 </form>

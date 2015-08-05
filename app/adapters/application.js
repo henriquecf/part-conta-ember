@@ -1,8 +1,9 @@
 import ActiveModelAdapter from 'active-model-adapter';
+import ENV from '../config/environment';
 
 export default ActiveModelAdapter.extend({
   namespace: 'api',
-  host: 'http://localhost:3000',
+  host: ENV.apiHost,
   buildURL: function(record, suffix) {
     var s = this._super(record, suffix);
     return s + ".json";
