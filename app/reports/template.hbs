@@ -4,9 +4,6 @@
       <p>
         {{grouped-invoices list=filteredModel groupByField="category"}}
       </p>
-      <div class="md-actions" layout="row" layout-align="end center">
-        {{#link-to 'report' 'category' 'expenses'}}{{#md-button}}Ver detalhes{{/md-button}}{{/link-to}}
-      </div>
     </md-card-content>
 </md-card>
 
@@ -16,9 +13,6 @@
       <p>
         {{grouped-invoices list=filteredModel groupByField="category" isRevenue=true}}
       </p>
-      <div class="md-actions" layout="row" layout-align="end center">
-        {{#link-to 'report' 'category' 'revenue'}}{{#md-button}}Ver detalhes{{/md-button}}{{/link-to}}
-      </div>
     </md-card-content>
 </md-card>
 
@@ -28,9 +22,6 @@
       <p>
         {{grouped-invoices list=filteredModel groupByField="group" fieldName="group.name"}}
       </p>
-      <div class="md-actions" layout="row" layout-align="end center">
-        {{#link-to 'report' 'group' 'expenses'}}{{#md-button}}Ver detalhes{{/md-button}}{{/link-to}}
-      </div>
     </md-card-content>
 </md-card>
 
@@ -40,9 +31,6 @@
       <p>
         {{grouped-invoices list=filteredModel groupByField="group" fieldName="group.name" isRevenue=true}}
       </p>
-      <div class="md-actions" layout="row" layout-align="end center">
-        {{#link-to 'report' 'group' 'revenue'}}{{#md-button}}Ver detalhes{{/md-button}}{{/link-to}}
-      </div>
     </md-card-content>
 </md-card>
 
@@ -52,9 +40,6 @@
       <p>
         {{grouped-invoices list=filteredModel groupByField="user" fieldName="user.name"}}
       </p>
-      <div class="md-actions" layout="row" layout-align="end center">
-        {{#link-to 'report' 'user' 'expenses'}}{{#md-button}}Ver detalhes{{/md-button}}{{/link-to}}
-      </div>
     </md-card-content>
 </md-card>
 
@@ -64,8 +49,5 @@
       <p>
         {{grouped-invoices list=filteredModel groupByField="user" fieldName="user.name" isRevenue=true}}
       </p>
-      <div class="md-actions" layout="row" layout-align="end center">
-        {{#link-to 'report' 'user' 'revenue'}}{{#md-button}}Ver detalhes{{/md-button}}{{/link-to}}
-      </div>
     </md-card-content>
 </md-card>
