@@ -1,20 +1,23 @@
 import Ember from 'ember';
+import moment from 'moment';
 
 export default Ember.Mixin.create({
-  month: ["08"],
-  year: ["2015"],
+  queryParams: ['month', 'year'],
+  month: null,
+  year: null,
   
   filteredModel: Ember.computed('model.@each.dateMonth', 'model.@each.dateYear', 'month', 'year', function() {
-    var self = this;
+    var month = this.get('month') || [moment().format('MM')];
+    var year = this.get('year') || [moment().format('YYYY')];
     var filteredInvoices = this.get('model');
-    if(this.get('month')) {
+    if(month && month !== 'all') {
       filteredInvoices = filteredInvoices.filter(function(invoice) {
-        return self.get('month').contains(invoice.get('dateMonth'));
+        return month.contains(invoice.get('dateMonth'));
       });
     }
-    if(this.get('year')) {
+    if(year && year !== 'all') {
       filteredInvoices = filteredInvoices.filter(function(invoice) {
-        return self.get('year').contains(invoice.get('dateYear'));
+        return year.contains(invoice.get('dateYear'));
       });
     }
     return filteredInvoices;
