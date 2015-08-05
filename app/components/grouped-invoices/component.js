@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   isRevenue: false,
   fieldName: null,
   showGraph: true,
-  chartOptions: {tooltipTemplate: "<%if (label){%><%=label%>: R$ <%}%><%= value %>"},
+  chartOptions: {legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%> R$ <%=segments[i].value%></li><%}%></ul>"},
   
   _expensesOrRevenue: Ember.computed('list', 'isRevenue', function() {
     var self = this;
