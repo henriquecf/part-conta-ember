@@ -659,6 +659,10 @@ demo-source-tabs md-tabs-content-wrapper {
   list-style: none;
   right: 8px;
   top: 0;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 }
 *[class$='-legend'] li {
   display: block;
