@@ -5,6 +5,7 @@ export default Ember.Component.extend({
   isRevenue: false,
   fieldName: null,
   showGraph: true,
+  chartOptions: {tooltipTemplate: "<%if (label){%><%=label%>: R$ <%}%><%= value %>"},
   
   _expensesOrRevenue: Ember.computed('list', 'isRevenue', function() {
     var self = this;
