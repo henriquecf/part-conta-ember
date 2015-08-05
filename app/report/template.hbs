@@ -7,11 +7,13 @@
     </md-card-content>
 </md-card>
 
-<md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
+{{#if value}}
+  <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
     <md-card-content>
       <h2 class="md-title">{{value}}</h2>
       <p>
         {{grouped-invoices list=filteredByTypeModel groupByField="description" isRevenue=isRevenue showGraph=false}}
       </p>
     </md-card-content>
-</md-card>
+  </md-card>
+{{/if}}
