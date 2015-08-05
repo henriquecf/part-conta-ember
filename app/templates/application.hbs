@@ -10,20 +10,28 @@
     {{/md-toolbar}}
     <md-content flex>
         <ul class="docs-menu">
-            {{#link-to 'dashboard' activeClass="parentActive" tagName='li'}}
-                {{#link-to 'dashboard' class="md-button"}}Visão geral{{/link-to}}
-            {{/link-to}}
-
-            {{#link-to 'invoices' activeClass="parentActive" tagName='li'}}
-                {{#link-to 'invoices' class="md-button"}}Contas{{/link-to}}
-            {{/link-to}}
-
-            {{#link-to 'reports' activeClass="parentActive" tagName='li'}}
-                {{#link-to 'reports' class="md-button"}}Relatórios{{/link-to}}
-            {{/link-to}}
-            
             {{#if session.isAuthenticated}}
-              <button {{action 'invalidateSession'}}>Desconectar</button>
+              {{#link-to 'dashboard' activeClass="parentActive" tagName='li'}}
+                  {{#link-to 'dashboard' class="md-button"}}Visão geral{{/link-to}}
+              {{/link-to}}
+
+              {{#link-to 'invoices' activeClass="parentActive" tagName='li'}}
+                  {{#link-to 'invoices' class="md-button"}}Contas{{/link-to}}
+              {{/link-to}}
+
+              {{#link-to 'reports' activeClass="parentActive" tagName='li'}}
+                  {{#link-to 'reports' class="md-button"}}Relatórios{{/link-to}}
+              {{/link-to}}
+
+              <li>
+                  {{#md-button action='invalidateSession'}}Desconectar{{/md-button}}
+              </li>
+              
+            {{else}}
+              
+              {{#link-to 'login' activeClass="parentActive" tagName='li'}}
+                  {{#link-to 'login' class="md-button"}}Entrar{{/link-to}}
+              {{/link-to}}
             {{/if}}
         </ul>
     </md-content>
