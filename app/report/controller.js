@@ -2,9 +2,12 @@ import Ember from 'ember';
 import InvoicesFilter from '../mixins/invoices-filter';
 
 export default Ember.Controller.extend(InvoicesFilter, {
-  filteredByTypeModel: Ember.computed('filteredModel', 'groupByField', 'fieldName', 'typeValue', function() {
+  filteredByExpensesOrRevenue: Ember.computed('filteredModel', 'isRevenue', function() {
+    return this.get('filteredModel').filterBy('revenue', this.get('isRevenue') ? true : false);
+  }),
+  filteredByTypeModel: Ember.computed('filteredByExpensesOrRevenue', 'groupByField', 'fieldName', 'typeValue', function() {
     var type = this.get('fieldName') || this.get('groupByField');
-    return this.get('filteredModel').filterBy(type, this.get('typeValue'));
+    return this.get('filteredByExpensesOrRevenue').filterBy(type, this.get('typeValue'));
   }),
   
   queryParams: ['typeValue'],
@@ -14,10 +17,6 @@ export default Ember.Controller.extend(InvoicesFilter, {
     return Number(invoice.get('value'));
   }),
   filteredByTypeValuesSum: Ember.computed.sum('filteredByTypeValues'),
-  
-  filteredByExpensesOrRevenue: Ember.computed('filteredModel', 'isRevenue', function() {
-    return this.get('filteredModel').filterBy('revenue', this.get('isRevenue') ? true : false);
-  }),
   
   filteredValues: Ember.computed.map('filteredByExpensesOrRevenue', function(invoice) {
     return Number(invoice.get('value'));
