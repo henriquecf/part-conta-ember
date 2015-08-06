@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   mediaQueries: Ember.inject.service('media-queries'),
+  pageTitle: 'PartConta',
 
   init: function() {
     this.get('mediaQueries').match('gt-sm', '(min-width: 600px)');

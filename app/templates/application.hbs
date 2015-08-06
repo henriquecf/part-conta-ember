@@ -1,58 +1,14 @@
-{{#md-sidenav classNames="site-sidenav md-sidenav-left md-whiteframe-z2"
-            md-component-id="left"
-            sidebarVisible=sidebarVisible
-            isLockedOpen=sidebarLocked}}
-
-    {{#md-toolbar}}
-        <h1 class="md-toolbar-tools">
-          <div class="docs-logotype">PartConta</div>
-        </h1>
-    {{/md-toolbar}}
-    <md-content flex>
-        <ul class="docs-menu">
-            {{#if session.isAuthenticated}}
-              {{#link-to 'dashboard' activeClass="parentActive" tagName='li'}}
-                  {{#link-to 'dashboard' class="md-button"}}Visão geral{{/link-to}}
-              {{/link-to}}
-
-              {{#link-to 'invoices' activeClass="parentActive" tagName='li'}}
-                  {{#link-to 'invoices' class="md-button"}}Contas{{/link-to}}
-              {{/link-to}}
-
-              {{#link-to 'reports' activeClass="parentActive" tagName='li'}}
-                  {{#link-to 'reports' class="md-button"}}Relatórios{{/link-to}}
-              {{/link-to}}
-
-              <li>
-                  {{#md-button action='invalidateSession'}}Desconectar{{/md-button}}
-              </li>
-              
-            {{else}}
-              
-              {{#link-to 'login' activeClass="parentActive" tagName='li'}}
-                  {{#link-to 'login' class="md-button"}}Entrar{{/link-to}}
-              {{/link-to}}
-            {{/if}}
-        </ul>
-    </md-content>
-
-{{/md-sidenav}}
-
 {{#each toastNotifications as |toast|}}
   {{md-toast toast=toast}}
 {{/each}}
 
 <div layout="column" role="main" flex tabindex="-1">
-    {{#md-toolbar}}
+    {{#md-toolbar class="md-tall"}}
         <div class="md-toolbar-tools">
-            {{#md-button class="md-icon-button" hide-gt-sm='' aria-label="Toggle Menu" action='toggleSidebar'}}
-                {{md-icon md-svg-src="assets/images/icons/menu.svg"}}
-            {{/md-button}}
-
             <div class="fill-height" flex layout="row">
                 <h2 class="md-toolbar-item md-breadcrumb">
                     <span>
-                        <span>Home</span>
+                        <span>{{pageTitle}}</span>
                     </span>
                 </h2>
             </div>
@@ -60,9 +16,32 @@
             <span flex></span>
 
             <div class="md-toolbar-item md-tools docs-tools" layout="column" layout-gt-md="row">
+              {{#if session.isAuthenticated}}
+                {{#md-button action='invalidateSession' class="md-accent"}}
+                  Sair
+                {{/md-button}}
+              {{else}}
+                {{#link-to 'login' activeClass="parentActive"}}
+                  {{#link-to 'login' class="md-button md-accent"}}Entrar{{/link-to}}
+                {{/link-to}}
+              {{/if}}
             </div>
 
         </div>
+            
+        <h2 class="md-toolbar-tools md-toolbar-tools-bottom">
+          {{#if session.isAuthenticated}}
+            {{#link-to 'dashboard' activeClass="parentActive"}}
+              {{#link-to 'dashboard' class="md-button md-accent"}}Início{{/link-to}}
+            {{/link-to}}
+            {{#link-to 'invoices' activeClass="parentActive"}}
+              {{#link-to 'invoices' class="md-button md-accent"}}Contas{{/link-to}}
+            {{/link-to}}
+            {{#link-to 'reports' activeClass="parentActive"}}
+              {{#link-to 'reports' class="md-button md-accent"}}Relatórios{{/link-to}}
+            {{/link-to}}
+          {{/if}}
+        </h2>
     {{/md-toolbar}}
 
     <md-content class="md-padding" md-scroll-y layout="row" layout-wrap>

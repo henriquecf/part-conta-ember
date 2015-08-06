@@ -30,5 +30,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   setupController: function(controller, model) {
     this._super(controller, model);
     controller.setProperties(this.getProperties('groupByField', 'fieldName', 'isRevenue', 'revenueOrExpense', 'type'));
+    this.controllerFor('application').set('pageTitle', this.get('revenueOrExpense') + ' por ' + this.get('type'));
   }
 });
