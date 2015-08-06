@@ -15,7 +15,7 @@
 
             <span flex></span>
 
-            <div class="md-toolbar-item md-tools docs-tools" layout="column" layout-gt-md="row">
+            <div class="md-toolbar-item md-tools" layout="column">
               {{#if session.isAuthenticated}}
                 {{#md-button action='invalidateSession' class="md-accent"}}
                   Sair
@@ -32,13 +32,19 @@
         <h2 class="md-toolbar-tools md-toolbar-tools-bottom">
           {{#if session.isAuthenticated}}
             {{#link-to 'dashboard' activeClass="parentActive"}}
-              {{#link-to 'dashboard' class="md-button md-accent"}}Início{{/link-to}}
+              {{#link-to 'dashboard' class="md-button md-accent"}}
+                {{md-icon md-svg-src="assets/images/icons/home.svg"}}
+              {{/link-to}}
             {{/link-to}}
             {{#link-to 'invoices' activeClass="parentActive"}}
-              {{#link-to 'invoices' class="md-button md-accent"}}Contas{{/link-to}}
+              {{#link-to 'invoices' class="md-button md-accent"}}
+                {{md-icon md-svg-src="assets/images/icons/format-list-bulleted.svg"}}
+              {{/link-to}}
             {{/link-to}}
             {{#link-to 'reports' activeClass="parentActive"}}
-              {{#link-to 'reports' class="md-button md-accent"}}Relatórios{{/link-to}}
+              {{#link-to 'reports' class="md-button md-accent"}}
+                {{md-icon md-svg-src="assets/images/icons/chart-arc.svg"}}
+              {{/link-to}}
             {{/link-to}}
           {{/if}}
         </h2>
