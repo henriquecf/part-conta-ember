@@ -8,13 +8,16 @@ export default Ember.Route.extend({
       return this.get('session').authenticate('simple-auth-authenticator:oauth2-password-grant', data).
       then(function() {
         controller.setProperties({identification: null, password: null});
+        self.controllerFor('application').showToast('Login efetuado com sucesso');
         self.transitionTo('dashboard');
       }, function() {
-        controller.set('loginFailed', true);
         controller.set('password', null);
-        Ember.run.later(function() {
-          controller.set('loginFailed', false);
-        }, 5000);
+        if(window.navigator.connection === 'none') {
+          self.controllerFor('application').showToast('Você precisa se conectar à internet para entrar');
+        }
+        else {
+          self.controllerFor('application').showToast('Usuário e/ou senha incorretos');
+        }
       });
     }
   }

@@ -11,11 +11,6 @@
               <label>Senha</label>
               {{md-input type="password" required="required"}}
           {{/md-input-container}}
-          {{#if loginFailed}}
-            <div class="error">
-              <p>Usuário e/ou senha incorretos</p>
-            </div>
-          {{/if}}
           {{#md-button type="submit" classNames="md-primary"}}Entrar{{/md-button}}
         </form>
       </p>

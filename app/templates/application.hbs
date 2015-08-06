@@ -38,6 +38,10 @@
 
 {{/md-sidenav}}
 
+{{#each toastNotifications as |toast|}}
+  {{md-toast toast=toast}}
+{{/each}}
+
 <div layout="column" role="main" flex tabindex="-1">
     {{#md-toolbar}}
         <div class="md-toolbar-tools">
@@ -56,7 +60,6 @@
             <span flex></span>
 
             <div class="md-toolbar-item md-tools docs-tools" layout="column" layout-gt-md="row">
-
             </div>
 
         </div>
