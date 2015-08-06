@@ -7,10 +7,6 @@ export default Ember.Controller.extend({
   init: function() {
     this.get('mediaQueries').match('gt-sm', '(min-width: 600px)');
   },
-
-  sidebarLocked: Ember.computed('mediaQueries.isGtSm', function() {
-    return this.get('mediaQueries.isGtSm');
-  }),
   
   toastNotifications: Ember.computed('toastService.toasts.[]', function() {
     return Ember.A(this.get('toastService.toasts'));
@@ -23,11 +19,5 @@ export default Ember.Controller.extend({
       position: 'bottom left',
       content: content
     });
-  },
-
-  actions: {
-    toggleSidebar: function() {
-      this.toggleProperty('sidebarVisible');
-    }
   }
 });
