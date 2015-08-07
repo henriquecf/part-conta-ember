@@ -7,6 +7,7 @@ export default Ember.Controller.extend({
     },
     
     deleteInvoice: function() {
+      this.controllerFor('application').showToast('Conta apagada com sucesso');
       this.get('model').destroyRecord();
     }
   }

@@ -5,6 +5,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   actions: {
     invalidateSession: function() {
       this.get('session').invalidate();
+      this.controllerFor('application').showToast('Desconectado com sucesso');
       this.transitionTo('/');
     },
     newRevenue: function() {
