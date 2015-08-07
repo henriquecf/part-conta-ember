@@ -1,5 +1,5 @@
 {{#if showGraph}}
-  {{ember-chart type="Doughnut" data=groupedInvoices options=chartOptions width=250 height=250 legend=true}}
+  {{ember-chart type="Doughnut" data=groupedInvoices options=chartOptions legend=true}}
 {{else}}
   {{#md-list}}
     {{#each groupedInvoices as |groupedInvoice|}}
