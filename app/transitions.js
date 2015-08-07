@@ -1,31 +1,30 @@
 export default function(){
-  var duration = 1000;
+  this.setDefault({duration: 800});
   
   this.transition(
     this.fromRoute('dashboard'),
     this.toRoute('invoices'),
-    this.use('toLeft', {duration: duration}),
-    this.reverse('toRight', {duration: duration})
+    this.use('toLeft'),
+    this.reverse('toRight')
   );
   
   this.transition(
     this.fromRoute('invoices'),
     this.toRoute('reports'),
-    this.use('toLeft', {duration: duration}),
-    this.reverse('toRight', {duration: duration})
+    this.use('toLeft'),
+    this.reverse('toRight')
   );
   
   this.transition(
     this.fromRoute('dashboard'),
     this.toRoute('reports'),
-    this.use('toLeft', {duration: duration}),
-    this.reverse('toRight', {duration: duration})
+    this.use('toLeft'),
+    this.reverse('toRight')
   );
   
   this.transition(
-    this.fromRoute('reports'),
     this.toRoute('report'),
-    this.use('toLeft', {duration: duration}),
-    this.reverse('toRight', {duration: duration})
+    this.use('toLeft'),
+    this.reverse('toRight')
   );
 }
