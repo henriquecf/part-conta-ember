@@ -32,4 +32,10 @@ export default function(){
     this.toRoute('login'),
     this.use('toDown')
   );
+  
+  this.transition(
+    this.toRoute(['new-invoice', 'edit-invoice']),
+    this.use('toDown'),
+    this.reverse('scale')
+  );
 }
