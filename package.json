@@ -49,6 +49,7 @@
     "ember-material-design": "0.8.3",
     "ember-moment": "3.1.0",
     "ember-new-computed": "^1.0.2",
-    "ember-try": "0.0.7"
+    "ember-try": "0.0.7",
+    "liquid-fire": "0.21.1"
   }
 }
