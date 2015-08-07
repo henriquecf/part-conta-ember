@@ -15,9 +15,21 @@
               <div hide-sm="">
                 {{partial 'main-menu'}}
               </div>
-              {{#md-button action='invalidateSession' class="md-accent"}}
-                Sair
-              {{/md-button}}
+              
+              {{#md-menu as |menu|}}
+                  {{#md-button class="md-icon-button" action='toggleMenu' param=menu}}
+                      {{md-icon md-svg-icon="assets/images/icons/more_vert.svg" md-menu-origin='' style="width: 16px; height: 16px;"}}
+                  {{/md-button}}
+
+                  <md-menu-content width="6">
+                      <md-menu-item>
+                          {{#md-button action='invalidateSession'}}
+                              {{md-icon md-svg-icon="call:no-sim" md-menu-align-target=''}}
+                              Sair
+                          {{/md-button}}
+                      </md-menu-item>
+                  </md-menu-content>
+              {{/md-menu}}
             {{else}}
               {{#link-to 'login' activeClass="parentActive"}}
                 {{#link-to 'login' class="md-button md-accent"}}Entrar{{/link-to}}

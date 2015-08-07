@@ -28,5 +28,10 @@ export default Ember.Controller.extend({
       position: 'bottom left',
       content: content
     });
-  }
+  },
+  actions: {
+      toggleMenu(menu) {
+        menu.toggleProperty('isOpen');
+      }
+    }
 });
