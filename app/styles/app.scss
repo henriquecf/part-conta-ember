@@ -3,7 +3,7 @@ $accent: "lime";
 
 @import "ember-material-design";
 
-md-toolbar {
+md-toolbar, md-toolbar md-icon {
   color: $light-contrast-color;
 }
 
