@@ -1,19 +1,20 @@
-<md-card flex-gt-lg="45">
-    <md-card-content>
-      <h2 class="md-title">Para continuar preencha seus dados</h2>
-      <p>
-        <form {{action 'authenticate' on='submit'}}>
-          {{#md-input-container value=identification}}
-              <label>Email</label>
-              {{md-input type="email" required="required" autofocus=true}}
-          {{/md-input-container}}
-          {{#md-input-container value=password}}
-              <label>Senha</label>
-              {{md-input type="password" required="required"}}
-          {{/md-input-container}}
-          {{#md-button type="submit" classNames="md-primary"}}Entrar{{/md-button}}
-        </form>
-      </p>
-    </md-card-content>
-</md-card>
-
+<div md-scroll-y layout="row" layout-wrap>
+  <md-card flex-gt-lg="30">
+      <md-card-content>
+        <h2 class="md-title">Para continuar preencha seus dados</h2>
+        <p>
+          <form {{action 'authenticate' on='submit'}}>
+            {{#md-input-container value=identification}}
+                <label>Email</label>
+                {{md-input type="email" required="required" autofocus=true}}
+            {{/md-input-container}}
+            {{#md-input-container value=password}}
+                <label>Senha</label>
+                {{md-input type="password" required="required"}}
+            {{/md-input-container}}
+            {{#md-button type="submit" classNames="md-primary"}}Entrar{{/md-button}}
+          </form>
+        </p>
+      </md-card-content>
+  </md-card>
+</div>

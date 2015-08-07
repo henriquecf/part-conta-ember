@@ -1,12 +1,10 @@
-<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col">
-  <div class="mdl-card__title">
-    Novo {{expenseOrRevenue}}
-  </div>
-  <div class="mdl-card__media">
-  </div>
-  <div class="mdl-card__supporting-text">
-    {{partial 'invoice-form'}}
-  </div>
-  <div class="mdl-card__actions">
-  </div>
+<div md-scroll-y layout="row" layout-wrap>
+  <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
+      <md-card-content>
+        <h2 class="md-title">Novo {{expenseOrRevenue}}</h2>
+        <p>
+          {{partial 'invoice-form'}}
+        </p>
+      </md-card-content>
+  </md-card>
 </div>
