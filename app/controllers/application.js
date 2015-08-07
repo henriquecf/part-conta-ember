@@ -8,8 +8,8 @@ export default Ember.Controller.extend({
     this.get('mediaQueries').match('gt-sm', '(min-width: 600px)');
   },
   
-  toolbarClasses: Ember.computed('mediaQueries.isGtSm', function() {
-    if(this.get('mediaQueries.isGtSm')) {
+  toolbarClasses: Ember.computed('mediaQueries.isGtSm', 'session.isAuthenticated', function() {
+    if(this.get('mediaQueries.isGtSm') || !this.get('session.isAuthenticated')) {
       return '';
     }
     else {
@@ -29,9 +29,13 @@ export default Ember.Controller.extend({
       content: content
     });
   },
+  
   actions: {
-      toggleMenu(menu) {
-        menu.toggleProperty('isOpen');
-      }
+    goToRoute(route) {
+      this.transitionToRoute(route);
+    },
+    toggleMenu(menu) {
+      menu.toggleProperty('isOpen');
     }
+  }
 });

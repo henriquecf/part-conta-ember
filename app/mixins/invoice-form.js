@@ -13,6 +13,7 @@ export default Ember.Mixin.create({
       if(invoiceFields.category) {
         var invoice = this.store.createRecord('invoice', invoiceFields);
         invoice.save();
+        this.controllerFor('application').showToast(this.controller.get('expenseOrRevenue') + ' criado com sucesso');
         this.transitionTo('dashboard');
       }
       else{
@@ -56,11 +57,13 @@ export default Ember.Mixin.create({
                                 description: null, user: null, group: null});
     }
     if(controller.get('revenue')) {
-      controller.set('expenseOrRevenue', 'ganho');
+      controller.set('expenseOrRevenue', 'Ganho');
       controller.set('category', 'Receita');
+      this.controllerFor('application').set('pageTitle', 'Novo Ganho');
     }
     else {
-      controller.set('expenseOrRevenue', 'gasto');
+      controller.set('expenseOrRevenue', 'Gasto');
+      this.controllerFor('application').set('pageTitle', 'Novo Gasto');
     }
     controller.set('addOrEdit', addOrEdit);
   }

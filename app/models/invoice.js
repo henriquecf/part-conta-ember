@@ -5,8 +5,8 @@ import computedMoment from 'ember-moment/computeds/moment';
 export default DS.Model.extend({
   category: DS.attr('string'),
   value: DS.attr('number'),
-  group: DS.belongsTo('group'),
-  user: DS.belongsTo('user'),
+  group: DS.belongsTo('group', {async: true}),
+  user: DS.belongsTo('user', {async: true}),
   date: DS.attr('string'),
   revenue: DS.attr('boolean'),
   description: DS.attr('string'),
