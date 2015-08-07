@@ -29,8 +29,7 @@ export default function(){
   );
   
   this.transition(
-    this.fromRoute('login'),
-    this.use('scale'),
-    this.reverse('fade')
+    this.toRoute('login'),
+    this.use('toDown')
   );
 }

@@ -6,8 +6,8 @@ export default DS.Model.extend({
   image: DS.attr('string'),
   email: DS.attr('string'),
   color: DS.attr('string'),
-  groups: DS.hasMany('group'),
-  users: DS.hasMany('user'),
+  groups: DS.hasMany('group', {async: true}),
+  users: DS.hasMany('user', {async: true}),
   
   allUsers: Ember.computed('users', function() {
     var usersList = this.get('users').slice();
