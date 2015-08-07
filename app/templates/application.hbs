@@ -3,40 +3,36 @@
 {{/each}}
 
 <div layout="column" role="main" flex tabindex="-1">
-    {{#md-toolbar class="md-tall"}}
+    {{#md-toolbar class=toolbarClasses}}
         <div class="md-toolbar-tools">
-            <div class="fill-height" flex layout="row">
-                <h2 class="md-toolbar-item md-breadcrumb">
-                    <span>
-                        <span>{{pageTitle}}</span>
-                    </span>
-                </h2>
-            </div>
+            <h2>
+              <span>{{pageTitle}}</span>
+            </h2>
 
             <span flex></span>
-
-            <div class="md-toolbar-item md-tools" layout="row">
-              {{#if session.isAuthenticated}}
-                <div class="hide-gt-sm">
-                  {{partial 'main-menu'}}
-                </div>
-                {{#md-button action='invalidateSession' class="md-accent"}}
-                  Sair
-                {{/md-button}}
-              {{else}}
-                {{#link-to 'login' activeClass="parentActive"}}
-                  {{#link-to 'login' class="md-button md-accent"}}Entrar{{/link-to}}
-                {{/link-to}}
-              {{/if}}
-            </div>
+            
+            {{#if session.isAuthenticated}}
+              <div hide-sm="">
+                {{partial 'main-menu'}}
+              </div>
+              {{#md-button action='invalidateSession' class="md-accent"}}
+                Sair
+              {{/md-button}}
+            {{else}}
+              {{#link-to 'login' activeClass="parentActive"}}
+                {{#link-to 'login' class="md-button md-accent"}}Entrar{{/link-to}}
+              {{/link-to}}
+            {{/if}}
 
         </div>
             
-        <h2 class="md-toolbar-tools md-toolbar-tools-bottom">
-          <div class="show-gt-sm">
-            {{partial 'main-menu'}}
+        {{#if session.isAuthenticated}}
+          <div hide-gt-sm="">
+            <h2 class="md-toolbar-tools md-toolbar-tools-bottom">
+              {{partial 'main-menu'}}
+            </h2>
           </div>
-        </h2>
+        {{/if}}
     {{/md-toolbar}}
 
     <md-content class="md-padding" md-scroll-y layout="row" layout-wrap>

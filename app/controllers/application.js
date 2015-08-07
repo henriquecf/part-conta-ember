@@ -8,6 +8,15 @@ export default Ember.Controller.extend({
     this.get('mediaQueries').match('gt-sm', '(min-width: 600px)');
   },
   
+  toolbarClasses: Ember.computed('mediaQueries.isGtSm', function() {
+    if(this.get('mediaQueries.isGtSm')) {
+      return '';
+    }
+    else {
+      return 'md-tall';
+    }
+  }),
+  
   toastNotifications: Ember.computed('toastService.toasts.[]', function() {
     return Ember.A(this.get('toastService.toasts'));
   }),
