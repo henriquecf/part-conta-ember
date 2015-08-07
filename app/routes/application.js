@@ -23,7 +23,6 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       if(year) {
         transition.queryParams.year = year;
       }
-      this.controller.set('sidebarVisible', false);
     }
   }
 });
