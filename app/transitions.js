@@ -27,4 +27,10 @@ export default function(){
     this.use('toLeft'),
     this.reverse('toRight')
   );
+  
+  this.transition(
+    this.fromRoute('login'),
+    this.use('scale'),
+    this.reverse('fade')
+  );
 }

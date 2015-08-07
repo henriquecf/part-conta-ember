@@ -9,7 +9,7 @@
   </md-card>
 
   {{#if typeValue}}
-    {{#liquid-bind typeValue use="scale"}}
+    {{#liquid-bind typeValue use="toUp"}}
       <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
         <md-card-content>
           <h2 class="md-title">{{typeValue}} -> <small>{{byTypePercentage}}%</small></h2>

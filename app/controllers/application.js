@@ -28,5 +28,11 @@ export default Ember.Controller.extend({
       position: 'bottom left',
       content: content
     });
+  },
+  
+  actions: {
+    goToRoute(route) {
+      this.transitionToRoute(route);
+    }
   }
 });
