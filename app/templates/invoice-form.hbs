@@ -27,9 +27,11 @@
     {{/md-radio-button}}
   {{/each}}
   {{#each session.currentUser.allUsers as |userItem|}}
-    {{#md-radio-button value=userItem selected=user class="md-primary"}}
-      {{userItem.name}}
+    {{#md-radio-button value=userItem selected=user class="md-primary radio-button-hidden radio-button-avatar"}}
+      <img class="md-avatar" src="{{userItem.image}}">
     {{/md-radio-button}}
   {{/each}}
-  {{#md-button type="submit" classNames="md-primary"}}Salvar{{/md-button}}
+  <div>
+    {{#md-button type="submit" classNames="md-primary"}}Salvar{{/md-button}}
+  </div>
 </form>
