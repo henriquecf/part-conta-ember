@@ -34,8 +34,14 @@ export default function(){
   );
   
   this.transition(
+    this.fromRoute(['new-invoice', 'edit-invoice']),
+    this.toRoute('dashboard'),
+    this.use('scale')
+  );
+  
+  this.transition(
     this.toRoute(['new-invoice', 'edit-invoice']),
     this.use('toDown'),
-    this.reverse('scale')
+    this.reverse('toUp')
   );
 }
