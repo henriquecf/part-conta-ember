@@ -20,6 +20,6 @@ export default Ember.Mixin.create({
         return year.contains(invoice.get('dateYear'));
       });
     }
-    return filteredInvoices;
+    return filteredInvoices.sortBy('date', 'id').reverse();
   })
 });
