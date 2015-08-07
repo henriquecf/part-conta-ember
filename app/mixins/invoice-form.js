@@ -13,6 +13,7 @@ export default Ember.Mixin.create({
       if(invoiceFields.category) {
         var invoice = this.store.createRecord('invoice', invoiceFields);
         invoice.save();
+        this.controllerFor('application').showToast(this.controller.get('expenseOrRevenue') + ' criado com sucesso');
         this.transitionTo('dashboard');
       }
       else{
