@@ -21,5 +21,25 @@ export default Ember.Mixin.create({
       });
     }
     return filteredInvoices.sortBy('date', 'id').reverse();
+  }),
+  
+  _filteredModelExpenses: Ember.computed.filterBy('filteredModel', 'revenue', false),
+  _filteredModelRevenue: Ember.computed.filterBy('filteredModel', 'revenue', true),
+  
+  _filteredModelExpensesValues: Ember.computed.map('_filteredModelExpenses', function(invoice) {
+    return Number(invoice.get('value'));
+  }),
+  _filteredModelRevenueValues: Ember.computed.map('_filteredModelRevenue', function(invoice) {
+    return Number(invoice.get('value'));
+  }),
+  
+  filteredModelExpensesValuesSum: Ember.computed.sum('_filteredModelExpensesValues'),
+  filteredModelRevenueValuesSum: Ember.computed.sum('_filteredModelRevenueValues'),
+  
+  filteredModelValuesBalance: Ember.computed('filteredModelExpensesValuesSum', 'filteredModelRevenueValuesSum', function() {
+    return Math.abs((this.get('filteredModelRevenueValuesSum') - this.get('filteredModelExpensesValuesSum')));
+  }),
+  isfilteredModelValuesBalanceRevenue: Ember.computed('filteredModelExpensesValuesSum', 'filteredModelRevenueValuesSum', function() {
+    return (this.get('filteredModelRevenueValuesSum') > this.get('filteredModelExpensesValuesSum'));
   })
 });

@@ -1,9 +1,25 @@
 <div md-scroll-y layout="row" layout-wrap>
   <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
       <md-card-content>
-        <h2 class="md-title">Total geral</h2>
+        <h2 class="md-title"></h2>
         <p>
-          {{total-value list=filteredModel}}
+          Ganhos {{number-to-currency value=filteredModelRevenueValuesSum isRevenue=true}}
+        </p>
+      </md-card-content>
+  </md-card>
+  <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
+      <md-card-content>
+        <h2 class="md-title"></h2>
+        <p>
+          Gastos {{number-to-currency value=filteredModelExpensesValuesSum}}
+        </p>
+      </md-card-content>
+  </md-card>
+  <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
+      <md-card-content>
+        <h2 class="md-title"></h2>
+        <p>
+          Balanço {{number-to-currency value=filteredModelValuesBalance isRevenue=isfilteredModelValuesBalanceRevenue}}
         </p>
       </md-card-content>
   </md-card>
