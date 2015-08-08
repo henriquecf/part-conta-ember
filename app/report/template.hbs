@@ -1,34 +1,23 @@
-<div md-scroll-y layout="row" layout-wrap>
-  <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
+{{#liquid-bind typeValue use="toUp"}}
+  <div md-scroll-y layout="row" layout-wrap>
+    <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
       <md-card-content>
-        <h2 class="md-title">{{revenueOrExpense}} por {{type}}</h2>
         <p>
-          {{grouped-invoices list=filteredModel groupByField=groupByField fieldName=fieldName isRevenue=isRevenue}}
+          {{#if isRevenue}}
+            Ganhos {{number-to-currency value=filteredModelRevenueValuesSum isRevenue=true}}
+          {{else}}
+            Gastos {{number-to-currency value=filteredModelExpensesValuesSum}}
+          {{/if}}
         </p>
       </md-card-content>
-  </md-card>
-
-  {{#if typeValue}}
-    {{#liquid-bind typeValue use="toUp"}}
-      <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
-        <md-card-content>
-          <h2 class="md-title">{{typeValue}} -> <small>{{byTypePercentage}}%</small></h2>
-          <p>
-            {{revenueOrExpense}} {{number-to-currency value=filteredByTypeValuesSum isRevenue=isRevenue}}
-          </p>
-          <p>
-            Total {{number-to-currency value=filteredValuesSum isRevenue=isRevenue}}
-          </p>
-        </md-card-content>
-      </md-card>
-      <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
-        <md-card-content>
-          <h2 class="md-title">Principais {{revenueOrExpense}}</h2>
-          <p>
-            {{grouped-invoices list=filteredByTypeModel groupByField="description" isRevenue=isRevenue showGraph=false}}
-          </p>
-        </md-card-content>
-      </md-card>
-    {{/liquid-bind}}
-  {{/if}}
-</div>
+    </md-card>
+    <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
+      <md-card-content>
+        <h2>Principais {{if isRevenue 'ganhos' 'gastos'}}</h2>
+        <p>
+          {{invoices-list list=filteredModel list-size=3}}
+        </p>
+      </md-card-content>
+    </md-card>
+  </div>
+{{/liquid-bind}}
