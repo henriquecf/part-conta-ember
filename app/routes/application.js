@@ -23,6 +23,9 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       if(year) {
         transition.queryParams.year = year;
       }
+    },
+    goToRoute(route) {
+      this.transitionTo(route);
     }
   }
 });

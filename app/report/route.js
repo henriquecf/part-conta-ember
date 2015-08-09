@@ -17,5 +17,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   setupController: function(controller, model) {
     this._super(controller, model);
     this.controllerFor('application').set('pageTitle', controller.get('fieldValue'));
+  },
+  
+  renderTemplate() {
+    this.render();
+    this.render('back-button', {outlet: 'menu-action'});
   }
 });
