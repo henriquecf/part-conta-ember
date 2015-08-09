@@ -8,15 +8,6 @@ export default Ember.Controller.extend({
     this.get('mediaQueries').match('gt-sm', '(min-width: 600px)');
   },
   
-  toolbarClasses: Ember.computed('mediaQueries.isGtSm', 'session.isAuthenticated', function() {
-    if(this.get('mediaQueries.isGtSm') || !this.get('session.isAuthenticated')) {
-      return '';
-    }
-    else {
-      return 'md-tall';
-    }
-  }),
-  
   toastNotifications: Ember.computed('toastService.toasts.[]', function() {
     return Ember.A(this.get('toastService.toasts'));
   }),
@@ -31,9 +22,6 @@ export default Ember.Controller.extend({
   },
   
   actions: {
-    goToRoute(route) {
-      this.transitionToRoute(route);
-    },
     toggleMenu(menu) {
       menu.toggleProperty('isOpen');
     }
