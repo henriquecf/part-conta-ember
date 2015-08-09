@@ -34,6 +34,10 @@ module.exports = function(environment) {
       rebuildOnChange: false,
       emulate: false,
       platform: 'android'
+    },
+    
+    moment: {
+      includeLocales: ['pt-br']
     }
   };
 

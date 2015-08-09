@@ -1,7 +1,8 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
+import BackButtonMixin from '../mixins/back-button';
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, {
+export default Ember.Route.extend(AuthenticatedRouteMixin, BackButtonMixin, {
   beforeModel: function(transition) {
     if(!transition.queryParams.invoiceField || !transition.queryParams.fieldValue) {
       this.transitionTo('reports');
@@ -17,10 +18,5 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   setupController: function(controller, model) {
     this._super(controller, model);
     this.controllerFor('application').set('pageTitle', controller.get('fieldValue'));
-  },
-  
-  renderTemplate() {
-    this.render();
-    this.render('back-button', {outlet: 'menu-action'});
   }
 });

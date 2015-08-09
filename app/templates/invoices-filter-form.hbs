@@ -1,0 +1,13 @@
+<md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
+    <md-card-content>
+      <p>
+        {{#md-button class="md-icon-button" action="lastMonth"}}
+          {{md-icon md-svg-icon="assets/images/icons/chevron-left.svg"}}
+        {{/md-button}}
+        {{filterStr}}
+        {{#md-button class="md-icon-button" action="nextMonth"}}
+          {{md-icon md-svg-icon="assets/images/icons/chevron-right.svg"}}
+        {{/md-button}}
+      </p>
+    </md-card-content>
+</md-card>
