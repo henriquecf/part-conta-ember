@@ -13,8 +13,8 @@ export default Ember.Mixin.create({
   }),
   
   filteredModel: Ember.computed('model.@each.dateMonth', 'model.@each.dateYear', 'month', 'year', function() {
-    var month = [this.get('month')];
-    var year = [this.get('year')];
+    var month = this.get('month').toString();
+    var year = this.get('year').toString();
     var filteredInvoices = this.get('model');
     if(month && month !== 'all') {
       filteredInvoices = filteredInvoices.filter(function(invoice) {
