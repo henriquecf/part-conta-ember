@@ -21,16 +21,24 @@
       <label>Data</label>
       {{md-input type="date" required="required"}}
   {{/md-input-container}}
-  {{#each session.currentUser.groups as |groupItem|}}
-    {{#md-radio-button value=groupItem selected=group class="md-primary"}}
-      {{groupItem.name}}
-    {{/md-radio-button}}
-  {{/each}}
-  {{#each session.currentUser.allUsers as |userItem|}}
-    {{#md-radio-button value=userItem selected=user class="md-primary radio-button-hidden radio-button-avatar"}}
-      <img class="md-avatar" src="{{userItem.image}}">
-    {{/md-radio-button}}
-  {{/each}}
+  {{#if hasManyGroups}}
+    {{#each session.currentUser.groups as |groupItem|}}
+      {{#md-radio-button value=groupItem selected=group class="md-primary"}}
+        {{groupItem.name}}
+      {{/md-radio-button}}
+    {{/each}}
+  {{else}}
+    {{input type="hidden" value=session.currentUser.groups.firstObject}}
+  {{/if}}
+  {{#if hasManyUsers}}
+    {{#each session.currentUser.allUsers as |userItem|}}
+      {{#md-radio-button value=userItem selected=user class="md-primary radio-button-hidden radio-button-avatar"}}
+        <img class="md-avatar" src="{{userItem.image}}">
+      {{/md-radio-button}}
+    {{/each}}
+  {{else}}
+    {{input type="hidden" value=session.currentUser}}
+  {{/if}}
   <div>
     {{#md-button type="submit" classNames="md-accent md-raised"}}Salvar{{/md-button}}
   </div>
