@@ -8,5 +8,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   
   model: function() {
     return this.store.findAll('invoice');
+  },
+  
+  renderTemplate() {
+    this.render();
+    this.render('main-fab', {outlet: 'main-fab'});
   }
 });
