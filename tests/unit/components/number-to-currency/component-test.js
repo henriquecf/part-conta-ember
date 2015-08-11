@@ -3,7 +3,6 @@ import Ember from 'ember';
 
 moduleForComponent('number-to-currency', 'Unit | Component | number to currency', {
   // Specify the other units that are required for this test
-  // needs: ['component:foo', 'helper:bar'],
   unit: true
 });
 

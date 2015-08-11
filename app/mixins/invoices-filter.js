@@ -2,7 +2,7 @@ import Ember from 'ember';
 import moment from 'moment';
 
 export default Ember.Mixin.create({
-  needs: ['application'],
+  needs: 'application',
   
   month: Ember.computed.alias('controllers.application.month'),
   year: Ember.computed.alias('controllers.application.year'),
