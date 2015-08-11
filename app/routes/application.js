@@ -3,11 +3,6 @@ import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 import moment from 'moment';
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
-  beforeModel: function(transition) {
-    this._super(transition);
-    moment.locale('pt-br');
-  },
-    
   actions: {
     invalidateSession: function() {
       this.get('session').invalidate();
