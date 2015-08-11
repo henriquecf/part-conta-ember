@@ -55,7 +55,8 @@ export default Ember.Mixin.create({
     }
     else {
       controller.setProperties({value: null, category: null, date: moment().format('DD/MM/YYYY'), 
-                                description: null, user: null, group: null});
+                                description: null, user: null});
+      controller.set('group', controller.get('session.currentUser.groups.first'));
     }
     if(controller.get('revenue')) {
       controller.set('expenseOrRevenue', 'Ganho');
