@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   isRevenue: false,
   fieldName: null,
   showGraph: true,
-  chartOptions: {animation: false, showTooltips: false, legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><a href='<%='/#/report?invoiceField=' + segments[i].label.split(':')[0] + '&fieldValue=' + segments[i].label.split(':')[1] + '&isRevenue=' + segments[i].label.split(':')[2]%>'><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label.split(':')[1]%><%}%> R$ <%=segments[i].value.toFixed(2)%></li></a><%}%></ul>"},
+  chartOptions: {animation: false, showTooltips: false, legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><a href='<%='/#/report?invoiceField=' + segments[i].label.split(':')[0] + '&isRevenue=' + segments[i].label.split(':')[2] + '&fieldValue=' + segments[i].label.split(':')[1]%>'><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label.split(':')[1]%><%}%> R$ <%=segments[i].value.toFixed(2)%></li></a><%}%></ul>"},
   
   _expensesOrRevenue: Ember.computed('list', 'isRevenue', function() {
     var self = this;
@@ -26,7 +26,7 @@ export default Ember.Component.extend({
                       "Transporte": "#1565c0", "Diversos": "#78909c", "Saúde e Beleza": "#43a047"};
     this.get('_expensesOrRevenue').forEach(function(invoice) {
       var value = Number(invoice.get('value'));
-      var typeExpenseValue = showGraph ? (field + ':' + invoice.get(fieldName)) + ':' + isRevenue : invoice.get(fieldName);
+      var typeExpenseValue = showGraph ? (fieldName + ':' + invoice.get(fieldName) + ':' + isRevenue) : invoice.get(fieldName);
       if(invoice.get(fieldName) in grouped) {
         grouped[invoice.get(fieldName)].value += value;
       }

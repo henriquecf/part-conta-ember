@@ -85,6 +85,15 @@
                     </md-card-content>
                 </md-card>
               {{/if}}
+              
+              <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
+                <md-card-content>
+                  <h2 class="md-title">Principais Gastos</h2>
+                  <p>
+                    {{grouped-invoices list=filteredModel groupByField="description" showGraph=false}}
+                  </p>
+                </md-card-content>
+              </md-card>
             </div>
         {{/md-tab-content}}
 
