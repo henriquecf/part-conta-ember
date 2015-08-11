@@ -24,7 +24,8 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",
       'font-src': "'self' fonts.gstatic.com",
-      'img-src': "'self' lh5.googleusercontent.com lh3.googleusercontent.com"
+      'img-src': "'self' lh5.googleusercontent.com lh3.googleusercontent.com",
+      'style-src': "'self' 'unsafe-inline' fonts.gstatic.com fonts.googleapis.com"
     },
     
     'simple-auth': {

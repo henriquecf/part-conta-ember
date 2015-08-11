@@ -21,6 +21,8 @@
       <label>Data</label>
       {{md-input type="date" required="required"}}
   {{/md-input-container}}
+  {{group}}
+  {{user}}
   {{#each session.currentUser.groups as |groupItem|}}
     {{#md-radio-button value=groupItem selected=group class="md-primary"}}
       {{groupItem.name}}

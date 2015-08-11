@@ -2,7 +2,11 @@ import Ember from 'ember';
 import UnauthenticatedRouteMixin from 'simple-auth/mixins/unauthenticated-route-mixin';
 
 export default Ember.Route.extend(UnauthenticatedRouteMixin, {
-  beforeModel: function() {
+  beforeModel: function(transition) {
+    this._super(transition);
+    if(this.get('session.isAuthenticated')) {
+      this.transitionTo('dashboard');
+    }
     this.controllerFor('application').set('pageTitle', 'Entrar');
   },
   
