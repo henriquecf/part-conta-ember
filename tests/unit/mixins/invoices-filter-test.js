@@ -14,24 +14,24 @@ test('it filters', function(assert) {
   
   Ember.run(function() {
     subject.set('model', [juneInvoice, julyInvoice, juneInvoice2014]);
-    subject.set('month', ["07"]);
-    subject.set('year', ["2015"]);
+    subject.set('month', "07");
+    subject.set('year', "2015");
   });
   assert.equal(JSON.stringify(subject.get('filteredModel')), JSON.stringify([julyInvoice]));
 
   Ember.run(function() {
-    subject.set('month', ["06"]);
+    subject.set('month', "06");
   });
   assert.equal(JSON.stringify(subject.get('filteredModel')), JSON.stringify([juneInvoice]));
 
   Ember.run(function() {
-    subject.set('year', ["2014"]);
+    subject.set('year', "2014");
   });
   assert.equal(JSON.stringify(subject.get('filteredModel')), JSON.stringify([juneInvoice2014]));
 
   Ember.run(function() {
     subject.set('month', 'all');
-    subject.set('year', ["2015"]);
+    subject.set('year', "2015");
   });
   assert.equal(JSON.stringify(subject.get('filteredModel')), JSON.stringify([julyInvoice, juneInvoice]));
 
@@ -52,8 +52,8 @@ test('it re filters when object is changed, added or removed', function(assert) 
   
   Ember.run(function() {
     subject.set('model', invoicesList);
-    subject.set('month', ["07"]);
-    subject.set('year', ["2015"]);
+    subject.set('month', "07");
+    subject.set('year', "2015");
   });
   assert.equal(JSON.stringify(subject.get('filteredModel')), JSON.stringify([invoice1, invoice2]));
 
