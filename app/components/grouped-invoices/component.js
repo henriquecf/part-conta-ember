@@ -45,5 +45,14 @@ export default Ember.Component.extend({
     this.set('totalValue', totalValue);
     var groupedList = Object.keys(grouped).map(function(key) { return grouped[key]; });
     return groupedList.sortBy(['value']).reverse();
+  }),
+  
+  slicedGroupedInvoices: Ember.computed('groupedInvoices.@each.value', 'listSize', function() {
+    var listSize = this.get('listSize');
+    var list = this.get('groupedInvoices');
+    if(listSize) {
+      list = list.filter(function(g) {return g.label;}).slice(0, listSize);
+    }
+    return list;
   })
 });

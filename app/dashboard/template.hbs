@@ -1,4 +1,3 @@
-{{partial 'invoices-filter-form'}}
 {{#md-tabs md-border-bottom='' dynamicHeight=true}}
     {{#md-tabs-wrapper}}
         {{#md-tab label="Geral"}}
@@ -11,6 +10,7 @@
 
     {{#md-tabs-content-wrapper}}
         {{#md-tab-content}}
+          {{partial 'invoices-filter-form'}}
             <div md-scroll-y layout="row" layout-wrap>
               <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
                   <md-card-content>
@@ -90,7 +90,7 @@
                 <md-card-content>
                   <h2 class="md-title">Principais Gastos</h2>
                   <p>
-                    {{grouped-invoices list=filteredModel groupByField="description" showGraph=false}}
+                    {{grouped-invoices list=filteredModel groupByField="description" showGraph=false listSize=5}}
                   </p>
                 </md-card-content>
               </md-card>
@@ -98,6 +98,7 @@
         {{/md-tab-content}}
 
         {{#md-tab-content}}
+          {{partial 'invoices-filter-form'}}
           <div md-scroll-y layout="row" layout-wrap>
             <md-card>
                 <md-card-content>
@@ -111,6 +112,7 @@
         {{/md-tab-content}}
 
         {{#md-tab-content}}
+          {{partial 'invoices-filter-form'}}
           <div md-scroll-y layout="row" layout-wrap>
             <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
                 <md-card-content>
@@ -169,6 +171,24 @@
                   </md-card-content>
               </md-card>
             {{/if}}
+              
+              <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
+                <md-card-content>
+                  <h2 class="md-title">Principais Gastos</h2>
+                  <p>
+                    {{grouped-invoices list=filteredModel groupByField="description" showGraph=false listSize=5}}
+                  </p>
+                </md-card-content>
+              </md-card>
+              
+              <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
+                <md-card-content>
+                  <h2 class="md-title">Principais Ganhos</h2>
+                  <p>
+                    {{grouped-invoices list=filteredModel groupByField="description" showGraph=false listSize=5 isRevenue=true}}
+                  </p>
+                </md-card-content>
+              </md-card>
           </div>
         {{/md-tab-content}}
 
