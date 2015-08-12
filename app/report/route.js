@@ -21,7 +21,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, BackButtonMixin, Invo
   
   setupController: function(controller, model) {
     this._super(controller, model);
-    this.controllerFor('application').setProperties({pageTitle: controller.get('fieldValue'),
-                                                     backButton: 'reports'});
+    var revenueStr = controller.get('isRevenue') ? 'Ganhos' : 'Despesas';
+    var pageTitle = revenueStr + ': ' + controller.get('fieldValue');
+    this.controllerFor('application').setProperties({pageTitle: pageTitle, backButton: 'reports'});
   }
 });

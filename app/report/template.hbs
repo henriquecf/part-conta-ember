@@ -1,6 +1,7 @@
-{{#liquid-bind typeValue use="toUp"}}
+{{partial 'invoices-filter-form'}}
+
+{{#liquid-bind filterStr use='fade'}}
   <div md-scroll-y layout="row" layout-wrap>
-    {{partial 'invoices-filter-form'}}
     <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
       <md-card-content>
         <p>
