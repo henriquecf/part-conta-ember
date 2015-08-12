@@ -18,7 +18,6 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
       then(function() {
         controller.setProperties({identification: null, password: null});
         self.controllerFor('application').showToast('Login efetuado com sucesso');
-        self.transitionTo('dashboard');
       }, function() {
         controller.set('password', null);
         if(window.navigator.connection === 'none') {
