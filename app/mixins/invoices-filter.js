@@ -40,13 +40,13 @@ export default Ember.Mixin.create({
     nextMonth: function() {
       var month = this.get('month'), year = this.get('year');
       var changedDate = moment([year, month]).month(month + 1).format('YYYY:MM').split(':');
-      this.transitionToRoute(this.get('router.url'), {queryParams: {year: changedDate[0], month: changedDate[1]}});
+      this.transitionToRoute(null, {queryParams: {year: changedDate[0], month: changedDate[1]}});
       this.send('filtersChanged');
     },
     lastMonth: function() {
       var month = this.get('month'), year = this.get('year');
       var changedDate = moment([year, month]).month(month - 2).format('YYYY:MM').split(':');
-      this.transitionToRoute(this.get('router.url'), {queryParams: {year: changedDate[0], month: changedDate[1]}});
+      this.transitionToRoute(null, {queryParams: {year: changedDate[0], month: changedDate[1]}});
       this.send('filtersChanged');
     }
   }
