@@ -1,19 +1,22 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
 import BackButtonMixin from '../mixins/back-button';
+import InvoicesRouteFilterMixin from '../mixins/invoices-route-filter';
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, BackButtonMixin, {
+export default Ember.Route.extend(AuthenticatedRouteMixin, BackButtonMixin, InvoicesRouteFilterMixin, {
   beforeModel: function(transition) {
     this._super(transition);
     if(!transition.queryParams.invoiceField || !transition.queryParams.fieldValue) {
-      this.transitionTo('dashboard');
+      this.transitionTo('reports');
     }
   },
+  
   model: function(params) {
     var field = params.invoiceField, fieldValue = params.fieldValue;
-    return this.store.findAll('invoice').then(function(invoices) {
+    var filteredInvoices = this._super(params);
+    return filteredInvoices.then(function(invoices) {
       return invoices.filterBy(field, fieldValue);
-    }, null);
+    });
   },
   
   setupController: function(controller, model) {
