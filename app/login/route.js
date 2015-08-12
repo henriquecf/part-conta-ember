@@ -20,7 +20,7 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
         self.controllerFor('application').showToast('Login efetuado com sucesso');
       }, function() {
         controller.set('password', null);
-        if(window.navigator.connection === 'none') {
+        if(window.navigator.onLine === false) {
           self.controllerFor('application').showToast('Você precisa se conectar à internet para entrar');
         }
         else {

@@ -17,7 +17,7 @@ export default ActiveModelAdapter.extend({
     }
   },
   shouldBackgroundReloadAll: function() {
-    if (window.navigator.connection === 'none') {
+    if (window.navigator.onLine === false) {
       return false;
     } else {
       return true;
