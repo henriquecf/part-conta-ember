@@ -1,5 +1,5 @@
 export default function(){
-  this.setDefault({duration: 1000});
+  this.setDefault({duration: 500});
   
   this.transition(
     this.fromRoute('dashboard'),
