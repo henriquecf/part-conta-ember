@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   mediaQueries: Ember.inject.service('media-queries'),
   pageTitle: 'PartConta',
+  backButton: 'dashboard',
   
   toastNotifications: Ember.computed('toastService.toasts.[]', function() {
     return Ember.A(this.get('toastService.toasts'));
