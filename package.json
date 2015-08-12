@@ -50,6 +50,6 @@
     "ember-moment": "3.5.0",
     "ember-new-computed": "^1.0.2",
     "ember-try": "0.0.7",
-    "liquid-fire": "0.21.1"
+    "liquid-fire": "0.21.2"
   }
 }
