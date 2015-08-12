@@ -20,5 +20,14 @@ export default DS.Model.extend({
   
   dateMonth: momentFormat('date', 'MM'),
   
-  dateYear: momentFormat('date', 'YYYY')
+  dateYear: momentFormat('date', 'YYYY'),
+  
+  categoryColor: Ember.computed('category', function(){
+    var colorsHash = {
+      "Alimentação": "#ff9100","Educação": "#4527a0", "Lazer": "#536dfe",
+      "Moradia": "#795548", "Roupas e Acessórios": "#c51162", "Receita": "#009688",
+      "Transporte": "#1565c0", "Diversos": "#78909c", "Saúde e Beleza": "#43a047"
+    };
+    return colorsHash[this.get('category')];
+  })
 });
