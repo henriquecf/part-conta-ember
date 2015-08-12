@@ -4,7 +4,7 @@
       <md-card-content>
         <h2 class="md-title">Despesas por categoria</h2>
         <p>
-          {{grouped-invoices list=filteredModel groupByField="category"}}
+          {{grouped-invoices list=model groupByField="category"}}
         </p>
       </md-card-content>
   </md-card>
@@ -13,7 +13,7 @@
       <md-card-content>
         <h2 class="md-title">Ganhos por categoria</h2>
         <p>
-          {{grouped-invoices list=filteredModel groupByField="category" isRevenue=true}}
+          {{grouped-invoices list=model groupByField="category" isRevenue=true}}
         </p>
       </md-card-content>
   </md-card>
@@ -23,7 +23,7 @@
         <md-card-content>
           <h2 class="md-title">Despesas por grupo</h2>
           <p>
-            {{grouped-invoices list=filteredModel groupByField="group" fieldName="group.name"}}
+            {{grouped-invoices list=model groupByField="group" fieldName="group.name"}}
           </p>
         </md-card-content>
     </md-card>
@@ -32,7 +32,7 @@
         <md-card-content>
           <h2 class="md-title">Ganhos por grupo</h2>
           <p>
-            {{grouped-invoices list=filteredModel groupByField="group" fieldName="group.name" isRevenue=true}}
+            {{grouped-invoices list=model groupByField="group" fieldName="group.name" isRevenue=true}}
           </p>
         </md-card-content>
     </md-card>
@@ -43,7 +43,7 @@
         <md-card-content>
           <h2 class="md-title">Despesas por usuário</h2>
           <p>
-            {{grouped-invoices list=filteredModel groupByField="user" fieldName="user.name"}}
+            {{grouped-invoices list=model groupByField="user" fieldName="user.name"}}
           </p>
         </md-card-content>
     </md-card>
@@ -52,7 +52,7 @@
         <md-card-content>
           <h2 class="md-title">Ganhos por usuário</h2>
           <p>
-            {{grouped-invoices list=filteredModel groupByField="user" fieldName="user.name" isRevenue=true}}
+            {{grouped-invoices list=model groupByField="user" fieldName="user.name" isRevenue=true}}
           </p>
         </md-card-content>
     </md-card>
@@ -62,7 +62,7 @@
       <md-card-content>
         <h2 class="md-title">Principais Gastos</h2>
         <p>
-          {{grouped-invoices list=filteredModel groupByField="description" showGraph=false listSize=5}}
+          {{grouped-invoices list=model groupByField="description" showGraph=false listSize=5}}
         </p>
       </md-card-content>
     </md-card>
@@ -71,7 +71,7 @@
       <md-card-content>
         <h2 class="md-title">Principais Ganhos</h2>
         <p>
-          {{grouped-invoices list=filteredModel groupByField="description" showGraph=false listSize=5 isRevenue=true}}
+          {{grouped-invoices list=model groupByField="description" showGraph=false listSize=5 isRevenue=true}}
         </p>
       </md-card-content>
     </md-card>

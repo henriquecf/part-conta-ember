@@ -12,12 +12,8 @@ export default Ember.Mixin.create({
     return moment([this.get('year'), this.get('month') - 1]).format('MMMM');
   }),
   
-  filteredModel: Ember.computed('model', function() {
-    return this.get('model');
-  }),
-  
-  _filteredModelExpenses: Ember.computed.filterBy('filteredModel', 'revenue', false),
-  _filteredModelRevenue: Ember.computed.filterBy('filteredModel', 'revenue', true),
+  _filteredModelExpenses: Ember.computed.filterBy('model', 'revenue', false),
+  _filteredModelRevenue: Ember.computed.filterBy('model', 'revenue', true),
   
   _filteredModelExpensesValues: Ember.computed.map('_filteredModelExpenses', function(invoice) {
     return Number(invoice.get('value'));
