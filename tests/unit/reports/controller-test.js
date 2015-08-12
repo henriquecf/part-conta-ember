@@ -1,7 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('controller:report', {
-  // Specify the other units that are required for this test.
+moduleFor('controller:reports', {
   needs: ['controller:application', 'service:media-queries', 'service:toasts']
 });
 

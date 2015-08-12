@@ -33,6 +33,7 @@ export default Ember.Mixin.create({
   },
   
   beforeModel: function(transition) {
+    this._super(transition);
     if(transition.queryParams.revenue) {
       this.set('revenue', true);
     }
@@ -55,7 +56,9 @@ export default Ember.Mixin.create({
     }
     else {
       controller.setProperties({value: null, category: null, date: moment().format('DD/MM/YYYY'), 
-                                description: null, user: null, group: null});
+                                description: null});
+      controller.set('group', controller.get('session.currentUser.groups.firstObject'));
+      controller.set('user', controller.get('session.currentUser'));
     }
     if(controller.get('revenue')) {
       controller.set('expenseOrRevenue', 'Ganho');

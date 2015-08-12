@@ -1,5 +1,6 @@
 {{#liquid-bind typeValue use="toUp"}}
   <div md-scroll-y layout="row" layout-wrap>
+    {{partial 'invoices-filter-form'}}
     <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
       <md-card-content>
         <p>
@@ -15,7 +16,7 @@
       <md-card-content>
         <h2>Principais {{if isRevenue 'ganhos' 'gastos'}}</h2>
         <p>
-          {{invoices-list list=filteredModel list-size=3}}
+          {{grouped-invoices list=filteredModel groupByField='description' isRevenue=isRevenue showGraph=false listSize=5}}
         </p>
       </md-card-content>
     </md-card>

@@ -1,0 +1,11 @@
+{{partial 'invoices-filter-form'}}
+<div md-scroll-y layout="row" layout-wrap>
+  <md-card>
+      <md-card-content>
+        <h2 class="md-title">Todas as contas</h2>
+        <p>
+          {{invoices-list list=filteredModel}}
+        </p>
+      </md-card-content>
+  </md-card>
+</div>

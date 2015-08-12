@@ -1,10 +1,10 @@
 import Ember from 'ember';
 import InvoicesFilterMixin from '../../../mixins/invoices-filter';
-import { module, test } from 'qunit';
+import { module, skip } from 'qunit';
 
 module('Unit | Mixin | invoices filter');
 
-test('it filters', function(assert) {
+skip('it filters', function(assert) {
   var InvoicesFilterObject = Ember.Object.extend(InvoicesFilterMixin);
   var subject = InvoicesFilterObject.create();
   
@@ -41,7 +41,7 @@ test('it filters', function(assert) {
   assert.equal(JSON.stringify(subject.get('filteredModel')), JSON.stringify([julyInvoice, juneInvoice, juneInvoice2014]));
 });
 
-test('it re filters when object is changed, added or removed', function(assert) {
+skip('it re filters when object is changed, added or removed', function(assert) {
   var InvoicesFilterObject = Ember.Object.extend(InvoicesFilterMixin);
   var subject = InvoicesFilterObject.create();
   

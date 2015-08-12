@@ -3,7 +3,7 @@
 {{/each}}
 
 <div layout="column" role="main" flex tabindex="-1">
-    {{#md-toolbar}}
+    {{#md-toolbar class="md-tall"}}
         <div class="md-toolbar-tools">
             {{outlet "menu-action"}}
             <h2>
@@ -18,10 +18,10 @@
                       {{md-icon md-svg-icon="assets/images/icons/dots-vertical.svg" md-menu-origin='' style="width: 24px; height: 24px;"}}
                   {{/md-button}}
 
-                  <md-menu-content width="6">
+                  <md-menu-content width="3">
                       <md-menu-item>
                           {{#md-button action='invalidateSession'}}
-                              {{md-icon md-svg-icon="call:no-sim" md-menu-align-target=''}}
+                              {{md-icon md-svg-icon="assets/images/icons/close.svg"}}
                               Sair
                           {{/md-button}}
                       </md-menu-item>
@@ -34,6 +34,11 @@
             {{/if}}
 
         </div>
+        <h2 class="md-toolbar-tools md-toolbar-tools-bottom">
+          <span class="md-flex">
+            {{partial 'main-menu'}}
+          </span>
+        </h2>
     {{/md-toolbar}}
 
     <md-content class="md-padding">

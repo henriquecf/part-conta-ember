@@ -19,7 +19,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "active-model-adapter": "1.13.5",
+    "active-model-adapter": "1.13.6",
     "broccoli-asset-rev": "^2.0.2",
     "ember-cli": "1.13.6",
     "ember-cli-app-version": "0.4.0",
@@ -50,6 +50,6 @@
     "ember-moment": "3.5.0",
     "ember-new-computed": "^1.0.2",
     "ember-try": "0.0.7",
-    "liquid-fire": "0.21.1"
+    "liquid-fire": "0.21.2"
   }
 }

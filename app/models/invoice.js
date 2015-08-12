@@ -1,6 +1,6 @@
 import DS from 'ember-data';
 import Ember from 'ember';
-import computedMoment from 'ember-moment/computeds/moment';
+import momentFormat from 'ember-moment/computeds/format';
 
 export default DS.Model.extend({
   category: DS.attr('string'),
@@ -12,15 +12,15 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   updatedAt: DS.attr('date'),
   
-  formattedDate: computedMoment('date', 'DD/MM/YYYY'),
+  formattedDate: momentFormat('date', 'DD/MM/YYYY'),
   
   categoryAbbrev: Ember.computed('category', function() {
     return this.get('category').slice(0,2);
   }),
   
-  dateMonth: computedMoment('date', 'MM'),
+  dateMonth: momentFormat('date', 'MM'),
   
-  dateYear: computedMoment('date', 'YYYY'),
+  dateYear: momentFormat('date', 'YYYY'),
   
   categoryColor: Ember.computed('category', function(){
     var colorsHash = {

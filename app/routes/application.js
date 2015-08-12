@@ -1,17 +1,11 @@
 import Ember from 'ember';
 import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
-import moment from 'moment';
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
-  beforeModel() {
-    moment.locale('pt-br');
-  },
-    
   actions: {
     invalidateSession: function() {
       this.get('session').invalidate();
       this.controllerFor('application').showToast('Desconectado com sucesso');
-      this.transitionTo('/');
     },
     newRevenue: function() {
       this.transitionTo('new-invoice', {queryParams: {revenue: true}});

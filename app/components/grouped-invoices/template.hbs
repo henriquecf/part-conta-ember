@@ -2,7 +2,7 @@
   {{ember-chart type="Doughnut" data=groupedInvoices options=chartOptions legend=true}}
 {{else}}
   {{#md-list}}
-    {{#each groupedInvoices as |groupedInvoice|}}
+    {{#each slicedGroupedInvoices as |groupedInvoice|}}
       {{#if groupedInvoice.label}}
         {{#md-list-item class="md-3-line"}}
           <div class="md-list-item-text">

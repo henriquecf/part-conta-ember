@@ -1,7 +1,12 @@
 import Ember from 'ember';
+import UnauthenticatedRouteMixin from 'simple-auth/mixins/unauthenticated-route-mixin';
 
-export default Ember.Route.extend({
-  beforeModel: function() {
+export default Ember.Route.extend(UnauthenticatedRouteMixin, {
+  beforeModel: function(transition) {
+    this._super(transition);
+    if(this.get('session.isAuthenticated')) {
+      this.transitionTo('dashboard');
+    }
     this.controllerFor('application').set('pageTitle', 'Entrar');
   },
   
@@ -13,7 +18,6 @@ export default Ember.Route.extend({
       then(function() {
         controller.setProperties({identification: null, password: null});
         self.controllerFor('application').showToast('Login efetuado com sucesso');
-        self.transitionTo('dashboard');
       }, function() {
         controller.set('password', null);
         if(window.navigator.connection === 'none') {

@@ -4,8 +4,9 @@ import BackButtonMixin from '../mixins/back-button';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, BackButtonMixin, {
   beforeModel: function(transition) {
+    this._super(transition);
     if(!transition.queryParams.invoiceField || !transition.queryParams.fieldValue) {
-      this.transitionTo('reports');
+      this.transitionTo('dashboard');
     }
   },
   model: function(params) {

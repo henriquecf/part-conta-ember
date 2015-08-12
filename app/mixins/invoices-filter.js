@@ -2,10 +2,19 @@ import Ember from 'ember';
 import moment from 'moment';
 
 export default Ember.Mixin.create({
+  needs: 'application',
+  
+  month: Ember.computed.alias('controllers.application.month'),
+  year: Ember.computed.alias('controllers.application.year'),
+  
   init: function() {
     this._super.apply(this, arguments);
-    this.set('month', moment().format('MM'));
-    this.set('year', moment().format('YYYY'));
+    if(!this.get('month')) {
+      this.set('month', moment().format('MM'));
+    }
+    if(!this.get('year')) {
+      this.set('year', moment().format('YYYY'));
+    }
   },
   
   filterStr: Ember.computed('month', 'year', function() {
@@ -13,15 +22,15 @@ export default Ember.Mixin.create({
   }),
   
   filteredModel: Ember.computed('model.@each.dateMonth', 'model.@each.dateYear', 'month', 'year', function() {
-    var month = this.get('month').toString();
-    var year = this.get('year').toString();
+    var month = this.get('month').toString().split(',');
+    var year = this.get('year').toString().split(',');
     var filteredInvoices = this.get('model');
-    if(month && month !== 'all') {
+    if(month && month.toString() !== 'all') {
       filteredInvoices = filteredInvoices.filter(function(invoice) {
         return month.contains(invoice.get('dateMonth'));
       });
     }
-    if(year && year !== 'all') {
+    if(year && year.toString() !== 'all') {
       filteredInvoices = filteredInvoices.filter(function(invoice) {
         return year.contains(invoice.get('dateYear'));
       });
