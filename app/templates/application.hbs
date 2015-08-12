@@ -3,7 +3,7 @@
 {{/each}}
 
 <div layout="column" role="main" flex tabindex="-1">
-    {{#md-toolbar}}
+    {{#md-toolbar class="md-tall"}}
         <div class="md-toolbar-tools">
             {{outlet "menu-action"}}
             <h2>
@@ -34,6 +34,11 @@
             {{/if}}
 
         </div>
+        <h2 class="md-toolbar-tools md-toolbar-tools-bottom">
+          <span class="md-flex">
+            {{partial 'main-menu'}}
+          </span>
+        </h2>
     {{/md-toolbar}}
 
     <md-content class="md-padding">
