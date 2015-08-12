@@ -8,7 +8,7 @@ export default Ember.Mixin.create({
     this.set('year', this.controllerFor('application').get('year') || moment().format('YYYY'));
   },
   
-  model: function(params) {
+  model: function() {
     var month = this.get('month');
     var year = this.get('year');
     return this.store.findAll('invoice').then(function(invoices) {
