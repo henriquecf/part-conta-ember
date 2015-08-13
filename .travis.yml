@@ -14,6 +14,7 @@ matrix:
   allow_failures:
     - env: EMBER_VERSION='ember-beta'
     - env: EMBER_VERSION='ember-canary'
+    - env: EMBER_VERSION='ember-release'
   include:
     - env: "EMBER_VERSION='ember-release'"
     - env: "EMBER_VERSION='ember-beta'"
