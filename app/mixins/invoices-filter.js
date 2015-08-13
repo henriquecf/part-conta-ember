@@ -2,11 +2,11 @@ import Ember from 'ember';
 import moment from 'moment';
 
 export default Ember.Mixin.create({
-  needs: 'application',
+  application: Ember.inject.controller(),
   
   queryParams: ['year', 'month'],
-  month: Ember.computed.alias('controllers.application.month'),
-  year: Ember.computed.alias('controllers.application.year'),
+  month: Ember.computed.alias('application.month'),
+  year: Ember.computed.alias('application.year'),
   
   filterStr: Ember.computed('month', 'year', function() {
     return moment([this.get('year'), this.get('month') - 1]).format('MMMM');
