@@ -13,7 +13,6 @@ export default Ember.Mixin.create({
       if(invoiceFields.category) {
         var invoice = this.store.createRecord('invoice', invoiceFields);
         invoice.save();
-        this.controllerFor('application').showToast(this.controller.get('expenseOrRevenue') + ' criado com sucesso');
         this.transitionTo('dashboard');
       }
       else{
@@ -27,7 +26,6 @@ export default Ember.Mixin.create({
       invoice.setProperties({value: ctrl.get('value'), category: ctrl.get('category'), date: ctrl.get('date'),
         revenue: ctrl.get('revenue'), description: ctrl.get('description'), user: ctrl.get('user'), group: ctrl.get('group')});
       invoice.save();
-      this.controllerFor('application').showToast(this.controller.get('expenseOrRevenue') + ' alterado com sucesso');
       this.transitionTo('dashboard');
     }
   },
