@@ -1,25 +1,9 @@
-{{partial 'invoices-filter-form'}}
+<div class="mdl-cell mdl-cell--4-col balance-card">
+  {{#if isRevenue}}
+    Ganhos {{number-to-currency value=filteredModelRevenueValuesSum isRevenue=true}}
+  {{else}}
+    Gastos {{number-to-currency value=filteredModelExpensesValuesSum}}
+  {{/if}}
+</div>
 
-{{#liquid-bind filterStr use='fade'}}
-  <div md-scroll-y layout="row" layout-wrap>
-    <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
-      <md-card-content>
-        <p>
-          {{#if isRevenue}}
-            Ganhos {{number-to-currency value=filteredModelRevenueValuesSum isRevenue=true}}
-          {{else}}
-            Gastos {{number-to-currency value=filteredModelExpensesValuesSum}}
-          {{/if}}
-        </p>
-      </md-card-content>
-    </md-card>
-    <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
-      <md-card-content>
-        <h2>Principais {{if isRevenue 'ganhos' 'gastos'}}</h2>
-        <p>
-          {{grouped-invoices list=model groupByField='description' isRevenue=isRevenue showGraph=false listSize=5}}
-        </p>
-      </md-card-content>
-    </md-card>
-  </div>
-{{/liquid-bind}}
+{{grouped-invoices list=model groupByField='description' isRevenue=isRevenue showGraph=false listSize=5 cardTitle=cardTitle}}

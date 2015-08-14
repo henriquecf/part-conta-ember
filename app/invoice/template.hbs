@@ -1,34 +1,4 @@
-{{#md-list-item class="md-3-line"}}
-    <div class="md-avatar" alt="{{model.category}}" style="background-color: {{model.categoryColor}}; color: white;">{{model.categoryAbbrev}}</div>
-    <div class="md-list-item-text">
-      <h3>
-        {{model.description}}
-        {{number-to-currency value=model.value isRevenue=model.revenue}}
-      </h3>
-      
-      <h4 style="margin-top: 15px;">{{model.formattedDate}}</h4>
-
-    </div>
-
-    
-    {{#md-menu style="width: 0px; height: 0px;" as |menu|}}
-        {{#md-button action='toggleMenu' param=menu class="list-item-action"}}
-            {{md-icon md-svg-icon="assets/images/icons/dots-vertical.svg" md-menu-origin='' style="width: 24px; height: 24px;"}}
-        {{/md-button}}
-
-        <md-menu-content width="3">
-            <md-menu-item>
-                {{#md-button action='deleteInvoice'}}
-                    {{md-icon md-svg-src="assets/images/icons/close.svg"}}
-                    Apagar
-                {{/md-button}}
-            </md-menu-item>
-            <md-menu-item>
-                {{#md-button action='editInvoice'}}
-                    {{md-icon md-svg-src="assets/images/icons/border-color.svg"}}
-                    Editar
-                {{/md-button}}
-            </md-menu-item>
-        </md-menu-content>
-    {{/md-menu}}
-{{/md-list-item}}
+<p>
+	{{model.description}}
+  {{number-to-currency value=model.value isRevenue=model.revenue}}
+</p>

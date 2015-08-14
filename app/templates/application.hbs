@@ -1,48 +1,39 @@
-{{#each toastNotifications as |toast|}}
-  {{md-toast toast=toast}}
-{{/each}}
-
-<div layout="column" role="main" flex tabindex="-1">
-    {{#md-toolbar class="md-tall"}}
-        <div class="md-toolbar-tools">
-            {{outlet "menu-action"}}
-            <h2>
-              <span>{{pageTitle}}</span>
-            </h2>
-
-            <span flex></span>
-            
-            {{#if session.isAuthenticated}}
-              {{#md-menu as |menu|}}
-                  {{#md-button class="md-icon-button" action='toggleMenu' param=menu}}
-                      {{md-icon md-svg-icon="assets/images/icons/dots-vertical.svg" md-menu-origin='' style="width: 24px; height: 24px;"}}
-                  {{/md-button}}
-
-                  <md-menu-content width="3">
-                      <md-menu-item>
-                          {{#md-button action='invalidateSession'}}
-                              {{md-icon md-svg-icon="assets/images/icons/close.svg"}}
-                              Sair
-                          {{/md-button}}
-                      </md-menu-item>
-                  </md-menu-content>
-              {{/md-menu}}
-            {{else}}
-              {{#link-to 'login' activeClass="parentActive"}}
-                {{#link-to 'login' class="md-button md-accent"}}Entrar{{/link-to}}
-              {{/link-to}}
-            {{/if}}
-
-        </div>
-        <h2 class="md-toolbar-tools md-toolbar-tools-bottom">
-          <span class="md-flex">
-            {{partial 'main-menu'}}
-          </span>
-        </h2>
-    {{/md-toolbar}}
-
-    <md-content class="md-padding">
-      {{liquid-outlet}}
-      {{outlet 'main-fab'}}
-    </md-content>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">{{pageTitle}}</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        {{#link-to 'dashboard' class="mdl-navigation__link" tagName="a"}}
+          Geral
+        {{/link-to}}
+        {{#link-to 'invoices' class="mdl-navigation__link" tagName="a"}}
+          Contas
+        {{/link-to}}
+        {{#link-to 'reports' class="mdl-navigation__link" tagName="a"}}
+          Relatórios
+        {{/link-to}}
+        <a {{action 'invalidateSession'}} class="mdl-navigation__link">
+          Sair
+        </a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">{{pageTitle}}</span>
+    <nav class="mdl-navigation">
+      {{#link-to 'dashboard' class="mdl-navigation__link" tagName="a"}}Geral{{/link-to}}
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      {{liquid-outlet class="main-outlet"}}
+    </div>
+  </main>
 </div>

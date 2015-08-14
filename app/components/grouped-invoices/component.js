@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  classNames: ['mdl-cell', 'mdl-cell--4-col'],
+  
   totalValue: 0,
   isRevenue: false,
   fieldName: null,

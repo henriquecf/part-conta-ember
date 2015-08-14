@@ -1,18 +1,16 @@
-{{#if showGraph}}
-  {{ember-chart type="Doughnut" data=groupedInvoices options=chartOptions legend=true}}
-{{else}}
-  {{#md-list}}
-    {{#each slicedGroupedInvoices as |groupedInvoice|}}
-      {{#if groupedInvoice.label}}
-        {{#md-list-item class="md-3-line"}}
-          <div class="md-list-item-text">
-            <h3>
-              {{groupedInvoice.label}}
-              {{number-to-currency value=groupedInvoice.value isRevenue=isRevenue}}
-            </h3>
-          </div>
-        {{/md-list-item}}
-      {{/if}}
-    {{/each}}
-  {{/md-list}}
-{{/if}}
+{{#mdl-card title=cardTitle}}
+  <div class="mdl-card__supporting-text">
+    {{#if showGraph}}
+      {{ember-chart type="Doughnut" data=groupedInvoices options=chartOptions legend=true}}
+    {{else}}
+      {{#each slicedGroupedInvoices as |groupedInvoice|}}
+        {{#if groupedInvoice.label}}
+          <p>
+            {{groupedInvoice.label}}
+            {{number-to-currency value=groupedInvoice.value isRevenue=isRevenue}}
+          </p>
+        {{/if}}
+      {{/each}}
+    {{/if}}
+  </div>
+{{/mdl-card}}

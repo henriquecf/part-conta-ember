@@ -23,6 +23,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, BackButtonMixin, Invo
     this._super(controller, model);
     var revenueStr = controller.get('isRevenue') ? 'Ganhos' : 'Despesas';
     var pageTitle = revenueStr + ': ' + controller.get('fieldValue');
+    controller.set('cardTitle', 'Principais ' + revenueStr.toLowerCase());
     this.controllerFor('application').setProperties({pageTitle: pageTitle, backButton: 'reports'});
   }
 });

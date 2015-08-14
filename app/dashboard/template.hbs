@@ -1,88 +1,23 @@
-{{partial 'invoices-filter-form'}}
+<div class="mdl-cell mdl-cell--4-col balance-card">
+  Ganhos {{number-to-currency value=filteredModelRevenueValuesSum isRevenue=true}}
+</div>
+<div class="mdl-cell mdl-cell--4-col balance-card">
+  Gastos {{number-to-currency value=filteredModelExpensesValuesSum}}
+</div>
+<div class="mdl-cell mdl-cell--4-col balance-card">
+  Balanço {{number-to-currency value=filteredModelValuesBalance isRevenue=isfilteredModelValuesBalanceRevenue}}
+</div>
 
-{{#liquid-bind month use='fade'}}
-  <div md-scroll-y layout="row" layout-wrap>
-    <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
-        <md-card-content>
-          <h2 class="md-title"></h2>
-          <p>
-            Ganhos {{number-to-currency value=filteredModelRevenueValuesSum isRevenue=true}}
-          </p>
-        </md-card-content>
-    </md-card>
-    <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
-        <md-card-content>
-          <h2 class="md-title"></h2>
-          <p>
-            Gastos {{number-to-currency value=filteredModelExpensesValuesSum}}
-          </p>
-        </md-card-content>
-    </md-card>
-    <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
-        <md-card-content>
-          <h2 class="md-title"></h2>
-          <p>
-            Balanço {{number-to-currency value=filteredModelValuesBalance isRevenue=isfilteredModelValuesBalanceRevenue}}
-          </p>
-        </md-card-content>
-    </md-card>
+{{invoices-list list=model list-size=3 cardTitle="Últimas contas"}}
 
-    <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
-        <md-card-content>
-          <h2 class="md-title">Últimas contas</h2>
-          <p>
-            {{invoices-list list=model list-size=3}}
-          </p>
-        </md-card-content>
-    </md-card>
+{{grouped-invoices list=model groupByField="category" cardTitle="Despesas por categoria"}}
 
-    <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
-        <md-card-content>
-          <h2 class="md-title">Despesas por categoria</h2>
-          <p>
-            {{grouped-invoices list=model groupByField="category"}}
-          </p>
-        </md-card-content>
-    </md-card>
-  
-    {{#if hasManyGroups}}
-      <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
-          <md-card-content>
-            <h2 class="md-title">Despesas por grupo</h2>
-            <p>
-              {{grouped-invoices list=model groupByField="group" fieldName="group.name"}}
-            </p>
-          </md-card-content>
-      </md-card>
-    {{/if}}
-  
-    {{#if hasManyUsers}}
-      <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
-          <md-card-content>
-            <h2 class="md-title">Despesas por usuário</h2>
-            <p>
-              {{grouped-invoices list=model groupByField="user" fieldName="user.name"}}
-            </p>
-          </md-card-content>
-      </md-card>
+{{#if hasManyGroups}}
+  {{grouped-invoices list=model groupByField="group" fieldName="group.name" cardTitle="Despesas por grupo"}}
+{{/if}}
 
-      <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
-          <md-card-content>
-            <h2 class="md-title">Ganhos por usuário</h2>
-            <p>
-              {{grouped-invoices list=model groupByField="user" fieldName="user.name" isRevenue=true}}
-            </p>
-          </md-card-content>
-      </md-card>
-    {{/if}}
-  
-    <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
-      <md-card-content>
-        <h2 class="md-title">Principais Gastos</h2>
-        <p>
-          {{grouped-invoices list=model groupByField="description" showGraph=false listSize=5}}
-        </p>
-      </md-card-content>
-    </md-card>
-  </div>
-{{/liquid-bind}}
+{{#if hasManyUsers}}
+  {{grouped-invoices list=model groupByField="user" fieldName="user.name" cardTitle="Despesas por usuário"}}
+{{/if}}
+
+{{grouped-invoices list=model groupByField="description" showGraph=false listSize=5 cardTitle="Principais despesas"}}

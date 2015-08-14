@@ -1,5 +1,7 @@
-{{#md-list}}
-  {{#each invoicesList as |invoice|}}
-    {{render 'invoice' invoice}}
-  {{/each}}
-{{/md-list}}
+{{#mdl-card title=cardTitle}}
+  <div class="mdl-card__supporting-text">
+    {{#each invoicesList as |invoice|}}
+      {{render 'invoice' invoice}}
+    {{/each}}
+  </div>
+{{/mdl-card}}
