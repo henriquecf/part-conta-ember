@@ -1,13 +1,13 @@
 {{#mdl-card}}
   <div class="mdl-card__supporting-text">
-    <form {{action addOrEdit on="submit"}} method="post">
+    <form {{action 'save' on="submit"}} method="post">
       {{mdl-textfield label='Valor' type='number' value=value step=0.01 autofocus=true}}
       {{#unless revenue}}
         {{#each categories as |categoryItem|}}
           {{mdl-radio value=categoryItem label=categoryItem name='category'}}
         {{/each}}
         {{#if error}}
-          <span class="md-caption" style="color: red;">{{error}}</span>
+          <span style="color: red;">{{error}}</span>
         {{/if}}
       {{/unless}}
       {{mdl-textfield label='Descrição' value=description}}
@@ -22,9 +22,7 @@
           {{mdl-radio value=userItem label=userItem.name name='user'}}
         {{/each}}
       </div>
-      <div>
-        {{#mdl-button type="submit"}}Salvar{{/mdl-button}}
-      </div>
+      {{#mdl-button type="submit"}}Salvar{{/mdl-button}}
     </form>
   </div>
 {{/mdl-card}}
