@@ -7,6 +7,12 @@
       <div class="mdl-layout-spacer"></div>
       <!-- Navigation. We hide it in small screens. -->
       <nav class="mdl-navigation mdl-layout--large-screen-only">
+        {{#link-to 'new-invoice' class="mdl-navigation__link" tagName="a"}}
+          Novo gasto
+        {{/link-to}}
+        {{#link-to 'new-invoice' (query-params revenue=true) class="mdl-navigation__link" tagName="a"}}
+          Novo ganho
+        {{/link-to}}
         {{#link-to 'dashboard' class="mdl-navigation__link" tagName="a"}}
           Geral
         {{/link-to}}
