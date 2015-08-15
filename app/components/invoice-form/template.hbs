@@ -1,8 +1,8 @@
 {{#mdl-card}}
   <div class="mdl-card__supporting-text">
     <form {{action 'save' on="submit"}} method="post">
-      {{mdl-textfield label='Valor' type='number' value=model.value step=0.01 autofocus=true}}
-      {{#unless model.revenue}}
+      {{mdl-textfield label='Valor' type='number' value=model.value}}
+      {{#unless revenue}}
         {{#each categories as |categoryItem|}}
           {{#radio-button value=categoryItem groupValue=model.category classNames="mdl-radio mdl-js-radio mdl-js-ripple-effect" radioClass="mdl-radio__button"}}
             <span class="mdl-radio__label">

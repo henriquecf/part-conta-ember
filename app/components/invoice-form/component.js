@@ -11,21 +11,12 @@ export default Ember.Component.extend({
     
     addInvoice: function() {
       var invoice = this.get('model');
-      if(invoiceFields.category) {
-        var invoice = this.store.createRecord('invoice', invoiceFields);
-        invoice.save();
-        this.transitionTo('dashboard');
-      }
-      else{
-        this.controller.set('error', 'Escolha uma categoria');
-      }
+      console.log('invoice', invoice);
     },
     
     editInvoice: function() {
       var invoice = this.get('model');
-      console.log(invoice.get('user.name'), invoice.get('group.name'));
-      invoice.save();
-      this.transitionTo('dashboard');
+      console.log('invoice', invoice, invoice.get('value'));
     }
   },
   
@@ -40,8 +31,11 @@ export default Ember.Component.extend({
   
   didInsertElement: function() {
     var invoice = this.get('model');
-    if(!invoice) {
-      this.set('model', Ember.Object.create({revenue: this.get('revenue')}))
+    if(invoice) {
+      this.set('revenue', invoice.get('revenue'));
+    }
+    else {
+      this.set('model', Ember.Object.create({}));
     }
   }
 });
