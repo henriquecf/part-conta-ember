@@ -10,7 +10,7 @@ export default Ember.Component.extend({
     },
     
     addInvoice: function() {
-      var invoiceFields = this.getProperties('value', 'category', 'revenue', 'description', 'date', 'user', 'group');
+      var invoice = this.get('model');
       if(invoiceFields.category) {
         var invoice = this.store.createRecord('invoice', invoiceFields);
         invoice.save();
@@ -23,19 +23,25 @@ export default Ember.Component.extend({
     
     editInvoice: function() {
       var invoice = this.get('model');
-      invoice.setProperties({value: this.get('value'), category: this.get('category'), date: this.get('date'),
-        revenue: this.get('revenue'), description: this.get('description'), user: this.get('user'), group: this.get('group')});
+      console.log(invoice.get('user.name'), invoice.get('group.name'));
       invoice.save();
       this.transitionTo('dashboard');
     }
   },
   
-  setCategory: Ember.observer('revenue', function() {
-    if(this.get('revenue')) {
+  setCategory: Ember.observer('model.revenue', function() {
+    if(this.get('model.revenue')) {
       this.set('category', 'Receita');
     }
     else {
       this.set('category', null);
     }
-  })
+  }),
+  
+  didInsertElement: function() {
+    var invoice = this.get('model');
+    if(!invoice) {
+      this.set('model', Ember.Object.create({revenue: this.get('revenue')}))
+    }
+  }
 });

@@ -1,25 +1,37 @@
 {{#mdl-card}}
   <div class="mdl-card__supporting-text">
     <form {{action 'save' on="submit"}} method="post">
-      {{mdl-textfield label='Valor' type='number' value=value step=0.01 autofocus=true}}
-      {{#unless revenue}}
+      {{mdl-textfield label='Valor' type='number' value=model.value step=0.01 autofocus=true}}
+      {{#unless model.revenue}}
         {{#each categories as |categoryItem|}}
-          {{mdl-radio value=categoryItem label=categoryItem name='category'}}
+          {{#radio-button value=categoryItem groupValue=model.category classNames="mdl-radio mdl-js-radio mdl-js-ripple-effect" radioClass="mdl-radio__button"}}
+            <span class="mdl-radio__label">
+              {{categoryItem}}
+            </span>
+          {{/radio-button}}
         {{/each}}
         {{#if error}}
           <span style="color: red;">{{error}}</span>
         {{/if}}
       {{/unless}}
-      {{mdl-textfield label='Descrição' value=description}}
-      {{mdl-textfield label='Data' value=date type="date"}}
+      {{mdl-textfield label='Descrição' value=model.description}}
+      {{mdl-textfield label='Data' value=model.date type="date"}}
       <div class="{{if hasManyGroups '' 'hide'}}">
         {{#each session.currentUser.groups as |groupItem|}}
-          {{mdl-radio value=groupItem label=groupItem.name name='group'}}
+          {{#radio-button value=groupItem groupValue=model.group.content classNames="mdl-radio mdl-js-radio mdl-js-ripple-effect" radioClass="mdl-radio__button"}}
+            <span class="mdl-radio__label">
+              {{groupItem.name}}
+            </span>
+          {{/radio-button}}
         {{/each}}
       </div>
       <div class="{{if hasManyUsers '' 'hide'}}">
         {{#each session.currentUser.allUsers as |userItem|}}
-          {{mdl-radio value=userItem label=userItem.name name='user'}}
+          {{#radio-button value=userItem groupValue=model.user.content classNames="mdl-radio mdl-js-radio mdl-js-ripple-effect" radioClass="mdl-radio__button"}}
+            <span class="mdl-radio__label">
+              {{userItem.name}}
+            </span>
+          {{/radio-button}}
         {{/each}}
       </div>
       {{#mdl-button type="submit"}}Salvar{{/mdl-button}}

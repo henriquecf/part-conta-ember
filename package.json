@@ -51,8 +51,9 @@
     "ember-material-lite": "0.1.5",
     "ember-moment": "3.5.0",
     "ember-new-computed": "^1.0.2",
-    "ember-try": "0.0.7",
+    "ember-radio-button": "1.0.7",
     "ember-truth-helpers": "1.0.0",
+    "ember-try": "0.0.7",
     "liquid-fire": "0.21.2"
   }
 }
