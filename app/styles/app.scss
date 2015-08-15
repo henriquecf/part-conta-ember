@@ -4,6 +4,7 @@ $color-primary: $palette-teal-500;
 $color-accent: $palette-indigo-A200;
 
 @import "material-design-lite";
+@import "invoices-list";
 
 .main-outlet .liquid-child {
   @extend .mdl-grid;
