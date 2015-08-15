@@ -17,9 +17,8 @@
       </section>
       <div class="action">
         {{#mdl-menu align='bottom-right' class='right'}}
-          {{#mdl-menu-item amount=36.12}}Amount: 36.12{{/mdl-menu-item}}
-          {{#mdl-menu-item amount=4.22}}Amount: 4.22{{/mdl-menu-item}}
-          {{#mdl-menu-item amount=7.11}}Amount: 7.11{{/mdl-menu-item}}
+          {{#link-to 'edit-invoice' invoice}}{{#mdl-menu-item}}Editar{{/mdl-menu-item}}{{/link-to}}
+          {{#mdl-menu-item}}Excluir{{/mdl-menu-item}}
         {{/mdl-menu}}
       </div>
     </div>
