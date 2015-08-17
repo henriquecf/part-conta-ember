@@ -10,5 +10,21 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, CancelButtonMixin, {
   
   model: function(params) {
     this.store.find('invoice', params.id);
+  },
+  
+  actions: {
+    updateInvoice: function(invoice) {
+      invoice.validate();
+      if(invoice.get('isValid')) {
+        var self = this;
+        invoice.save().then(function() {
+          self.transitionTo('dashboard');
+        });
+      }
+      else {
+        console.log('errors', invoice.get('errors'));
+        this.controller.set('errors', invoice.get('errors'));
+      }
+    }
   }
 });

@@ -43,10 +43,10 @@ export default DS.Model.extend(EmberValidations, {
     date: {
       presence: true
     },
-    user_id: {
+    'user.content': {
       presence: true
     },
-    group_id: {
+    'group.content': {
       presence: true
     },
     revenue: {

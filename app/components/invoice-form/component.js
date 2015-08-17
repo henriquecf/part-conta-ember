@@ -6,8 +6,7 @@ export default Ember.Component.extend({
   
   actions: {
     editInvoice: function() {
-      var invoice = this.get('model');
-      console.log('invoice', invoice, invoice.get('value'));
+      this.sendAction('action', this.get('model'));
     }
   }
 });
