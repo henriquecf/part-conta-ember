@@ -5,8 +5,17 @@ export default Ember.Component.extend({
                "Transporte", "Diversos"],
   actions: {
     addInvoice: function() {
-      var invoiceFields = this.getProperties('value', 'description', 'category', 'date', 'group', 'user');
-      console.log('invoice', invoiceFields);
+      var invoiceFields = this.getProperties('value', 'description', 'category', 'date', 'group', 'user', 'revenue');
+      var invoice = this.get('store').createRecord('invoice', invoiceFields);
+      invoice.validate();
+      if(invoice.get('isValid')) {
+        invoice.save();
+        this.transitionTo('dashboard');
+      }
+      else {
+        this.set('errors', invoice.get('errors'));
+        invoice.deleteRecord();
+      }
     }
   },
   

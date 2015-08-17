@@ -1,8 +1,9 @@
 import DS from 'ember-data';
 import Ember from 'ember';
 import momentFormat from 'ember-moment/computeds/format';
+import EmberValidations from 'ember-validations';
 
-export default DS.Model.extend({
+export default DS.Model.extend(EmberValidations, {
   category: DS.attr('string'),
   value: DS.attr('number'),
   group: DS.belongsTo('group', {async: true}),
@@ -29,5 +30,29 @@ export default DS.Model.extend({
       "Transporte": "#1565c0", "Diversos": "#78909c", "Saúde e Beleza": "#43a047"
     };
     return colorsHash[this.get('category')];
-  })
+  }),
+  
+  validations: {
+    value: {
+      presence: true,
+      numericality: true
+    },
+    category: {
+      presence: true
+    },
+    date: {
+      presence: true
+    },
+    user_id: {
+      presence: true
+    },
+    group_id: {
+      presence: true
+    },
+    revenue: {
+      inclusion: {
+        in: [true, false]
+      }
+    }
+  }
 });
