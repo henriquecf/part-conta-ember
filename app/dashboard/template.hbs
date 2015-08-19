@@ -10,7 +10,7 @@
 
 {{invoices-list list=model list-size=3 cardTitle="Últimas contas"}}
 
-{{grouped-invoices list=model groupByField="category" cardTitle="Despesas por categoria"}}
+{{grouped-invoices list=model groupByField="category" fieldName="category.name" cardTitle="Despesas por categoria"}}
 
 {{#if hasManyGroups}}
   {{grouped-invoices list=model groupByField="group" fieldName="group.name" cardTitle="Despesas por grupo"}}

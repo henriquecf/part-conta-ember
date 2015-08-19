@@ -23,9 +23,6 @@ export default Ember.Component.extend({
     var showGraph = this.get('showGraph');
     var fieldName = this.get('fieldName') || field;
     var isRevenue = this.get('isRevenue');
-    var colorsHash = {"Alimentação": "#ff9100","Educação": "#4527a0", "Lazer": "#536dfe",
-                      "Moradia": "#795548", "Roupas e Acessórios": "#c51162", "Receita": "#009688",
-                      "Transporte": "#1565c0", "Diversos": "#78909c", "Saúde e Beleza": "#43a047"};
     this.get('_expensesOrRevenue').forEach(function(invoice) {
       var value = Number(invoice.get('value'));
       var typeExpenseValue = showGraph ? (fieldName + ':' + invoice.get(fieldName) + ':' + isRevenue) : invoice.get(fieldName);
@@ -33,13 +30,7 @@ export default Ember.Component.extend({
         grouped[invoice.get(fieldName)].value += value;
       }
       else {
-        var color;
-        if(field === "user" || field === "group") {
-          color = invoice.get(field + '.color') || "grey"; 
-        }
-        else {
-          color = colorsHash[invoice.get(field)] || "grey";
-        }
+        var color = invoice.get(field + '.color') || "grey"; 
         grouped[invoice.get(fieldName)] = {label: typeExpenseValue, value: value, color: color};
       }
       totalValue += value;

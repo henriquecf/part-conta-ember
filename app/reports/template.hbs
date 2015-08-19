@@ -1,6 +1,6 @@
-{{grouped-invoices list=model groupByField="category" cardTitle="Despesas por categoria"}}
+{{grouped-invoices list=model groupByField="category" fieldName="category.name" cardTitle="Despesas por categoria"}}
 
-{{grouped-invoices list=model groupByField="category" isRevenue=true cardTitle="Ganhos por categoria"}}
+{{grouped-invoices list=model groupByField="category" fieldName="category.name" isRevenue=true cardTitle="Ganhos por categoria"}}
 
 {{#if hasManyGroups}}
   {{grouped-invoices list=model groupByField="group" fieldName="group.name" cardTitle="Despesas por grupo"}}

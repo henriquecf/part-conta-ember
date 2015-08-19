@@ -2,8 +2,8 @@
   {{#each invoicesList as |invoice|}}
     <div class="mdl-list icon">
       <div class="avatar-container">
-        <div class="avatar" style="background-color: {{ invoice.categoryColor }}">
-          {{ invoice.categoryAbbrev }}
+        <div class="avatar" style="background-color: {{ invoice.category.color }}">
+          {{ invoice.category.nameAbbrev }}
         </div>
       </div>
       <section class="two-line item-body">
