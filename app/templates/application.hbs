@@ -1,4 +1,4 @@
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
       <!-- Title -->
@@ -8,35 +8,29 @@
       <!-- Navigation. We hide it in small screens. -->
       <nav class="mdl-navigation mdl-layout--large-screen-only">
         {{#link-to 'new-invoice' (query-params revenue=false) class="mdl-navigation__link" tagName="a"}}
-          Novo gasto
+          + gasto
         {{/link-to}}
         {{#link-to 'new-invoice' (query-params revenue=true) class="mdl-navigation__link" tagName="a"}}
-          Novo ganho
+          + ganho
         {{/link-to}}
-        {{#link-to 'dashboard' class="mdl-navigation__link" tagName="a"}}
-          Geral
-        {{/link-to}}
-        {{#link-to 'invoices' class="mdl-navigation__link" tagName="a"}}
-          Contas
-        {{/link-to}}
-        {{#link-to 'reports' class="mdl-navigation__link" tagName="a"}}
-          Relatórios
-        {{/link-to}}
-        <a {{action 'invalidateSession'}} class="mdl-navigation__link">
+        <a {{action 'invalidateSession'}} class="mdl-navigation__link" href="">
           Sair
         </a>
       </nav>
     </div>
+    
+    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+      {{#link-to 'dashboard' class="mdl-layout__tab is-active" tagName="a"}}
+        Geral
+      {{/link-to}}
+      {{#link-to 'reports' class="mdl-layout__tab" tagName="a"}}
+        Relatórios
+      {{/link-to}}
+      {{#link-to 'invoices' class="mdl-layout__tab" tagName="a"}}
+        Contas
+      {{/link-to}}
+    </div>
   </header>
-  <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">{{pageTitle}}</span>
-    <nav class="mdl-navigation">
-      {{#link-to 'dashboard' class="mdl-navigation__link" tagName="a"}}Geral{{/link-to}}
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-    </nav>
-  </div>
   <main class="mdl-layout__content">
     <div class="page-content">
       {{liquid-outlet class="main-outlet"}}
