@@ -1,5 +1,26 @@
-{{#md-list}}
+{{#mdl-card title=cardTitle class="match-parent"}}
   {{#each invoicesList as |invoice|}}
-    {{render 'invoice' invoice}}
+    <div class="mdl-list icon">
+      <div class="avatar-container">
+        <div class="avatar" style="background-color: {{ invoice.category.color }}">
+          {{ invoice.category.nameAbbrev }}
+        </div>
+      </div>
+      <section class="two-line item-body">
+    	  <div>
+          {{invoice.description}}
+          {{number-to-currency value=invoice.value isRevenue=invoice.revenue}}
+        </div>
+        <div class="secondary">
+          {{invoice.formattedDate}}
+        </div>
+      </section>
+      <div class="action">
+        {{#mdl-menu align='bottom-right' class='right'}}
+          {{#link-to 'edit-invoice' invoice}}{{#mdl-menu-item}}Editar{{/mdl-menu-item}}{{/link-to}}
+          {{#mdl-menu-item}}Excluir{{/mdl-menu-item}}
+        {{/mdl-menu}}
+      </div>
+    </div>
   {{/each}}
-{{/md-list}}
+{{/mdl-card}}

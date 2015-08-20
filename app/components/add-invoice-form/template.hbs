@@ -1,0 +1,41 @@
+{{#mdl-card}}
+  <div class="mdl-card__supporting-text">
+    <form {{action 'addInvoice' on="submit"}} method="post">
+      {{mdl-textfield label='Valor' type='number' value=value}}
+      {{#unless revenue}}
+        {{#each categories as |categoryItem|}}
+          {{#radio-button value=categoryItem groupValue=category classNames="mdl-radio mdl-js-radio mdl-js-ripple-effect" radioClass="mdl-radio__button"}}
+            <span class="mdl-radio__label">
+              {{categoryItem}}
+            </span>
+          {{/radio-button}}
+        {{/each}}
+        {{#if error}}
+          <span style="color: red;">{{error}}</span>
+        {{/if}}
+      {{/unless}}
+      {{mdl-textfield label='Descrição' value=description}}
+      {{mdl-textfield label='Data' value=date type="date"}}
+      <div class="{{if hasManyGroups '' 'hide'}}">
+        {{#each session.currentUser.groups as |groupItem|}}
+          {{#radio-button value=groupItem groupValue=group classNames="mdl-radio mdl-js-radio mdl-js-ripple-effect" radioClass="mdl-radio__button"}}
+            <span class="mdl-radio__label">
+              {{groupItem.name}}
+            </span>
+          {{/radio-button}}
+        {{/each}}
+      </div>
+      <div class="{{if hasManyUsers '' 'hide'}}">
+        {{#each session.currentUser.allUsers as |userItem|}}
+          {{#radio-button value=userItem groupValue=user classNames="mdl-radio mdl-js-radio mdl-js-ripple-effect" radioClass="mdl-radio__button"}}
+            <span class="mdl-radio__label">
+              {{userItem.name}}
+            </span>
+          {{/radio-button}}
+        {{/each}}
+      </div>
+      {{#mdl-button type="submit"}}Salvar{{/mdl-button}}
+    </form>
+  </div>
+{{/mdl-card}}
+

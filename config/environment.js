@@ -40,6 +40,10 @@ module.exports = function(environment) {
     
     moment: {
       includeLocales: ['pt-br']
+    },
+    
+    sassOptions: {
+      includePaths: ['bower_components/material-design-lite/src']
     }
   };
 

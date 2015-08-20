@@ -1,81 +1,51 @@
-{{partial 'invoices-filter-form'}}
+<div class="mdl-cell mdl-cell--4-col">
+  {{#mdl-card title="Despesas por categoria" class="match-parent"}}
+    <div class="mdl-card__supporting-text">
+      {{ember-chart type="Doughnut" data=model.expensesGroupedByCategory options=chartOptions legend=true}}
+    </div>
+  {{/mdl-card}}
+</div>
 
-{{#liquid-bind month use='fade'}}
-  <div md-scroll-y layout="row" layout-wrap>
-    <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
-        <md-card-content>
-          <h2 class="md-title">Despesas por categoria</h2>
-          <p>
-            {{grouped-invoices list=model groupByField="category"}}
-          </p>
-        </md-card-content>
-    </md-card>
+<div class="mdl-cell mdl-cell--4-col">
+  {{#mdl-card title="Ganhos por categoria" class="match-parent"}}
+    <div class="mdl-card__supporting-text">
+      {{ember-chart type="Doughnut" data=model.revenueGroupedByCategory options=chartOptions legend=true}}
+    </div>
+  {{/mdl-card}}
+</div>
 
-    <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
-        <md-card-content>
-          <h2 class="md-title">Ganhos por categoria</h2>
-          <p>
-            {{grouped-invoices list=model groupByField="category" isRevenue=true}}
-          </p>
-        </md-card-content>
-    </md-card>
-  
-    {{#if hasManyGroups}}
-      <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
-          <md-card-content>
-            <h2 class="md-title">Despesas por grupo</h2>
-            <p>
-              {{grouped-invoices list=model groupByField="group" fieldName="group.name"}}
-            </p>
-          </md-card-content>
-      </md-card>
-
-      <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
-          <md-card-content>
-            <h2 class="md-title">Ganhos por grupo</h2>
-            <p>
-              {{grouped-invoices list=model groupByField="group" fieldName="group.name" isRevenue=true}}
-            </p>
-          </md-card-content>
-      </md-card>
-    {{/if}}
-  
-    {{#if hasManyUsers}}
-      <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
-          <md-card-content>
-            <h2 class="md-title">Despesas por usuário</h2>
-            <p>
-              {{grouped-invoices list=model groupByField="user" fieldName="user.name"}}
-            </p>
-          </md-card-content>
-      </md-card>
-
-      <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
-          <md-card-content>
-            <h2 class="md-title">Ganhos por usuário</h2>
-            <p>
-              {{grouped-invoices list=model groupByField="user" fieldName="user.name" isRevenue=true}}
-            </p>
-          </md-card-content>
-      </md-card>
-    {{/if}}
-    
-      <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
-        <md-card-content>
-          <h2 class="md-title">Principais Gastos</h2>
-          <p>
-            {{grouped-invoices list=model groupByField="description" showGraph=false listSize=5}}
-          </p>
-        </md-card-content>
-      </md-card>
-    
-      <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
-        <md-card-content>
-          <h2 class="md-title">Principais Ganhos</h2>
-          <p>
-            {{grouped-invoices list=model groupByField="description" showGraph=false listSize=5 isRevenue=true}}
-          </p>
-        </md-card-content>
-      </md-card>
+{{#if hasManyGroups}}
+  <div class="mdl-cell mdl-cell--4-col">
+    {{#mdl-card title="Despesas por grupo" class="match-parent"}}
+      <div class="mdl-card__supporting-text">
+        {{ember-chart type="Doughnut" data=model.expensesGroupedByGroup options=chartOptions legend=true}}
+      </div>
+    {{/mdl-card}}
   </div>
-{{/liquid-bind}}
+
+  <div class="mdl-cell mdl-cell--4-col">
+    {{#mdl-card title="Ganhos por grupo" class="match-parent"}}
+      <div class="mdl-card__supporting-text">
+        {{ember-chart type="Doughnut" data=model.revenueGroupedByGroup options=chartOptions legend=true}}
+      </div>
+    {{/mdl-card}}
+  </div>
+{{/if}}
+
+{{#if hasManyUsers}}
+  <div class="mdl-cell mdl-cell--4-col">
+    {{#mdl-card title="Despesas por usuário" class="match-parent"}}
+      <div class="mdl-card__supporting-text">
+        {{ember-chart type="Doughnut" data=model.expensesGroupedByUser options=chartOptions legend=true}}
+      </div>
+    {{/mdl-card}}
+  </div>
+
+  <div class="mdl-cell mdl-cell--4-col">
+    {{#mdl-card title="Ganhos por usuário" class="match-parent"}}
+      <div class="mdl-card__supporting-text">
+        {{ember-chart type="Doughnut" data=model.revenueGroupedByUser options=chartOptions legend=true}}
+      </div>
+    {{/mdl-card}}
+  </div>
+{{/if}}

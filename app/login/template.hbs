@@ -1,20 +1,13 @@
-<div md-scroll-y layout="row" layout-wrap>
-  <md-card flex-gt-lg="30">
-      <md-card-content>
-        <h2 class="md-title">Para continuar preencha seus dados</h2>
-        <p>
-          <form {{action 'authenticate' on='submit'}}>
-            {{#md-input-container value=identification}}
-                <label>Email</label>
-                {{md-input type="email" required="required" autofocus=true}}
-            {{/md-input-container}}
-            {{#md-input-container value=password}}
-                <label>Senha</label>
-                {{md-input type="password" required="required"}}
-            {{/md-input-container}}
-            {{#md-button type="submit" classNames="md-primary"}}Entrar{{/md-button}}
-          </form>
-        </p>
-      </md-card-content>
-  </md-card>
+<div class="mdl-cell mdl-cell--4-col">
+</div>
+<div class="mdl-cell mdl-cell--4-col">
+  {{#mdl-card}}
+    <div class="mdl-card__supporting-text">
+      <form {{action 'authenticate' on='submit'}}>
+        {{mdl-textfield label='Email' value=identification type="email"}}
+        {{mdl-textfield label='Senha' type='password' value=password}}
+        {{#mdl-button type="submit"}}Entrar{{/mdl-button}}
+      </form>
+    </div>
+  {{/mdl-card}}
 </div>

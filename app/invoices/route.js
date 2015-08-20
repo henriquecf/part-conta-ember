@@ -6,10 +6,5 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, InvoicesRouteFilterMi
   beforeModel: function(transition) {
     this._super(transition);
     this.controllerFor('application').set('pageTitle', 'Contas');
-  },
-  
-  renderTemplate() {
-    this.render();
-    this.render('main-fab', {outlet: 'main-fab'});
   }
 });

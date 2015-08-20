@@ -1,14 +1,1 @@
-{{partial 'invoices-filter-form'}}
-
-{{#liquid-bind month use='fade'}}
-  <div md-scroll-y layout="row" layout-wrap>
-    <md-card flex-gt-lg="30" flex-lg="45" flex-md="90" flex-sm="90">
-        <md-card-content>
-          <h2 class="md-title">Todas as contas</h2>
-          <p>
-            {{invoices-list list=model}}
-          </p>
-        </md-card-content>
-    </md-card>
-  </div>
-{{/liquid-bind}}
+{{invoices-list list=model.invoices cardTitle="Todas as contas"}}
