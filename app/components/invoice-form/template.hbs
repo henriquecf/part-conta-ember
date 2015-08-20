@@ -4,11 +4,13 @@
       {{mdl-textfield label='Valor' type='number' value=model.value}}
       {{#unless model.revenue}}
         {{#each categories as |categoryItem|}}
-          {{#radio-button value=categoryItem groupValue=model.category.content classNames="mdl-radio mdl-js-radio mdl-js-ripple-effect" radioClass="mdl-radio__button"}}
-            <span class="mdl-radio__label">
-              {{categoryItem.name}}
-            </span>
-          {{/radio-button}}
+          {{#if (not-eq categoryItem.name 'Receita')}}
+            {{#radio-button value=categoryItem groupValue=model.category.content classNames="mdl-radio mdl-js-radio mdl-js-ripple-effect" radioClass="mdl-radio__button"}}
+              <span class="mdl-radio__label">
+                {{categoryItem.name}}
+              </span>
+            {{/radio-button}}
+          {{/if}}
         {{/each}}
         {{#if error}}
           <span style="color: red;">{{error}}</span>

@@ -52,7 +52,7 @@
     "ember-moment": "3.5.0",
     "ember-new-computed": "^1.0.2",
     "ember-radio-button": "1.0.7",
-    "ember-truth-helpers": "1.0.0",
+    "ember-truth-helpers": "1.1.0",
     "ember-try": "0.0.7",
     "ember-validations": "2.0.0-alpha.4",
     "liquid-fire": "0.21.2"
