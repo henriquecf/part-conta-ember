@@ -1,23 +1,39 @@
 <div class="mdl-cell mdl-cell--4-col balance-card">
-  Ganhos {{number-to-currency value=filteredModelRevenueValuesSum isRevenue=true}}
+  Ganhos {{number-to-currency value=model.revenueTotal isRevenue=true}}
 </div>
 <div class="mdl-cell mdl-cell--4-col balance-card">
-  Gastos {{number-to-currency value=filteredModelExpensesValuesSum}}
+  Gastos {{number-to-currency value=model.expensesTotal}}
 </div>
 <div class="mdl-cell mdl-cell--4-col balance-card">
-  Balanço {{number-to-currency value=filteredModelValuesBalance isRevenue=isfilteredModelValuesBalanceRevenue}}
+  Balanço {{number-to-currency value=model.balance isRevenue=model.isBalanceRevenue}}
 </div>
 
-{{invoices-list list=model list-size=3 cardTitle="Últimas contas"}}
+{{invoices-list list=model.invoices list-size=3 cardTitle="Últimas contas"}}
 
-{{grouped-invoices list=model groupByField="category" fieldName="category.name" cardTitle="Despesas por categoria"}}
+<div class="mdl-cell mdl-cell--4-col">
+  {{#mdl-card title="Despesas por categoria" class="match-parent"}}
+    <div class="mdl-card__supporting-text">
+      {{ember-chart type="Doughnut" data=model.expensesGroupedByCategory options=chartOptions legend=true}}
+    </div>
+  {{/mdl-card}}
+</div>
 
 {{#if hasManyGroups}}
-  {{grouped-invoices list=model groupByField="group" fieldName="group.name" cardTitle="Despesas por grupo"}}
+  <div class="mdl-cell mdl-cell--4-col">
+    {{#mdl-card title="Despesas por grupo" class="match-parent"}}
+      <div class="mdl-card__supporting-text">
+        {{ember-chart type="Doughnut" data=model.expensesGroupedByGroup options=chartOptions legend=true}}
+      </div>
+    {{/mdl-card}}
+  </div>
 {{/if}}
 
 {{#if hasManyUsers}}
-  {{grouped-invoices list=model groupByField="user" fieldName="user.name" cardTitle="Despesas por usuário"}}
+  <div class="mdl-cell mdl-cell--4-col">
+    {{#mdl-card title="Despesas por usuário" class="match-parent"}}
+      <div class="mdl-card__supporting-text">
+        {{ember-chart type="Doughnut" data=model.expensesGroupedByUser options=chartOptions legend=true}}
+      </div>
+    {{/mdl-card}}
+  </div>
 {{/if}}
-
-{{grouped-invoices list=model groupByField="description" showGraph=false listSize=5 cardTitle="Principais despesas"}}

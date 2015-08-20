@@ -1,9 +1,8 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
-import BackButtonMixin from '../mixins/back-button';
 import InvoicesRouteFilterMixin from '../mixins/invoices-route-filter';
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, BackButtonMixin, InvoicesRouteFilterMixin, {
+export default Ember.Route.extend(AuthenticatedRouteMixin, InvoicesRouteFilterMixin, {
   beforeModel: function(transition) {
     this._super(transition);
     if(!transition.queryParams.invoiceField || !transition.queryParams.fieldValue) {
