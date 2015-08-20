@@ -36,7 +36,9 @@
           {{/radio-button}}
         {{/each}}
       </div>
-      {{#mdl-button type="submit"}}Salvar{{/mdl-button}}
+      {{#mdl-button type="submit" disabled=buttonDisabled}}
+        {{buttonName}}
+      {{/mdl-button}}
     </form>
   </div>
 {{/mdl-card}}

@@ -1,10 +1,11 @@
 import Ember from 'ember';
+import InvoiceFormMixin from '../../mixins/invoice-form';
 
-export default Ember.Component.extend({
-  categories: [],
-  
+export default Ember.Component.extend(InvoiceFormMixin, {
   actions: {
     addInvoice: function() {
+      this.toggleProperty('buttonDisabled');
+      this.set('buttonName', 'Salvando...');
       var invoiceFields = this.getProperties('value', 'description', 'category', 'date', 'group', 'user', 'revenue');
       this.sendAction('action', invoiceFields);
     }
