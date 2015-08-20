@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   categories: [],
+  
   actions: {
     addInvoice: function() {
       var invoiceFields = this.getProperties('value', 'description', 'category', 'date', 'group', 'user', 'revenue');
@@ -11,7 +12,7 @@ export default Ember.Component.extend({
   
   setCategory: Ember.observer('revenue', function() {
     if(this.get('revenue')) {
-      this.set('category', 'Receita');
+      this.set('category', this.get('categories').findBy('name', 'Receita'));
     }
     else {
       this.set('category', null);
@@ -20,7 +21,7 @@ export default Ember.Component.extend({
   
   didInsertElement: function() {
     if(this.get('revenue')) {
-      this.set('category', 'Receita');
+      this.set('category', this.get('categories').findBy('name', 'Receita'));
     }
     else {
       this.set('category', null);
