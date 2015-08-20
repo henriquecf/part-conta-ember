@@ -1,9 +1,0 @@
-<div class="mdl-cell mdl-cell--4-col balance-card">
-  {{#if isRevenue}}
-    Ganhos {{number-to-currency value=filteredModelRevenueValuesSum isRevenue=true}}
-  {{else}}
-    Gastos {{number-to-currency value=filteredModelExpensesValuesSum}}
-  {{/if}}
-</div>
-
-{{grouped-invoices list=model groupByField='description' isRevenue=isRevenue showGraph=false listSize=5 cardTitle=cardTitle}}
