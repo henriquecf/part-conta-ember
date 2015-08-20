@@ -4,9 +4,9 @@
       {{mdl-textfield label='Valor' type='number' value=model.value}}
       {{#unless model.revenue}}
         {{#each categories as |categoryItem|}}
-          {{#radio-button value=categoryItem groupValue=model.category classNames="mdl-radio mdl-js-radio mdl-js-ripple-effect" radioClass="mdl-radio__button"}}
+          {{#radio-button value=categoryItem groupValue=model.category.content classNames="mdl-radio mdl-js-radio mdl-js-ripple-effect" radioClass="mdl-radio__button"}}
             <span class="mdl-radio__label">
-              {{categoryItem}}
+              {{categoryItem.name}}
             </span>
           {{/radio-button}}
         {{/each}}

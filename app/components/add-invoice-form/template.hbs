@@ -6,7 +6,7 @@
         {{#each categories as |categoryItem|}}
           {{#radio-button value=categoryItem groupValue=category classNames="mdl-radio mdl-js-radio mdl-js-ripple-effect" radioClass="mdl-radio__button"}}
             <span class="mdl-radio__label">
-              {{categoryItem}}
+              {{categoryItem.name}}
             </span>
           {{/radio-button}}
         {{/each}}

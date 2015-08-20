@@ -11,6 +11,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     this.store.find('invoice', params.id);
   },
   
+  setupController: function(controller, model) {
+    this._super(controller, model);
+    controller.set('categories', this.store.findAll('category'));
+  },
+  
   actions: {
     updateInvoice: function(invoice) {
       invoice.validate();

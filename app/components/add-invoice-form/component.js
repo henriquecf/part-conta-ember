@@ -1,8 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  categories: ["Alimentação", "Educação", "Lazer", "Moradia", "Roupas e Acessórios", "Saúde e Beleza", 
-               "Transporte", "Diversos"],
+  categories: [],
   actions: {
     addInvoice: function() {
       var invoiceFields = this.getProperties('value', 'description', 'category', 'date', 'group', 'user', 'revenue');

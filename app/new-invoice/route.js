@@ -7,6 +7,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     this.controllerFor('application').set('pageTitle', 'Nova conta');
   },
   
+  setupController: function(controller, model) {
+    this._super(controller, model);
+    controller.set('categories', this.store.findAll('category'));
+  },
+  
   actions: {
     createInvoice: function(invoiceFields) {
       var invoice = this.get('store').createRecord('invoice', invoiceFields);
